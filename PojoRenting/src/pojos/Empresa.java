@@ -12,6 +12,5 @@ package pojos;
 public class Empresa {
     
     
-    String loca = "lmao";
     
 }
