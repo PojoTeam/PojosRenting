@@ -11,6 +11,6 @@ package pojos;
  */
 public class Empresa {
     
-    
+    String nombre = "loco";
     
 }
