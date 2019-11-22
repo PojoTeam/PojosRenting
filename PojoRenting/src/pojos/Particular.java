@@ -2,6 +2,7 @@ package pojos;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -45,4 +46,12 @@ public class Particular extends Cliente implements Serializable {
         this.puntos = puntos;
     }
 
+    public Set<Alquiler> getAlquileres() {
+        return alquileres;
+    }
+
+    public void setAlquileres(Set<Alquiler> alquileres) {
+        this.alquileres = alquileres;
+    }
+    
 }

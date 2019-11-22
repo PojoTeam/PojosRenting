@@ -36,6 +36,14 @@ public class Empresa extends Cliente implements Serializable {
     public void setnAlquileres(int nAlquileres) {
         this.nAlquileres = nAlquileres;
     }
+
+    public Set<Alquiler> getAlquileres() {
+        return alquileres;
+    }
+
+    public void setAlquileres(Set<Alquiler> alquileres) {
+        this.alquileres = alquileres;
+    }
     
     
 

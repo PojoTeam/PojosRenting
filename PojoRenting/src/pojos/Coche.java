@@ -9,18 +9,17 @@ import java.util.Set;
  */
 public class Coche {
     
-    private String modelo, marca;
+    private String modelo, marca, estado;
     private int id;
     private Set<Reserva> reservas;
 
-    public Coche(String modelo, String marca, int id) {
+    public Coche(String modelo, String marca, String estado, int id) {
         this.modelo = modelo;
         this.marca = marca;
+        this.marca = estado;
         this.id = id;
         this.reservas = new HashSet<>();
     }
-
-    
 
     public String getModelo() {
         return modelo;
@@ -36,6 +35,14 @@ public class Coche {
 
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+    
+    public String getEstado() {
+        return estado;
+    }
+    
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public int getId() {

@@ -79,7 +79,7 @@ public class Alquiler implements Serializable {
     }
     
     private void calculoPrecio(){}
-    private void calculoDescuento(){}
+    public void calculoDescuento(){}
     private void calculoDuracion(){}
     
 }
