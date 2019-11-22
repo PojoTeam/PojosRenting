@@ -1,21 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
+import customgui.PanelAsButton;
+import customgui.jFramePadre;
+import java.awt.Color;
 
 /**
  *
  * @author a18carlosva
  */
-public class FrameInicio extends javax.swing.JFrame {
-
+public class FrameInicio extends jFramePadre{
+    
+    public PanelAsButton botonActivado;
     /**
      * Creates new form FrameInicio
      */
     public FrameInicio() {
         initComponents();
+        panelAsButton1.setjFramePadre(this);
+        panelAsButton2.setjFramePadre(this);
+        panelAsButton3.setjFramePadre(this);
+        panelAsButton4.setjFramePadre(this);
+        panelAsButton1.setjLabel(jLabel1);
+        panelAsButton2.setjLabel(jLabel2);
+        panelAsButton3.setjLabel(jLabel3);
+        panelAsButton4.setjLabel(jLabel4);
     }
 
     /**
@@ -30,11 +37,19 @@ public class FrameInicio extends javax.swing.JFrame {
         panelGlobal = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        panelAsButton1 = new customgui.PanelAsButton();
+        jLabel1 = new javax.swing.JLabel();
+        panelAsButton2 = new customgui.PanelAsButton();
+        jLabel2 = new javax.swing.JLabel();
+        panelAsButton3 = new customgui.PanelAsButton();
+        jLabel3 = new javax.swing.JLabel();
+        panelAsButton4 = new customgui.PanelAsButton();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -44,31 +59,102 @@ public class FrameInicio extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 113, Short.MAX_VALUE)
+            .addGap(0, 107, Short.MAX_VALUE)
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 1, 1, new java.awt.Color(0, 0, 0)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
+
+        panelAsButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout panelAsButton1Layout = new javax.swing.GroupLayout(panelAsButton1);
+        panelAsButton1.setLayout(panelAsButton1Layout);
+        panelAsButton1Layout.setHorizontalGroup(
+            panelAsButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+        );
+        panelAsButton1Layout.setVerticalGroup(
+            panelAsButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+        );
+
+        panelAsButton2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        jLabel2.setText("jLabel1");
+
+        javax.swing.GroupLayout panelAsButton2Layout = new javax.swing.GroupLayout(panelAsButton2);
+        panelAsButton2.setLayout(panelAsButton2Layout);
+        panelAsButton2Layout.setHorizontalGroup(
+            panelAsButton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+        );
+        panelAsButton2Layout.setVerticalGroup(
+            panelAsButton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+        );
+
+        panelAsButton3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        jLabel3.setText("jLabel1");
+
+        javax.swing.GroupLayout panelAsButton3Layout = new javax.swing.GroupLayout(panelAsButton3);
+        panelAsButton3.setLayout(panelAsButton3Layout);
+        panelAsButton3Layout.setHorizontalGroup(
+            panelAsButton3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+        );
+        panelAsButton3Layout.setVerticalGroup(
+            panelAsButton3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+        );
+
+        panelAsButton4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+
+        jLabel4.setText("jLabel1");
+
+        javax.swing.GroupLayout panelAsButton4Layout = new javax.swing.GroupLayout(panelAsButton4);
+        panelAsButton4.setLayout(panelAsButton4Layout);
+        panelAsButton4Layout.setHorizontalGroup(
+            panelAsButton4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelAsButton4Layout.setVerticalGroup(
+            panelAsButton4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 156, Short.MAX_VALUE)
+            .addComponent(panelAsButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelAsButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelAsButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelAsButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(panelAsButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panelAsButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panelAsButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panelAsButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 713, Short.MAX_VALUE)
+            .addGap(0, 742, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 449, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panelGlobalLayout = new javax.swing.GroupLayout(panelGlobal);
@@ -116,7 +202,7 @@ public class FrameInicio extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("GTK+".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -140,10 +226,37 @@ public class FrameInicio extends javax.swing.JFrame {
         });
     }
 
+    @Override
+    public PanelAsButton getBotonActivado() {
+        return botonActivado; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setBotonActivado(PanelAsButton botonActivado) {
+        this.botonActivado = botonActivado; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void resetBackgrounds() {
+        panelAsButton1.setBackground(new Color(70,70,70));
+        panelAsButton2.setBackground(new Color(70,70,70));
+        panelAsButton3.setBackground(new Color(70,70,70));
+        panelAsButton4.setBackground(new Color(70,70,70)); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private customgui.PanelAsButton panelAsButton1;
+    private customgui.PanelAsButton panelAsButton2;
+    private customgui.PanelAsButton panelAsButton3;
+    private customgui.PanelAsButton panelAsButton4;
     private javax.swing.JPanel panelGlobal;
     // End of variables declaration//GEN-END:variables
 }
