@@ -78,8 +78,20 @@ public class Alquiler implements Serializable {
         this.particular = particular;
     }
     
-    private void calculoPrecio(){}
-    public void calculoDescuento(){}
-    private void calculoDuracion(){}
+    private void calculoPrecio(){
+        this.precioTotal = coche.getPrecioDia() * calculoDuracion() * calculoDescuento();
+    }
+    public float calculoDescuento(){
+        if(particular.getPuntos() == 15){
+            this.descuento = 0.1f;
+        }else if(empresa.getnAlquileres() > 100){
+            this.descuento = 0.1f;
+        }
+        return descuento;
+    }
+    public int calculoDuracion(){
+        int duracion = (int) (this.fechaFin.getTime() - this.fechaInicio.getTime() / 86400000);
+        return duracion;
+    }
     
 }

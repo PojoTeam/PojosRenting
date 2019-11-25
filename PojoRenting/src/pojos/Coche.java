@@ -11,13 +11,15 @@ public class Coche {
     
     private String modelo, marca, estado;
     private int id;
+    private float precioDia;
     private Set<Reserva> reservas;
 
-    public Coche(String modelo, String marca, String estado, int id) {
+    public Coche(String modelo, String marca, String estado, int id, float precioDia) {
         this.modelo = modelo;
         this.marca = marca;
         this.marca = estado;
         this.id = id;
+        this.precioDia = precioDia;
         this.reservas = new HashSet<>();
     }
 
@@ -51,6 +53,14 @@ public class Coche {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public float getPrecioDia() {
+        return precioDia;
+    }
+
+    public void setPrecioDia(float precioDia) {
+        this.precioDia = precioDia;
     }
 
     public Set<Reserva> getReservas() {
