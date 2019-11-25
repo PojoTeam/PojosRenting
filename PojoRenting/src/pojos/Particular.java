@@ -1,6 +1,7 @@
 package pojos;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,13 +12,14 @@ import java.util.Set;
 public class Particular extends Cliente implements Serializable {
 
     private String dni;
-    private int edad, puntos;
+    private int puntos;
+    private Date fechaNacimiento;
     private Set<Alquiler> alquileres;
 
-    public Particular(String dni, int edad, int puntos, String nombre, String email, String telefono, int id) {
-        super(nombre, email, telefono, id);
+    public Particular(String dni, Date fechaNacimiento, int puntos, String nombre, String email, String telefono) {
+        super(nombre, email, telefono);
         this.dni = dni;
-        this.edad = edad;
+        this.fechaNacimiento = fechaNacimiento;
         this.puntos = puntos;
         this.alquileres = new HashSet<>();
     }
@@ -28,14 +30,6 @@ public class Particular extends Cliente implements Serializable {
 
     public void setDni(String dni) {
         this.dni = dni;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public int getPuntos() {

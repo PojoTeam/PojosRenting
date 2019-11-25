@@ -14,10 +14,9 @@ public class Empresa extends Cliente implements Serializable {
     private int nAlquileres;
     private Set<Alquiler> alquileres;
 
-    public Empresa(String cif, int nAlquileres, String nombre, String email, String telefono, int id) {
-        super(nombre, email, telefono, id);
+    public Empresa(String cif, String nombre, String email, String telefono) {
+        super(nombre, email, telefono);
         this.cif = cif;
-        this.nAlquileres = nAlquileres;
         this.alquileres = new HashSet<>();
     }
 

@@ -15,11 +15,10 @@ public class Alquiler implements Serializable {
     private Empresa empresa;
     private Particular particular;
 
-    public Alquiler(Date fechaInicio, Date fechaFin, float precioTotal, float descuento) {
+    public Alquiler(Date fechaInicio, Date fechaFin) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.precioTotal = precioTotal;
-        this.descuento = descuento;
+        calculoPrecio();
     }
 
     public Date getFechaInicio() {
@@ -81,6 +80,7 @@ public class Alquiler implements Serializable {
     private void calculoPrecio(){
         this.precioTotal = coche.getPrecioDia() * calculoDuracion() * calculoDescuento();
     }
+    
     public float calculoDescuento(){
         if(particular.getPuntos() == 15){
             this.descuento = 0.1f;
