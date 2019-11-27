@@ -10,14 +10,24 @@ import java.util.Set;
  */
 public class Cliente implements Serializable {
 
+    private int id;
     private String nombre, email, telefono;
     private Set<Reserva> reservas;
 
-    public Cliente(String nombre, String email, String telefono) {
+    public Cliente(int id, String nombre, String email, String telefono) {
+        this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.telefono = telefono;
         this.reservas = new HashSet<>();
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
