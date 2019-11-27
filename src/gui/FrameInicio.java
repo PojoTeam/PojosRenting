@@ -2,6 +2,8 @@ package gui;
 import customgui.PanelAsButton;
 import customgui.jFramePadre;
 import java.awt.Color;
+import javax.swing.JPanel;
+import paneles.*;
 
 /**
  *
@@ -10,6 +12,8 @@ import java.awt.Color;
 public class FrameInicio extends jFramePadre{
     
     public PanelAsButton botonActivado;
+    private JPanel panelClientes;
+    
     /**
      * Creates new form FrameInicio
      */
@@ -23,6 +27,8 @@ public class FrameInicio extends jFramePadre{
         panelAsButton2.setjLabel(jLabel2);
         panelAsButton3.setjLabel(jLabel3);
         panelAsButton4.setjLabel(jLabel4);
+        panelClientes = new Clientes(this);
+        new CambiarPanel(panelContenedor, panelClientes);
     }
 
     /**
@@ -45,12 +51,15 @@ public class FrameInicio extends jFramePadre{
         jLabel4 = new javax.swing.JLabel();
         panelAsButton1 = new customgui.PanelAsButton();
         jLabel1 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        panelContenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
 
         jPanel1.setBackground(new java.awt.Color(70, 70, 70));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 108));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -177,18 +186,9 @@ public class FrameInicio extends jFramePadre{
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jPanel3.setBackground(new java.awt.Color(200, 200, 200));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 742, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
-        );
+        panelContenedor.setBackground(new java.awt.Color(200, 200, 200));
+        panelContenedor.setPreferredSize(new java.awt.Dimension(851, 492));
+        panelContenedor.setLayout(new javax.swing.BoxLayout(panelContenedor, javax.swing.BoxLayout.LINE_AXIS));
 
         javax.swing.GroupLayout panelGlobalLayout = new javax.swing.GroupLayout(panelGlobal);
         panelGlobal.setLayout(panelGlobalLayout);
@@ -198,7 +198,7 @@ public class FrameInicio extends jFramePadre{
             .addGroup(panelGlobalLayout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelGlobalLayout.setVerticalGroup(
             panelGlobalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -207,7 +207,7 @@ public class FrameInicio extends jFramePadre{
                 .addGap(0, 0, 0)
                 .addGroup(panelGlobalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(panelContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -283,15 +283,17 @@ public class FrameInicio extends jFramePadre{
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private customgui.PanelAsButton panelAsButton1;
     private customgui.PanelAsButton panelAsButton2;
     private customgui.PanelAsButton panelAsButton3;
     private customgui.PanelAsButton panelAsButton4;
-    private customgui.PanelAsButton panelAsButton5;
+    private javax.swing.JPanel panelContenedor;
     private javax.swing.JPanel panelGlobal;
     // End of variables declaration//GEN-END:variables
+
+    private void ChangePanel(JPanel panelContenedor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

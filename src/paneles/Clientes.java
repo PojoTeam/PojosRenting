@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 package paneles;
+import gui.FrameInicio;
+import javax.swing.JFrame;
 
 /**
  *
  * @author a18carlosva
  */
 public class Clientes extends javax.swing.JPanel {
-
+    
+    private JFrame frameEnEjecucion;
     /**
      * Creates new form Clientes
      */
-    public Clientes() {
+    public Clientes(JFrame mainFrame) {
         initComponents();
+        frameEnEjecucion = mainFrame;
     }
 
     /**
@@ -101,6 +105,10 @@ public class Clientes extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        setMaximumSize(new java.awt.Dimension(851, 492));
+        setMinimumSize(new java.awt.Dimension(851, 492));
+        setPreferredSize(new java.awt.Dimension(851, 492));
+
         panelDatosClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
 
         buttonGroup1.add(rbParticular);
@@ -160,7 +168,7 @@ public class Clientes extends javax.swing.JPanel {
                                 .addComponent(rbParticular)
                                 .addGap(18, 18, 18)
                                 .addComponent(rbEmpresa)))
-                        .addGap(0, 32, Short.MAX_VALUE))
+                        .addGap(0, 51, Short.MAX_VALUE))
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +236,7 @@ public class Clientes extends javax.swing.JPanel {
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addContainerGap())
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -236,17 +244,14 @@ public class Clientes extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(panelDatosClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelDatosClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(panelDatosClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
+            .addComponent(panelDatosClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
