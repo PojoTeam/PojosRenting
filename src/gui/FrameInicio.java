@@ -27,7 +27,7 @@ public class FrameInicio extends jFramePadre{
         panelAsButton2.setjLabel(jLabel2);
         panelAsButton3.setjLabel(jLabel3);
         panelAsButton4.setjLabel(jLabel4);
-        panelClientes = new Clientes(this);
+        panelClientes = new Clientes();
         new CambiarPanel(panelContenedor, panelClientes);
     }
 
@@ -59,7 +59,7 @@ public class FrameInicio extends jFramePadre{
 
         jPanel1.setBackground(new java.awt.Color(70, 70, 70));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1024, 108));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1234, 108));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -187,7 +187,7 @@ public class FrameInicio extends jFramePadre{
         );
 
         panelContenedor.setBackground(new java.awt.Color(200, 200, 200));
-        panelContenedor.setPreferredSize(new java.awt.Dimension(851, 492));
+        panelContenedor.setPreferredSize(new java.awt.Dimension(1061, 606));
         panelContenedor.setLayout(new javax.swing.BoxLayout(panelContenedor, javax.swing.BoxLayout.LINE_AXIS));
 
         javax.swing.GroupLayout panelGlobalLayout = new javax.swing.GroupLayout(panelGlobal);
