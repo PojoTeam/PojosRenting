@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="pojos.Cliente" table="CLIENTES">
+        <id column="ID" name="id"/>
+        <property column="NOMBRE" name="nombre"/>
+        <property column="TELEFONO" name="telefono"/>
+        <property column="EMAIL" name="email"/>
+
+        <!-- RELACIÓN CON TABLA RESERVAS -->
+        <set inverse="true" name="reservas" table="RESERVAS">
+            <key>
+                <column name="ID" not-null="true"/>
+            </key>
+            <one-to-many class="pojos.Reserva"/>
+        </set>
+
+        <!-- SUBCLASE PARTICULAR -->
+        <joined-subclass name="pojos.Particular" table="PARTICULARES">
+            <key column="ID"/>
+            <property column="DNI" name="dni"/>
+            <property column="EDAD" name="edad"/>
+            <property column="PUNTOS" name="puntos"/>
+
+            <!-- RELACIÓN CON TABLA ALQUILERES -->
+            <set inverse="true" name="alquileres" table="ALQUILERES">
+                <key>
+                    <column name="ID" not-null="true"/>
+                </key>
+                <one-to-one class="pojos.Alquiler"/>
+            </set>
+        </joined-subclass>
+
+        <!-- SUBCLASE EMPRESA -->
+        <joined-subclass name="pojos.Empresa" table="EMPRESAS">
+            <key column="ID"/>
+            <property column="CIF" name="cif"/>
+            <property column="N_ALQUILERES" name="nAlquileres"/>
+
+            <!-- RELACIÓN CON TABLA ALQUILERES -->
+            <set inverse="true" name="alquileres" table="ALQUILERES">
+                <key>
+                    <column name="ID" not-null="true"/>
+                </key>
+                <one-to-many class="pojos.Alquiler"/>
+            </set>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

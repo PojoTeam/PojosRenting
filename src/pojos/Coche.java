@@ -14,6 +14,7 @@ public class Coche {
     private float precioDia;
     private Set<Reserva> reservas;
     private Sede sede;
+    private Alquiler alquiler;
 
     public Coche(String modelo, String marca, String estado, int id, float precioDia) {
         this.modelo = modelo;
@@ -79,5 +80,14 @@ public class Coche {
     public void setSede(Sede sede) {
         this.sede = sede;
     }
+
+    public Alquiler getAlquiler() {
+        return alquiler;
+    }
+
+    public void setAlquiler(Alquiler alquiler) {
+        this.alquiler = alquiler;
+    }
+    
     
 }
