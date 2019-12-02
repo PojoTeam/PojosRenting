@@ -8,7 +8,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -275,7 +274,7 @@ public class Clientes extends javax.swing.JPanel {
 
     }//GEN-LAST:event_rbParticularActionPerformed
 
-    public void mostrarDatosClienteSeleccionado(){
+    private void mostrarDatosClienteSeleccionado(){
         
         this.entNombre.setText(clienteEnSeleccion.getNombre());
         this.entMail.setText(clienteEnSeleccion.getEmail());
@@ -283,10 +282,7 @@ public class Clientes extends javax.swing.JPanel {
         if(clienteEnSeleccion instanceof Particular){
     
             rbParticular.setSelected(true);
-            this.entDni.setText(((Particular)clienteEnSeleccion).getDni());
-            this.entPuntos.setText(String.valueOf(((Particular)clienteEnSeleccion).getPuntos()));
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            this.entFecha.setText(sdf.format(((Particular)clienteEnSeleccion).getFechaNacimiento()));
+            this.entDni.setText(((Particular)clienteEnSeleccion).getCif());
             
         }else{
             
@@ -312,33 +308,6 @@ public class Clientes extends javax.swing.JPanel {
             }
         }
      */
-
-    /**
-     * GridBagConstraints c = new GridBagConstraints();
-     *  //c.fill = GridBagConstraints.HORIZONTAL;
-     *  c.weighty = 0.5;
-     *  c.weightx = 0.5;
-     *
-     *  for(int i = 0; i < 10; i++){
-     *      for(int j = 0; j < 3; j++){
-     *          button = new JButton("Button" + i + j);
-    c.gridx = j;
-    c.gridy = i;
-    window.add(button, c);
-    }
-    }
-     */
-    
-    public Cliente getClienteEnSeleccion() {
-        return clienteEnSeleccion;
-    }
-    
-    public void setClienteEnSeleccion(Cliente clienteEnSeleccion) {
-        this.clienteEnSeleccion = clienteEnSeleccion;
-    }
-    
-    
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField entDni;
