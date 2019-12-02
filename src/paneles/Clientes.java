@@ -6,14 +6,15 @@
 package paneles;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import pojos.Cliente;
+import pojos.Empresa;
+import pojos.Particular;
 
 /**
  *
@@ -21,9 +22,8 @@ import javax.swing.JScrollPane;
  */
 public class Clientes extends javax.swing.JPanel {
     
-    /**
-     * Creates new form Clientes
-     */
+    private Cliente clienteEnSeleccion;
+    
     public Clientes() {
         
         initComponents();
@@ -31,12 +31,9 @@ public class Clientes extends javax.swing.JPanel {
         JPanel panelMain = new JPanel(new BorderLayout());
         window.add(panelMain);
 
-        //Comment the next 2 lines when using without scroll bar
-
         GridBagLayout innerLayout = new GridBagLayout();
         GridBagConstraints innerConstraints = new GridBagConstraints();
         JPanel innerPanel = new JPanel(innerLayout);
-        innerPanel.setBackground(new Color(0, 0, 0));
 
         innerConstraints.weightx = 0.5;
         innerConstraints.weighty = 0.5;
@@ -44,6 +41,7 @@ public class Clientes extends javax.swing.JPanel {
         
         for(int i = 0; i < 10; i++){    
             for(int j = 0; j < 3; j++){
+                
                 
                 boxClientes boxCliente = new boxClientes();
                 innerConstraints.gridx = j;
@@ -54,7 +52,6 @@ public class Clientes extends javax.swing.JPanel {
         }
 
         JPanel innerVoidPanel = new JPanel();
-        innerVoidPanel.setBackground(new Color(0, 0, 0));
         innerConstraints.weighty = 1.0;
         innerConstraints.fill = GridBagConstraints.VERTICAL;
         innerLayout.setConstraints(innerVoidPanel, innerConstraints);
@@ -92,10 +89,10 @@ public class Clientes extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        entNombre1 = new javax.swing.JTextField();
-        entNombre2 = new javax.swing.JTextField();
-        entNombre3 = new javax.swing.JTextField();
-        entNombre4 = new javax.swing.JTextField();
+        entDni = new javax.swing.JTextField();
+        entTelf = new javax.swing.JTextField();
+        entMail = new javax.swing.JTextField();
+        entFecha = new javax.swing.JTextField();
         entPuntos = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
@@ -171,10 +168,10 @@ public class Clientes extends javax.swing.JPanel {
                         .addGap(14, 14, 14)
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(entNombre)
-                            .addComponent(entNombre1)
-                            .addComponent(entNombre2)
-                            .addComponent(entNombre3)
-                            .addComponent(entNombre4)
+                            .addComponent(entDni)
+                            .addComponent(entTelf)
+                            .addComponent(entMail)
+                            .addComponent(entFecha)
                             .addComponent(entPuntos)))
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addComponent(lblNombre)
@@ -204,27 +201,27 @@ public class Clientes extends javax.swing.JPanel {
                     .addComponent(entNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(entNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDni))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(entNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entTelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTelefono))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(entNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEmail))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(entNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFechaNac))
-                .addGap(18, 18, 18)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPuntos))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
@@ -232,7 +229,7 @@ public class Clientes extends javax.swing.JPanel {
                 .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
-                .addGap(23, 23, 23))
+                .addGap(38, 38, 38))
         );
 
         window.setLayout(new java.awt.BorderLayout());
@@ -261,19 +258,45 @@ public class Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void rbEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEmpresaActionPerformed
-        
+
         lblPuntos.setVisible(false);
         entPuntos.setVisible(false);
-        
+        lblFechaNac.setVisible(false);
+        entFecha.setVisible(false);
+
     }//GEN-LAST:event_rbEmpresaActionPerformed
 
     private void rbParticularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbParticularActionPerformed
-        
+
         lblPuntos.setVisible(true);
         entPuntos.setVisible(true);
-        
+        lblFechaNac.setVisible(true);
+        entFecha.setVisible(true);
+
     }//GEN-LAST:event_rbParticularActionPerformed
 
+    public void mostrarDatosClienteSeleccionado(){
+        
+        this.entNombre.setText(clienteEnSeleccion.getNombre());
+        this.entMail.setText(clienteEnSeleccion.getEmail());
+        this.entTelf.setText(clienteEnSeleccion.getTelefono());
+        if(clienteEnSeleccion instanceof Particular){
+    
+            rbParticular.setSelected(true);
+            this.entDni.setText(((Particular)clienteEnSeleccion).getDni());
+            this.entPuntos.setText(String.valueOf(((Particular)clienteEnSeleccion).getPuntos()));
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            this.entFecha.setText(sdf.format(((Particular)clienteEnSeleccion).getFechaNacimiento()));
+            
+        }else{
+            
+            rbEmpresa.setSelected(true);
+            this.entDni.setText(((Empresa)clienteEnSeleccion).getCif());
+            
+        }
+        
+    }
+    
     /**
      * GridBagConstraints c = new GridBagConstraints();
      *  //c.fill = GridBagConstraints.HORIZONTAL;
@@ -289,14 +312,41 @@ public class Clientes extends javax.swing.JPanel {
             }
         }
      */
+
+    /**
+     * GridBagConstraints c = new GridBagConstraints();
+     *  //c.fill = GridBagConstraints.HORIZONTAL;
+     *  c.weighty = 0.5;
+     *  c.weightx = 0.5;
+     *
+     *  for(int i = 0; i < 10; i++){
+     *      for(int j = 0; j < 3; j++){
+     *          button = new JButton("Button" + i + j);
+    c.gridx = j;
+    c.gridy = i;
+    window.add(button, c);
+    }
+    }
+     */
+    
+    public Cliente getClienteEnSeleccion() {
+        return clienteEnSeleccion;
+    }
+    
+    public void setClienteEnSeleccion(Cliente clienteEnSeleccion) {
+        this.clienteEnSeleccion = clienteEnSeleccion;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField entDni;
+    private javax.swing.JTextField entFecha;
+    private javax.swing.JTextField entMail;
     private javax.swing.JTextField entNombre;
-    private javax.swing.JTextField entNombre1;
-    private javax.swing.JTextField entNombre2;
-    private javax.swing.JTextField entNombre3;
-    private javax.swing.JTextField entNombre4;
     private javax.swing.JTextField entPuntos;
+    private javax.swing.JTextField entTelf;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

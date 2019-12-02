@@ -47,5 +47,13 @@ public class Particular extends Cliente implements Serializable {
     public void setAlquileres(Set<Alquiler> alquileres) {
         this.alquileres = alquileres;
     }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
     
 }
