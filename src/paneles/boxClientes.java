@@ -5,6 +5,13 @@
  */
 package paneles;
 
+import hibernate.NewHibernateUtil;
+import javax.swing.JPanel;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+import pojos.Cliente;
+import pojos.Coche;
+
 /**
  *
  * @author carlos
@@ -14,6 +21,9 @@ public class boxClientes extends javax.swing.JPanel {
     /**
      * Creates new form boxClientes
      */
+    
+    private Clientes panelPadre;
+    
     public boxClientes() {
         initComponents();
     }
@@ -33,6 +43,8 @@ public class boxClientes extends javax.swing.JPanel {
         lblImg = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        lblNombre = new javax.swing.JLabel();
+        lblDni = new javax.swing.JLabel();
 
         setBorder(new javax.swing.border.MatteBorder(null));
 
@@ -45,8 +57,17 @@ public class boxClientes extends javax.swing.JPanel {
         lblImg.setText("       IMAGEN");
 
         jButton5.setText("Seleccionar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Modificar");
+
+        lblNombre.setText("lblNombre");
+
+        lblDni.setText("lblDni");
 
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
@@ -59,12 +80,18 @@ public class boxClientes extends javax.swing.JPanel {
             .addGroup(boxClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNomCli, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                    .addComponent(lblDniCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(boxClienteLayout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jButton5)
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                    .addGroup(boxClienteLayout.createSequentialGroup()
+                        .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNomCli, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         boxClienteLayout.setVerticalGroup(
@@ -72,9 +99,13 @@ public class boxClientes extends javax.swing.JPanel {
             .addGroup(boxClienteLayout.createSequentialGroup()
                 .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblNomCli)
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomCli)
+                    .addComponent(lblNombre))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDniCli)
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDniCli)
+                    .addComponent(lblDni))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton6)
@@ -104,13 +135,25 @@ public class boxClientes extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        getDatos();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private Cliente getDatos(){
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.getTransaction();
+        Cliente cliente = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblNombre.getText())).uniqueResult();
+        return cliente;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel boxCliente;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblDniCli;
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblNomCli;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

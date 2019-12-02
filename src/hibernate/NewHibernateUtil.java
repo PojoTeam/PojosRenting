@@ -6,6 +6,7 @@ package hibernate;
  * and open the template in the editor.
  */
 
+import org.hibernate.Session;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
@@ -34,4 +35,9 @@ public class NewHibernateUtil {
     public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
+    
+    public static Session getSession(){
+        return sessionFactory.openSession();
+    }
+    
 }

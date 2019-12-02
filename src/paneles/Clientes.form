@@ -81,10 +81,10 @@
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="entNombre" max="32767" attributes="0"/>
-                              <Component id="entNombre1" max="32767" attributes="0"/>
-                              <Component id="entNombre2" max="32767" attributes="0"/>
-                              <Component id="entNombre3" max="32767" attributes="0"/>
-                              <Component id="entNombre4" max="32767" attributes="0"/>
+                              <Component id="entDni" max="32767" attributes="0"/>
+                              <Component id="entTelf" max="32767" attributes="0"/>
+                              <Component id="entMail" max="32767" attributes="0"/>
+                              <Component id="entFecha" max="32767" attributes="0"/>
                               <Component id="entPuntos" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -123,32 +123,32 @@
                   </Group>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entNombre1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="entDni" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblDni" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entNombre2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="entTelf" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entNombre3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="entMail" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entNombre4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="entFecha" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblFechaNac" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="entPuntos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblPuntos" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
@@ -156,7 +156,7 @@
                   <Component id="jButton3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -241,13 +241,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="entNombre1">
+        <Component class="javax.swing.JTextField" name="entDni">
         </Component>
-        <Component class="javax.swing.JTextField" name="entNombre2">
+        <Component class="javax.swing.JTextField" name="entTelf">
         </Component>
-        <Component class="javax.swing.JTextField" name="entNombre3">
+        <Component class="javax.swing.JTextField" name="entMail">
         </Component>
-        <Component class="javax.swing.JTextField" name="entNombre4">
+        <Component class="javax.swing.JTextField" name="entFecha">
         </Component>
         <Component class="javax.swing.JTextField" name="entPuntos">
         </Component>
