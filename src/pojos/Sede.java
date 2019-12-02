@@ -13,6 +13,9 @@ public class Sede {
     private String ciudad;
     private Set<Coche> coches;
 
+    public Sede() {
+    }
+
     public Sede(int id, String ciudad) {
         this.id = id;
         this.ciudad = ciudad;

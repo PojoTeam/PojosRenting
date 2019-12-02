@@ -14,6 +14,9 @@ public class Cliente implements Serializable {
     private String nombre, email, telefono;
     private Set<Reserva> reservas;
 
+    public Cliente() {
+    }
+
     public Cliente(int id, String nombre, String email, String telefono) {
         this.id = id;
         this.nombre = nombre;

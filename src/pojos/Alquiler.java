@@ -16,6 +16,9 @@ public class Alquiler implements Serializable {
     private Empresa empresa;
     private Particular particular;
 
+    public Alquiler() {
+    }
+    
     public Alquiler(int codigo, Date fechaInicio, Date fechaFin) {
         this.codigo = codigo;
         this.fechaInicio = fechaInicio;

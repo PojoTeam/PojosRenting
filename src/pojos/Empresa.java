@@ -14,6 +14,9 @@ public class Empresa extends Cliente implements Serializable {
     private int nAlquileres;
     private Set<Alquiler> alquileres;
 
+    public Empresa() {
+    }
+
     public Empresa(String cif,int id, String nombre, String email, String telefono) {
         super(id, nombre, email, telefono);
         this.cif = cif;

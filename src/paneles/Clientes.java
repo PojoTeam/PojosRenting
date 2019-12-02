@@ -44,6 +44,7 @@ public class Clientes extends javax.swing.JPanel {
                 
                 
                 boxClientes boxCliente = new boxClientes();
+                boxCliente.setPanelPadre(this);
                 innerConstraints.gridx = j;
                 innerConstraints.gridy = i;
                 innerPanel.add(boxCliente, innerConstraints);
@@ -85,7 +86,7 @@ public class Clientes extends javax.swing.JPanel {
         lblEmail = new javax.swing.JLabel();
         lblFechaNac = new javax.swing.JLabel();
         lblPuntos = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAlta = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -134,7 +135,12 @@ public class Clientes extends javax.swing.JPanel {
 
         lblPuntos.setText("Puntos");
 
-        jButton1.setText("ALTA");
+        btnAlta.setText("ALTA");
+        btnAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltaActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("BAJA");
 
@@ -154,7 +160,7 @@ public class Clientes extends javax.swing.JPanel {
             .addGroup(panelDatosClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -222,7 +228,7 @@ public class Clientes extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnAlta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -275,6 +281,10 @@ public class Clientes extends javax.swing.JPanel {
 
     }//GEN-LAST:event_rbParticularActionPerformed
 
+    private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
+        
+    }//GEN-LAST:event_btnAltaActionPerformed
+
     public void mostrarDatosClienteSeleccionado(){
         
         this.entNombre.setText(clienteEnSeleccion.getNombre());
@@ -324,6 +334,7 @@ public class Clientes extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlta;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField entDni;
     private javax.swing.JTextField entFecha;
@@ -331,7 +342,6 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JTextField entNombre;
     private javax.swing.JTextField entPuntos;
     private javax.swing.JTextField entTelf;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

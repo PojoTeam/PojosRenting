@@ -16,6 +16,9 @@ public class Coche {
     private Sede sede;
     private Alquiler alquiler;
 
+    public Coche() {
+    }
+
     public Coche(String modelo, String marca, String estado, int id, float precioDia) {
         this.modelo = modelo;
         this.marca = marca;

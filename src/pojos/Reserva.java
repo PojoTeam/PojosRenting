@@ -15,6 +15,9 @@ public class Reserva implements Serializable {
     private Cliente cliente;
     private Coche coche;
 
+    public Reserva() {
+    }
+
     public Reserva(int codigo, Date fechaInicio, Date fechaFin) {
         this.codigo = codigo;
         this.fechaInicio = fechaInicio;

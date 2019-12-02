@@ -16,6 +16,9 @@ public class Particular extends Cliente implements Serializable {
     private Date fechaNacimiento;
     private Alquiler alquiler;
 
+    public Particular() {
+    }
+
     public Particular(String dni, Date fechaNacimiento, int puntos, int id, int edad, String nombre, String email, String telefono) {
         super(id, nombre, email, telefono);
         this.dni = dni;
