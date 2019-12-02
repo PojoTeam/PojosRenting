@@ -8,6 +8,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -274,15 +275,18 @@ public class Clientes extends javax.swing.JPanel {
 
     }//GEN-LAST:event_rbParticularActionPerformed
 
-    private void mostrarDatosClienteSeleccionado(){
+    public void mostrarDatosClienteSeleccionado(){
         
         this.entNombre.setText(clienteEnSeleccion.getNombre());
         this.entMail.setText(clienteEnSeleccion.getEmail());
         this.entTelf.setText(clienteEnSeleccion.getTelefono());
         if(clienteEnSeleccion instanceof Particular){
-    
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             rbParticular.setSelected(true);
-            this.entDni.setText(((Particular)clienteEnSeleccion).getCif());
+            this.entDni.setText(((Particular)clienteEnSeleccion).getDni());
+            this.entTelf.setText(String.valueOf(((Particular)clienteEnSeleccion).getTelefono()));
+            this.entFecha.setText(sdf.format(((Particular)clienteEnSeleccion).getFechaNacimiento()));
             
         }else{
             
@@ -292,6 +296,8 @@ public class Clientes extends javax.swing.JPanel {
         }
         
     }
+    
+    
     
     /**
      * GridBagConstraints c = new GridBagConstraints();
@@ -308,6 +314,15 @@ public class Clientes extends javax.swing.JPanel {
             }
         }
      */
+
+    public Cliente getClienteEnSeleccion() {
+        return clienteEnSeleccion;
+    }
+
+    public void setClienteEnSeleccion(Cliente clienteEnSeleccion) {
+        this.clienteEnSeleccion = clienteEnSeleccion;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField entDni;

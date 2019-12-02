@@ -136,15 +136,12 @@ public class boxClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        getDatos();
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private Cliente getDatos(){
         Session sesion = NewHibernateUtil.getSession();
         sesion.getTransaction();
         Cliente cliente = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblNombre.getText())).uniqueResult();
-        return cliente;
-    }
+        panelPadre.setClienteEnSeleccion(cliente);
+        panelPadre.mostrarDatosClienteSeleccionado();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel boxCliente;
