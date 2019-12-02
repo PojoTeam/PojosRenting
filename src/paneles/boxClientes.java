@@ -6,12 +6,10 @@
 package paneles;
 
 import hibernate.NewHibernateUtil;
-import java.awt.Dialog;
-import javax.swing.JPanel;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import pojos.Cliente;
-import pojos.Coche;
+
 
 /**
  *
@@ -321,6 +319,8 @@ public class boxClientes extends javax.swing.JPanel {
         sesion.delete(cliente);
         sesion.getTransaction().commit();
         sesion.close();
+        panelPadre.listarClientes();
+        dialogoEliminar.setVisible(false);
     }//GEN-LAST:event_btnDigAceptarActionPerformed
 
     private void btnDigCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigCancelarActionPerformed
