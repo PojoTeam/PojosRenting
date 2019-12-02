@@ -12,16 +12,24 @@ import java.util.Set;
 public class Particular extends Cliente implements Serializable {
 
     private String dni;
-    private int puntos;
+    private int puntos, edad;
     private Date fechaNacimiento;
-    private Set<Alquiler> alquileres;
+    private Alquiler alquiler;
 
-    public Particular(String dni, Date fechaNacimiento, int puntos, int id, String nombre, String email, String telefono) {
+    public Particular(String dni, Date fechaNacimiento, int puntos, int id, int edad, String nombre, String email, String telefono) {
         super(id, nombre, email, telefono);
         this.dni = dni;
         this.fechaNacimiento = fechaNacimiento;
+        this.edad = edad;
         this.puntos = puntos;
-        this.alquileres = new HashSet<>();
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
     }
 
     public String getDni() {
@@ -40,20 +48,20 @@ public class Particular extends Cliente implements Serializable {
         this.puntos = puntos;
     }
 
-    public Set<Alquiler> getAlquileres() {
-        return alquileres;
-    }
-
-    public void setAlquileres(Set<Alquiler> alquileres) {
-        this.alquileres = alquileres;
-    }
-
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public Alquiler getAlquiler() {
+        return alquiler;
+    }
+
+    public void setAlquiler(Alquiler alquiler) {
+        this.alquiler = alquiler;
     }
     
 }

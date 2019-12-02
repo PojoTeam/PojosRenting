@@ -3,7 +3,7 @@
 
 <hibernate-mapping>
     <class name="pojos.Reserva" table="RESERVAS">
-        <id column="ID" name="id"/>
+        <id column="CODIGO" name="codigo"/>
         <property column="FECHA_INICIO" name="fechaInicio"/>
         <property column="FECHA_FIN" name="fechaFin"/>
         

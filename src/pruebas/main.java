@@ -25,10 +25,7 @@ public class main {
         }catch(SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("epa");
         NewHibernateUtil.getSession();
-        System.out.println("heyy");
         Session sesion = NewHibernateUtil.getSession();
-        System.out.println("hola");
     }
 }

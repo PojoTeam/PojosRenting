@@ -2,8 +2,8 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="pojos.Alquiler" table="ALQUILERES">
-        <id column="ID" name="id"/>
-        <property column="FECHA_INICIO" name="fechaIncio"/>
+        <id column="CODIGO" name="codigo"/>
+        <property column="FECHA_INICIO" name="fechaInicio"/>
         <property column="FECHA_FIN" name="fechaFin"/>
         <property column="PRECIO_TOTAL" name="precioTotal"/>
         <property column="DESCUENTO" name="descuento"/>
