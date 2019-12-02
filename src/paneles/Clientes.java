@@ -34,62 +34,13 @@ import pojos.Particular;
 public class Clientes extends javax.swing.JPanel {
     
     private Cliente clienteEnSeleccion = null;
+    private JPanel panelMain;
     
     public Clientes() {
         
         initComponents();
-
-        JPanel panelMain = new JPanel(new BorderLayout());
-        window.add(panelMain);
-
-        GridBagLayout innerLayout = new GridBagLayout();
-        GridBagConstraints innerConstraints = new GridBagConstraints();
-        JPanel innerPanel = new JPanel(innerLayout);
+        listarClientes();
         
-        Session sesion = NewHibernateUtil.getSession();
-        sesion.beginTransaction();
-        List<Cliente> clientes = sesion.createCriteria(Cliente.class).list();
-        int numeroClientes = clientes.size();
-        int numeroIteracionesX = (numeroClientes/3)+1;
-        int numeroIteracionesTotales = 0;
-        
-        innerConstraints.weightx = 0.5;
-        innerConstraints.weighty = 0.5;
-        innerConstraints.gridy = 0;
-        
-        for(int i = 0; i < numeroIteracionesX; i++){    
-            for(int j = 0; j < 3; j++){
-                if(numeroIteracionesTotales != numeroClientes){
-                    Cliente cliente = clientes.get(numeroIteracionesTotales);
-                    boxClientes boxCliente;
-                    if(cliente instanceof Particular){
-                        boxCliente = new boxClientes(cliente.getNombre(), ((Particular)cliente).getDni());
-                    }else{
-                        boxCliente = new boxClientes(cliente.getNombre(), ((Empresa)cliente).getCif());
-                    }
-                    boxCliente.setPanelPadre(this);
-                    innerConstraints.gridx = j;
-                    innerConstraints.gridy = i;
-                    innerPanel.add(boxCliente, innerConstraints);
-                    numeroIteracionesTotales++;
-                }else{
-                    break;
-                }
-            }
-        }
-
-        JPanel innerVoidPanel = new JPanel();
-        innerConstraints.weighty = 1.0;
-        innerConstraints.fill = GridBagConstraints.VERTICAL;
-        innerLayout.setConstraints(innerVoidPanel, innerConstraints);
-        innerPanel.add(innerVoidPanel);
-
-        //...
-
-        JScrollPane scrollPanel = new JScrollPane(innerPanel);
-        scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
-        panelMain.add(scrollPanel, BorderLayout.CENTER);
-    
     }
 
     /**
@@ -399,6 +350,69 @@ public class Clientes extends javax.swing.JPanel {
         }
         
     }
+    
+    public void listarClientes(){
+        if(panelMain != null){
+            panelMain.removeAll();
+            panelMain.revalidate();
+            panelMain.repaint();
+            window.remove(panelMain);
+            window.revalidate();
+            window.repaint();
+        }
+        
+        panelMain = new JPanel(new BorderLayout());
+        window.add(panelMain);
+        GridBagLayout innerLayout = new GridBagLayout();
+        GridBagConstraints innerConstraints = new GridBagConstraints();
+        JPanel innerPanel = new JPanel(innerLayout);
+        
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        List<Cliente> clientes = sesion.createCriteria(Cliente.class).list();
+        int numeroClientes = clientes.size();
+        int numeroIteracionesX = (numeroClientes/3)+1;
+        int numeroIteracionesTotales = 0;
+        
+        innerConstraints.weightx = 0.5;
+        innerConstraints.weighty = 0.5;
+        innerConstraints.gridy = 0;
+        
+        for(int i = 0; i < numeroIteracionesX; i++){    
+            for(int j = 0; j < 3; j++){
+                if(numeroIteracionesTotales != numeroClientes){
+                    Cliente cliente = clientes.get(numeroIteracionesTotales);
+                    boxClientes boxCliente;
+                    if(cliente instanceof Particular){
+                        boxCliente = new boxClientes(cliente.getNombre(), ((Particular)cliente).getDni());
+                    }else{
+                        boxCliente = new boxClientes(cliente.getNombre(), ((Empresa)cliente).getCif());
+                    }
+                    boxCliente.setPanelPadre(this);
+                    innerConstraints.gridx = j;
+                    innerConstraints.gridy = i;
+                    innerPanel.add(boxCliente, innerConstraints);
+                    numeroIteracionesTotales++;
+                }else{
+                    break;
+                }
+            }
+        }
+
+        JPanel innerVoidPanel = new JPanel();
+        innerConstraints.weighty = 1.0;
+        innerConstraints.fill = GridBagConstraints.VERTICAL;
+        innerLayout.setConstraints(innerVoidPanel, innerConstraints);
+        innerPanel.add(innerVoidPanel);
+
+        //...
+
+        JScrollPane scrollPanel = new JScrollPane(innerPanel);
+        scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
+        panelMain.add(scrollPanel, BorderLayout.CENTER);
+    
+    }
+    
     public void vaciarCampos() {
         entDni.setText("");
         entNombre.setText("");
