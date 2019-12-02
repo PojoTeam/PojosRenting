@@ -25,8 +25,10 @@ public class boxClientes extends javax.swing.JPanel {
     
     private Clientes panelPadre;
     
-    public boxClientes() {
+    public boxClientes(String nombre, String dni) {
         initComponents();
+        lblNombre.setText(nombre);
+        lblDni.setText(dni);
     }
 
     /**
@@ -67,10 +69,8 @@ public class boxClientes extends javax.swing.JPanel {
 
         dialogoEliminar.setTitle("ALERTA");
         dialogoEliminar.setLocationByPlatform(true);
-        dialogoEliminar.setMaximumSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setModal(true);
-        dialogoEliminar.setPreferredSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setResizable(false);
         dialogoEliminar.setSize(new java.awt.Dimension(416, 289));
 
@@ -199,9 +199,10 @@ public class boxClientes extends javax.swing.JPanel {
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDigPuntos))))
                 .addGap(18, 18, 18)
-                .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDigAceptar)
-                    .addComponent(btnDigCancelar))
+                    .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnDigCancelar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 

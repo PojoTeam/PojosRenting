@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package paneles;
+import hibernate.NewHibernateUtil;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -14,11 +15,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import metodos.Altas;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import pojos.Cliente;
 import pojos.Empresa;
 import pojos.Particular;
@@ -41,21 +45,36 @@ public class Clientes extends javax.swing.JPanel {
         GridBagLayout innerLayout = new GridBagLayout();
         GridBagConstraints innerConstraints = new GridBagConstraints();
         JPanel innerPanel = new JPanel(innerLayout);
-
+        
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        List<Cliente> clientes = sesion.createCriteria(Cliente.class).list();
+        int numeroClientes = clientes.size();
+        int numeroIteracionesX = (numeroClientes/3)+1;
+        int numeroIteracionesTotales = 0;
+        
         innerConstraints.weightx = 0.5;
         innerConstraints.weighty = 0.5;
         innerConstraints.gridy = 0;
         
-        for(int i = 0; i < 10; i++){    
+        for(int i = 0; i < numeroIteracionesX; i++){    
             for(int j = 0; j < 3; j++){
-                
-                
-                boxClientes boxCliente = new boxClientes();
-                boxCliente.setPanelPadre(this);
-                innerConstraints.gridx = j;
-                innerConstraints.gridy = i;
-                innerPanel.add(boxCliente, innerConstraints);
-                
+                if(numeroIteracionesTotales != numeroClientes){
+                    Cliente cliente = clientes.get(numeroIteracionesTotales);
+                    boxClientes boxCliente;
+                    if(cliente instanceof Particular){
+                        boxCliente = new boxClientes(cliente.getNombre(), ((Particular)cliente).getDni());
+                    }else{
+                        boxCliente = new boxClientes(cliente.getNombre(), ((Empresa)cliente).getCif());
+                    }
+                    boxCliente.setPanelPadre(this);
+                    innerConstraints.gridx = j;
+                    innerConstraints.gridy = i;
+                    innerPanel.add(boxCliente, innerConstraints);
+                    numeroIteracionesTotales++;
+                }else{
+                    break;
+                }
             }
         }
 
