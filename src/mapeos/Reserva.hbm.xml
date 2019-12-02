@@ -9,7 +9,7 @@
         
         <!-- RELACION CON TABLA CLIENTE -->
         <many-to-one class="pojos.Cliente" name="cliente">
-            <column name="id_cliente" not-null="true"/>
+            <column name="ID_CLIENTE" not-null="true"/>
         </many-to-one>
         
         <!-- RELACION CON TABLA COCHE -->

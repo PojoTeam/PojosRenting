@@ -24,12 +24,7 @@
             <property column="PUNTOS" name="puntos"/>
 
             <!-- RELACIÓN CON TABLA ALQUILERES -->
-            <set inverse="true" name="alquileres" table="ALQUILERES">
-                <key>
-                    <column name="ID" not-null="true"/>
-                </key>
-                <one-to-one class="pojos.Alquiler"/>
-            </set>
+            <one-to-one class="pojos.Alquiler" name="alquiler"/>
         </joined-subclass>
 
         <!-- SUBCLASE EMPRESA -->

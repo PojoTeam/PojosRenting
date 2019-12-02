@@ -10,17 +10,19 @@
         <!-- RELACION CON TABLA RESERVA-->
         <set inverse="true" name="reservas" table="RESERVAS">
             <key>
-                <column name="" not-null="true"/>
-            </key>
-            <one-to-many class="pojos.Reserva" name="reserva">
                 <column name="ID" not-null="true"/>
-            </one-to-many>
+            </key>
+            <one-to-many class="pojos.Reserva"/>
         </set>
         
         <!-- RELACION CON TABLA ALQUILER-->
+        <one-to-one class="pojos.Alquiler" name="alquiler"/>
         
         <!-- RELACION CON TABLA SEDE-->
-        
+        <many-to-one class="pojos.Sede" name="sede">
+            <column name="ID_SEDE" not-null="true"/>
+        </many-to-one>
+              
     </class>
   
 </hibernate-mapping>

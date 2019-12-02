@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="pojos.Alquiler" table="ALQUILERES">
+        <id column="ID" name="id"/>
+        <property column="FECHA_INICIO" name="fechaIncio"/>
+        <property column="FECHA_FIN" name="fechaFin"/>
+        <property column="PRECIO_TOTAL" name="precioTotal"/>
+        <property column="DESCUENTO" name="descuento"/>
+        
+        <!--RELACION CON TABLA PARTICULARES -->
+        <one-to-one class="pojos.Particular" name="particular" constrained="true"/>
+        
+        <!--RELACION CON TABLA EMPRESAS -->
+        <many-to-one class="pojos.Empresa" name="empresa">
+            <column name="ID_CLIENTE" not-null="true"/>
+        </many-to-one>
+                    
+        <!--RELACION CON TABLA COCHES -->
+        <one-to-one class="pojos.Coche" name="coche" constrained="true"/>
+    </class>
+</hibernate-mapping>
