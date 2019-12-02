@@ -8,10 +8,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import metodos.Altas;
 import pojos.Cliente;
 import pojos.Empresa;
 import pojos.Particular;
@@ -22,7 +29,7 @@ import pojos.Particular;
  */
 public class Clientes extends javax.swing.JPanel {
     
-    private Cliente clienteEnSeleccion;
+    private Cliente clienteEnSeleccion = null;
     
     public Clientes() {
         
@@ -88,7 +95,7 @@ public class Clientes extends javax.swing.JPanel {
         lblPuntos = new javax.swing.JLabel();
         btnAlta = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         entDni = new javax.swing.JTextField();
         entTelf = new javax.swing.JTextField();
@@ -144,7 +151,12 @@ public class Clientes extends javax.swing.JPanel {
 
         jButton2.setText("BAJA");
 
-        jButton3.setText("MODIFICAR");
+        btnModificar.setText("MODIFICAR");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("BUSCAR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +174,7 @@ public class Clientes extends javax.swing.JPanel {
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,7 +244,7 @@ public class Clientes extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(btnModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4)
                 .addGap(38, 38, 38))
@@ -282,8 +294,70 @@ public class Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_rbParticularActionPerformed
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
+        try{
+            if(rbParticular.isSelected()){
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                Date fechaNac = sdf.parse(entFecha.getText());
+                DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+                int puntos = Integer.parseInt(entPuntos.getText());
+                Date fechaHoy = new Date();
+                int d1 = Integer.parseInt(formatter.format(fechaNac));
+                int d2 = Integer.parseInt(formatter.format(fechaHoy));
+                int edad = (d2-d1)/10000;
+                Particular particular = new Particular(entDni.getText(), fechaNac, puntos, edad, entNombre.getText(), entMail.getText(), entTelf.getText());
+                Altas.particulares(particular);
+                vaciarCampos();
+                
+            }else {
+                Empresa empresa = new Empresa(entDni.getText(), entNombre.getText(), entMail.getText(), entTelf.getText());
+                Altas.empresas(empresa);
+                vaciarCampos();
+                
+            }
+        }catch(ParseException e){
+            System.out.println(e);
+        }
         
     }//GEN-LAST:event_btnAltaActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(clienteEnSeleccion != null){
+                if(clienteEnSeleccion instanceof Particular){
+                    
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                    Date fechaNac = sdf.parse(entFecha.getText());
+                    DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+                    int puntos = Integer.parseInt(entPuntos.getText());
+                    Date fechaHoy = new Date();
+                    int d1 = Integer.parseInt(formatter.format(fechaNac));
+                    int d2 = Integer.parseInt(formatter.format(fechaHoy));
+                    int edad = (d2-d1)/10000;
+                    Particular particular = (Particular)clienteEnSeleccion;
+                    particular.setDni(entDni.getText());
+                    particular.setFechaNacimiento(fechaNac);
+                    particular.setEdad(edad);
+                    particular.setNombre(entNombre.getText());
+                    particular.setEmail(entMail.getText());
+                    particular.setTelefono(entTelf.getText());
+                    Altas.particulares(particular);
+                    vaciarCampos();
+                }else {
+                    Empresa empresa = (Empresa)clienteEnSeleccion;
+                    empresa.setCif(entDni.getText());
+                    empresa.setNombre(entNombre.getText());
+                    empresa.setEmail(entMail.getText());
+                    empresa.setTelefono(entTelf.getText());
+                    Altas.empresas(empresa);
+                    vaciarCampos();
+                
+                }
+            }
+        }catch(ParseException e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     public void mostrarDatosClienteSeleccionado(){
         
@@ -306,7 +380,14 @@ public class Clientes extends javax.swing.JPanel {
         }
         
     }
-    
+    public void vaciarCampos() {
+        entDni.setText("");
+        entNombre.setText("");
+        entPuntos.setText("");
+        entMail.setText("");
+        entTelf.setText("");
+        entFecha.setText("");
+    }
     
     
     /**
@@ -335,6 +416,7 @@ public class Clientes extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
+    private javax.swing.JButton btnModificar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField entDni;
     private javax.swing.JTextField entFecha;
@@ -343,7 +425,6 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JTextField entPuntos;
     private javax.swing.JTextField entTelf;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

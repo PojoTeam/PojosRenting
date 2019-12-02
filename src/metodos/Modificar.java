@@ -1,8 +1,6 @@
 package metodos;
 
 import hibernate.NewHibernateUtil;
-import java.io.IOException;
-import java.util.Date;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import pojos.Empresa;
@@ -10,10 +8,9 @@ import pojos.Particular;
 
 /**
  *
- * @author carlos
+ * @author pablo
  */
-public class Altas {
-    
+public class Modificar {
     public static void particulares(Particular particular) {
         
         try{

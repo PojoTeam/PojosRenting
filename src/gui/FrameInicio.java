@@ -1,6 +1,7 @@
 package gui;
 import customgui.PanelAsButton;
 import customgui.jFramePadre;
+import hibernate.NewHibernateUtil;
 import java.awt.Color;
 import javax.swing.JPanel;
 import paneles.*;
@@ -29,6 +30,7 @@ public class FrameInicio extends jFramePadre{
         panelAsButton4.setjLabel(jLabel4);
         panelClientes = new Clientes();
         new CambiarPanel(panelContenedor, panelClientes);
+        NewHibernateUtil.getSessionFactory();
     }
 
     /**

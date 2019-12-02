@@ -28,4 +28,7 @@ public class NewHibernateUtil {
     
     }
     
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
 }

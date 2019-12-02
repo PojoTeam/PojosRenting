@@ -3,7 +3,9 @@
 
 <hibernate-mapping>
     <class name="pojos.Cliente" table="CLIENTES">
-        <id column="ID" name="id"/>
+        <id column="ID" name="id">
+            <generator class="increment"/>
+        </id>
         <property column="NOMBRE" name="nombre"/>
         <property column="TELEFONO" name="telefono"/>
         <property column="EMAIL" name="email"/>
