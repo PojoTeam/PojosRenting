@@ -3,7 +3,8 @@
 
 <hibernate-mapping>
     <class name="pojos.Coche" table="COCHES">
-        <id column="ID" name="id"/>
+        <id column="MATRICULA" name="matricula"/>
+        <property column="ANHOS" name="anhos"/>
         <property column="MODELO" name="modelo"/>
         <property column="MARCA" name="marca"/>
         

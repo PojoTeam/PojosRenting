@@ -9,8 +9,8 @@ import java.util.Set;
  */
 public class Coche {
     
-    private String modelo, marca, estado;
-    private int id;
+    private String matricula, modelo, marca, estado;
+    private int anhos;
     private float precioDia;
     private Set<Reserva> reservas;
     private Sede sede;
@@ -19,13 +19,21 @@ public class Coche {
     public Coche() {
     }
 
-    public Coche(String modelo, String marca, String estado, int id, float precioDia) {
+    public Coche(String matricula, String modelo, String marca, String estado, int anhos, float precioDia) {
         this.modelo = modelo;
         this.marca = marca;
         this.marca = estado;
-        this.id = id;
+        this.anhos = anhos;
         this.precioDia = precioDia;
         this.reservas = new HashSet<>();
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getModelo() {
@@ -52,12 +60,12 @@ public class Coche {
         this.estado = estado;
     }
 
-    public int getId() {
-        return id;
+    public int getAnhos() {
+        return anhos;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAnhos(int anhos) {
+        this.anhos = anhos;
     }
 
     public float getPrecioDia() {

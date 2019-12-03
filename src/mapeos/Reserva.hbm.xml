@@ -14,7 +14,7 @@
         
         <!-- RELACION CON TABLA COCHE -->
         <many-to-one class="pojos.Coche" name="coche">
-            <column name="ID_COCHE" not-null="true"/>
+            <column name="MATRICULA" not-null="true"/>
         </many-to-one>
         
     </class>

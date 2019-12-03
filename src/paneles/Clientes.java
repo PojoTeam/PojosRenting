@@ -39,6 +39,7 @@ public class Clientes extends javax.swing.JPanel {
     public Clientes() {
         
         initComponents();
+        //Hacer busqueda de todos los clientes y enviar en listar clientes el array con la busqueda
         listarClientes();
         
     }
@@ -351,7 +352,7 @@ public class Clientes extends javax.swing.JPanel {
         
     }
     
-    public void listarClientes(){
+    public void listarClientes(){ //modificar el metodo para que reciba el array de clientes
         if(panelMain != null){
             panelMain.removeAll();
             panelMain.revalidate();
@@ -369,7 +370,7 @@ public class Clientes extends javax.swing.JPanel {
         
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        List<Cliente> clientes = sesion.createCriteria(Cliente.class).list();
+        List<Cliente> clientes = sesion.createCriteria(Cliente.class).list();//quitar esta linea
         int numeroClientes = clientes.size();
         int numeroIteracionesX = (numeroClientes/3)+1;
         int numeroIteracionesTotales = 0;
