@@ -14,6 +14,9 @@ public class FrameInicio extends jFramePadre{
     
     public PanelAsButton botonActivado;
     private JPanel panelClientes;
+    private JPanel panelInicio;
+    private JPanel panelCoches;
+    private JPanel panelAlquileres;
     
     /**
      * Creates new form FrameInicio
@@ -29,7 +32,12 @@ public class FrameInicio extends jFramePadre{
         panelAsButton3.setjLabel(jLabel3);
         panelAsButton4.setjLabel(jLabel4);
         panelClientes = new Clientes();
-        new CambiarPanel(panelContenedor, panelClientes);
+        panelInicio = new Inicio();
+        panelCoches = new Coches();
+        panelAlquileres = new Alquileres();
+        botonActivado = panelAsButton1;
+        panelAsButton1.setBackground(new Color(100,100,100));
+        new CambiarPanel(panelContenedor, panelInicio);
         NewHibernateUtil.getSessionFactory();
     }
 
@@ -269,6 +277,15 @@ public class FrameInicio extends jFramePadre{
     @Override
     public void setBotonActivado(PanelAsButton botonActivado) {
         this.botonActivado = botonActivado; //To change body of generated methods, choose Tools | Templates.
+        if(botonActivado == panelAsButton1){
+            new CambiarPanel(panelContenedor, panelInicio);
+        }else if(botonActivado == panelAsButton2){
+            new CambiarPanel(panelContenedor, panelClientes);
+        }else if(botonActivado == panelAsButton3){
+            new CambiarPanel(panelContenedor, panelAlquileres);
+        }else{
+            new CambiarPanel(panelContenedor, panelCoches);
+        }
     }
 
     @Override
