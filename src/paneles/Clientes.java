@@ -96,6 +96,12 @@ public class Clientes extends javax.swing.JPanel {
 
         lblNombre.setText("Nombre");
 
+        entNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entNombreKeyPressed(evt);
+            }
+        });
+
         lblDni.setText("Dni/Cif");
 
         lblTelefono.setText("Telefono");
@@ -127,6 +133,36 @@ public class Clientes extends javax.swing.JPanel {
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
+            }
+        });
+
+        entDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entDniKeyPressed(evt);
+            }
+        });
+
+        entTelf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entTelfKeyPressed(evt);
+            }
+        });
+
+        entMail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entMailKeyPressed(evt);
+            }
+        });
+
+        entFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entFechaKeyPressed(evt);
+            }
+        });
+
+        entPuntos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entPuntosKeyPressed(evt);
             }
         });
 
@@ -325,6 +361,49 @@ public class Clientes extends javax.swing.JPanel {
             System.out.println(e);
         }
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void entDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entDniKeyPressed
+        String cadena = entDni.getText();
+        int maxLength = (cadena.length() < 8)?cadena.length():8;
+        cadena = cadena.substring(0, maxLength);
+        entDni.setText(cadena);
+        
+    }//GEN-LAST:event_entDniKeyPressed
+
+    private void entNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entNombreKeyPressed
+        String cadena = entNombre.getText();
+        int maxLength = (cadena.length() < 29)?cadena.length():29;
+        cadena = cadena.substring(0, maxLength);
+        entNombre.setText(cadena);
+    }//GEN-LAST:event_entNombreKeyPressed
+
+    private void entTelfKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entTelfKeyPressed
+        String cadena = entTelf.getText();
+        int maxLength = (cadena.length() < 8)?cadena.length():8;
+        cadena = cadena.substring(0, maxLength);
+        entTelf.setText(cadena);
+    }//GEN-LAST:event_entTelfKeyPressed
+
+    private void entMailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entMailKeyPressed
+        String cadena = entMail.getText();
+        int maxLength = (cadena.length() < 29)?cadena.length():29;
+        cadena = cadena.substring(0, maxLength);
+        entMail.setText(cadena);
+    }//GEN-LAST:event_entMailKeyPressed
+
+    private void entFechaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entFechaKeyPressed
+        String cadena = entFecha.getText();
+        int maxLength = (cadena.length() < 9)?cadena.length():9;
+        cadena = cadena.substring(0, maxLength);
+        entFecha.setText(cadena);
+    }//GEN-LAST:event_entFechaKeyPressed
+
+    private void entPuntosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entPuntosKeyPressed
+        String cadena = entPuntos.getText();
+        int maxLength = (cadena.length() < 1)?cadena.length():1;
+        cadena = cadena.substring(0, maxLength);
+        entPuntos.setText(cadena);
+    }//GEN-LAST:event_entPuntosKeyPressed
 
     public void mostrarDatosClienteSeleccionado(){
         

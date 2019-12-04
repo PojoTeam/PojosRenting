@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import pojos.Cliente;
+import pojos.Coche;
 import pojos.Empresa;
 import pojos.Particular;
 
@@ -67,6 +68,7 @@ public class Buscar {
         sesion.close();
         return clientes;
     }
+
     public static List<Cliente> empresas(String nombre, String cif, String telefono, String email) {
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
@@ -100,5 +102,43 @@ public class Buscar {
         sesion.close();
         return clientes;
     }
-    
+
+    public static List<Coche> coches(String matricula, String modelo, String estado, String marca, String fechaPM) {
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        List<Coche> coches;
+        if (matricula.equalsIgnoreCase("") && modelo.equalsIgnoreCase("") && estado.equalsIgnoreCase("") && marca.equalsIgnoreCase("") && fechaPM.equalsIgnoreCase("")) {
+            //todos los campos estan vacios, por lo que no hay nada a buscar.
+            sesion.close();
+            return null;
+        } else {
+            Criteria filtros = sesion.createCriteria(Coche.class);
+            if (!matricula.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("matricula", matricula);
+                filtros.add(nameCriteria);
+            }
+            if (!modelo.equalsIgnoreCase(modelo)) {
+                Criterion nameCriteria = Restrictions.eq("modelo", modelo);
+                filtros.add(nameCriteria);
+            }
+            if (!estado.equalsIgnoreCase(estado)) {
+                Criterion nameCriteria = Restrictions.eq("estado", estado);
+                filtros.add(nameCriteria);
+            }
+            if (!marca.equalsIgnoreCase(marca)) {
+                Criterion nameCriteria = Restrictions.eq("marca", marca);
+                filtros.add(nameCriteria);
+            }
+            if (!fechaPM.equalsIgnoreCase(fechaPM)) {
+                Criterion nameCriteria = Restrictions.eq("fechaPM", fechaPM);
+                filtros.add(nameCriteria);
+            }
+            coches = filtros.list();
+        }
+        sesion.getTransaction()
+                .commit();
+        sesion.close();
+        return coches;
+    }
+
 }

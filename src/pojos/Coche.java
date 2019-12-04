@@ -1,5 +1,6 @@
 package pojos;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,20 +12,20 @@ public class Coche {
     
     private String matricula, modelo, marca, estado;
     private int anhos;
-    private float precioDia;
     private Set<Reserva> reservas;
     private Sede sede;
     private Alquiler alquiler;
+    private Date fechaM;
 
     public Coche() {
     }
 
-    public Coche(String matricula, String modelo, String marca, String estado, int anhos, float precioDia) {
+    public Coche(String matricula, String modelo, String marca, String estado, int anhos, Date fechaM) {
         this.modelo = modelo;
         this.marca = marca;
         this.marca = estado;
         this.anhos = anhos;
-        this.precioDia = precioDia;
+        this.fechaM = fechaM;
         this.reservas = new HashSet<>();
     }
 
@@ -68,12 +69,12 @@ public class Coche {
         this.anhos = anhos;
     }
 
-    public float getPrecioDia() {
-        return precioDia;
+    public Date getFechaM() {
+        return fechaM;
     }
 
-    public void setPrecioDia(float precioDia) {
-        this.precioDia = precioDia;
+    public void setFechaM(Date fechaM) {
+        this.fechaM = fechaM;
     }
 
     public Set<Reserva> getReservas() {

@@ -7,6 +7,7 @@
         <property column="ANHOS" name="anhos"/>
         <property column="MODELO" name="modelo"/>
         <property column="MARCA" name="marca"/>
+        <property column="FECHA_M" name="fechaM"/>
         
         <!-- RELACION CON TABLA RESERVA-->
         <set inverse="true" name="reservas" table="RESERVAS">
