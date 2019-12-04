@@ -297,8 +297,8 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblNomCli" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                              <Component id="lblDniCli" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="lblModelo" min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="lblNomCli" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -322,7 +322,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblDniCli" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblDni" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -341,9 +341,9 @@
             <Property name="text" type="java.lang.String" value="Matricula"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDniCli">
+        <Component class="javax.swing.JLabel" name="lblModelo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DNI/CIF"/>
+            <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblImg">
@@ -369,12 +369,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblMatricula">
           <Properties>
-            <Property name="text" type="java.lang.String" value="lblNombre"/>
+            <Property name="text" type="java.lang.String" value="lblMatricula"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDni">
           <Properties>
-            <Property name="text" type="java.lang.String" value="lblDni"/>
+            <Property name="text" type="java.lang.String" value="lblModelo"/>
           </Properties>
         </Component>
       </SubComponents>

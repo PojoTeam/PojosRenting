@@ -24,10 +24,10 @@ public class boxCoches extends javax.swing.JPanel {
     
     private Coches panelPadre;
     
-    public boxCoches(String nombre, String dni) {
+    public boxCoches(String matricula, String modelo) {
         initComponents();
-        lblMatricula.setText(nombre);
-        lblDni.setText(dni);
+        lblMatricula.setText(matricula);
+        lblDni.setText(modelo);
     }
 
     /**
@@ -59,7 +59,7 @@ public class boxCoches extends javax.swing.JPanel {
         lblDigEmail = new javax.swing.JLabel();
         boxCliente = new javax.swing.JPanel();
         lblNomCli = new javax.swing.JLabel();
-        lblDniCli = new javax.swing.JLabel();
+        lblModelo = new javax.swing.JLabel();
         lblImg = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -210,7 +210,7 @@ public class boxCoches extends javax.swing.JPanel {
 
         lblNomCli.setText("Matricula");
 
-        lblDniCli.setText("DNI/CIF");
+        lblModelo.setText("Modelo");
 
         lblImg.setText("       IMAGEN");
 
@@ -228,9 +228,9 @@ public class boxCoches extends javax.swing.JPanel {
             }
         });
 
-        lblMatricula.setText("lblNombre");
+        lblMatricula.setText("lblMatricula");
 
-        lblDni.setText("lblDni");
+        lblDni.setText("lblModelo");
 
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
@@ -249,8 +249,8 @@ public class boxCoches extends javax.swing.JPanel {
                         .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
                     .addGroup(boxClienteLayout.createSequentialGroup()
                         .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNomCli, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblNomCli))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -267,7 +267,7 @@ public class boxCoches extends javax.swing.JPanel {
                     .addComponent(lblMatricula))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDniCli)
+                    .addComponent(lblModelo)
                     .addComponent(lblDni))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,11 +327,11 @@ public class boxCoches extends javax.swing.JPanel {
         dialogoEliminar.setVisible(false);
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
-    public Clientes getPanelPadre() {
+    public Coches getPanelPadre() {
         return panelPadre;
     }
 
-    public void setPanelPadre(Clientes panelPadre) {
+    public void setPanelPadre(Coches panelPadre) {
         this.panelPadre = panelPadre;
     }
     
@@ -358,9 +358,9 @@ public class boxCoches extends javax.swing.JPanel {
     private javax.swing.JLabel lblDigPuntos;
     private javax.swing.JLabel lblDigTelf;
     private javax.swing.JLabel lblDni;
-    private javax.swing.JLabel lblDniCli;
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblMatricula;
+    private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblNomCli;
     // End of variables declaration//GEN-END:variables
 }
