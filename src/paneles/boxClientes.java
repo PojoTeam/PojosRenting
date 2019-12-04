@@ -201,8 +201,7 @@ public class boxClientes extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDigAceptar)
-                    .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnDigCancelar)))
+                    .addComponent(btnDigCancelar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -248,7 +247,7 @@ public class boxClientes extends javax.swing.JPanel {
                     .addGroup(boxClienteLayout.createSequentialGroup()
                         .addComponent(btnSeleccionar)
                         .addGap(10, 10, 10)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
                     .addGroup(boxClienteLayout.createSequentialGroup()
                         .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNomCli, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
