@@ -9,6 +9,7 @@ import hibernate.NewHibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import pojos.Cliente;
+import pojos.Particular;
 
 
 /**
@@ -22,6 +23,7 @@ public class boxClientes extends javax.swing.JPanel {
      */
     
     private Clientes panelPadre;
+    private Cliente clienteEliminar;
     
     public boxClientes(String nombre, String dni) {
         initComponents();
@@ -309,14 +311,24 @@ public class boxClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        clienteEliminar = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblNombre.getText())).uniqueResult();
+        Particular particular = (Particular)clienteEliminar;
+        this.lblDigNombre.setText(clienteEliminar.getNombre());
+        this.lblDigDni.setText(particular.getDni());
+        this.lblDigEmail.setText(clienteEliminar.getEmail());
+        this.lblDigEdad.setText(String.valueOf(particular.getEdad()));
+        this.lblDigPuntos.setText(String.valueOf(particular.getPuntos()));
+        this.lblDigTelf.setText(clienteEliminar.getTelefono());
+        sesion.close();
         dialogoEliminar.setVisible(true);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnDigAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigAceptarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        Cliente cliente = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblNombre.getText())).uniqueResult();
-        sesion.delete(cliente);
+        sesion.delete(clienteEliminar);
         sesion.getTransaction().commit();
         sesion.close();
         panelPadre.listarClientes();

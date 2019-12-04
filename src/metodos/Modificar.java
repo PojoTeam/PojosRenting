@@ -3,6 +3,7 @@ package metodos;
 import hibernate.NewHibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import pojos.Coche;
 import pojos.Empresa;
 import pojos.Particular;
 
@@ -37,7 +38,21 @@ public class Modificar {
             sesion.getTransaction().commit();
             sesion.close();
         }catch(HibernateException e) {
+            System.out.println(e);
+        }
+    }
+    
+    public static void coches(Coche coche) {
+        try{
+            NewHibernateUtil.getSession();
+            Session sesion = NewHibernateUtil.getSession();
             
+            sesion.beginTransaction();
+            sesion.saveOrUpdate(coche);
+            sesion.getTransaction().commit();
+            sesion.close();
+        }catch(HibernateException e) {
+            System.out.println(e);
         }
     }
 }
