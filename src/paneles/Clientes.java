@@ -69,6 +69,8 @@ public class Clientes extends javax.swing.JPanel {
         entPuntos = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        lblNombre1 = new javax.swing.JLabel();
+        entNombre1 = new javax.swing.JTextField();
         window = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(1061, 606));
@@ -166,6 +168,14 @@ public class Clientes extends javax.swing.JPanel {
             }
         });
 
+        lblNombre1.setText("Apellidos");
+
+        entNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entNombre1KeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelDatosClientesLayout = new javax.swing.GroupLayout(panelDatosClientes);
         panelDatosClientes.setLayout(panelDatosClientesLayout);
         panelDatosClientesLayout.setHorizontalGroup(
@@ -191,9 +201,12 @@ public class Clientes extends javax.swing.JPanel {
                             .addComponent(entTelf)
                             .addComponent(entMail)
                             .addComponent(entFecha)
-                            .addComponent(entPuntos)))
+                            .addComponent(entPuntos)
+                            .addComponent(entNombre1)))
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addComponent(lblNombre)
+                        .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNombre)
+                            .addComponent(lblNombre1))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelDatosClientesLayout.createSequentialGroup()
@@ -208,16 +221,20 @@ public class Clientes extends javax.swing.JPanel {
         panelDatosClientesLayout.setVerticalGroup(
             panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(17, 17, 17)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbEmpresa)
                     .addComponent(rbParticular))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(entNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNombre1)
+                    .addComponent(entNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -230,11 +247,11 @@ public class Clientes extends javax.swing.JPanel {
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEmail))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblFechaNac))
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPuntos))
@@ -246,9 +263,9 @@ public class Clientes extends javax.swing.JPanel {
                 .addComponent(btnModificar)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton4)
-                .addGap(27, 27, 27))
+                .addContainerGap())
         );
 
         window.setLayout(new java.awt.BorderLayout());
@@ -405,6 +422,10 @@ public class Clientes extends javax.swing.JPanel {
         entPuntos.setText(cadena);
     }//GEN-LAST:event_entPuntosKeyPressed
 
+    private void entNombre1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entNombre1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entNombre1KeyPressed
+
     public void mostrarDatosClienteSeleccionado(){
         
         this.entNombre.setText(clienteEnSeleccion.getNombre());
@@ -531,6 +552,7 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JTextField entFecha;
     private javax.swing.JTextField entMail;
     private javax.swing.JTextField entNombre;
+    private javax.swing.JTextField entNombre1;
     private javax.swing.JTextField entPuntos;
     private javax.swing.JTextField entTelf;
     private javax.swing.JButton jButton2;
@@ -541,6 +563,7 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFechaNac;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombre1;
     private javax.swing.JLabel lblPuntos;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JPanel panelDatosClientes;

@@ -19,7 +19,6 @@ import javax.swing.JScrollPane;
 import metodos.Altas;
 import org.hibernate.Session;
 import pojos.Coche;
-import pojos.Particular;
 /**
  *
  * @author a18carlosva
