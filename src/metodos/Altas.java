@@ -26,7 +26,7 @@ public class Altas {
             sesion.getTransaction().commit();
             sesion.close();
         }catch(HibernateException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
             
     }

@@ -70,7 +70,7 @@ public class Clientes extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         lblNombre1 = new javax.swing.JLabel();
-        entNombre1 = new javax.swing.JTextField();
+        entApellidos = new javax.swing.JTextField();
         window = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(1061, 606));
@@ -170,9 +170,9 @@ public class Clientes extends javax.swing.JPanel {
 
         lblNombre1.setText("Apellidos");
 
-        entNombre1.addKeyListener(new java.awt.event.KeyAdapter() {
+        entApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                entNombre1KeyPressed(evt);
+                entApellidosKeyPressed(evt);
             }
         });
 
@@ -202,7 +202,7 @@ public class Clientes extends javax.swing.JPanel {
                             .addComponent(entMail)
                             .addComponent(entFecha)
                             .addComponent(entPuntos)
-                            .addComponent(entNombre1)))
+                            .addComponent(entApellidos)))
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNombre)
@@ -234,7 +234,7 @@ public class Clientes extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre1)
-                    .addComponent(entNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(entApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,7 +333,7 @@ public class Clientes extends javax.swing.JPanel {
                 
             }
         }catch(ParseException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
         listarClientes();
     }//GEN-LAST:event_btnAltaActionPerformed
@@ -422,13 +422,13 @@ public class Clientes extends javax.swing.JPanel {
         entPuntos.setText(cadena);
     }//GEN-LAST:event_entPuntosKeyPressed
 
-    private void entNombre1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entNombre1KeyPressed
+    private void entApellidosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entApellidosKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_entNombre1KeyPressed
+    }//GEN-LAST:event_entApellidosKeyPressed
 
     public void mostrarDatosClienteSeleccionado(){
         
-        this.entNombre.setText(clienteEnSeleccion.getNombre());
+        this.entNombre.setText(((Particular)clienteEnSeleccion).getNombre());
         this.entMail.setText(clienteEnSeleccion.getEmail());
         this.entTelf.setText(clienteEnSeleccion.getTelefono());
         if(clienteEnSeleccion instanceof Particular){
@@ -513,6 +513,7 @@ public class Clientes extends javax.swing.JPanel {
     public void vaciarCampos() {
         entDni.setText("");
         entNombre.setText("");
+        entApellidos.setText("");
         entPuntos.setText("");
         entMail.setText("");
         entTelf.setText("");
@@ -548,11 +549,11 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JButton btnAlta;
     private javax.swing.JButton btnModificar;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField entApellidos;
     private javax.swing.JTextField entDni;
     private javax.swing.JTextField entFecha;
     private javax.swing.JTextField entMail;
     private javax.swing.JTextField entNombre;
-    private javax.swing.JTextField entNombre1;
     private javax.swing.JTextField entPuntos;
     private javax.swing.JTextField entTelf;
     private javax.swing.JButton jButton2;

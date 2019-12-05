@@ -21,6 +21,8 @@ public class Particular extends Cliente implements Serializable {
     
     public Particular(String nombre, String apellidos, String dni, Date fechaNacimiento, int puntos, int edad, String email, String telefono) {
         super( email, telefono);
+        this.nombre = nombre;
+        this.apellidos = apellidos;
         this.dni = dni;
         this.fechaNacimiento = fechaNacimiento;
         this.edad = edad;

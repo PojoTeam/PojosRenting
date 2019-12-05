@@ -305,16 +305,19 @@ public class boxClientes extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        clienteEliminar = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblNombre.getText())).uniqueResult();
-        Particular particular = (Particular)clienteEliminar;
-        this.lblDigNombre.setText(particular.getNombre());
-        this.lblDigDni.setText(particular.getDni());
-        this.lblDigEmail.setText(clienteEliminar.getEmail());
-        this.lblDigEdad.setText(String.valueOf(particular.getEdad()));
-        this.lblDigPuntos.setText(String.valueOf(particular.getPuntos()));
-        this.lblDigTelf.setText(clienteEliminar.getTelefono());
-        sesion.close();
-        dialogoEliminar.setVisible(true);
+        if(clienteEliminar instanceof Particular){
+            clienteEliminar = (Particular) sesion.createCriteria(Cliente.class).add(Restrictions.eq("dni", this.lblDni.getText())).uniqueResult();
+            Particular particular = (Particular)clienteEliminar;
+            this.lblDigNombre.setText(particular.getNombre());
+            this.lblDigDni.setText(particular.getDni());
+            this.lblDigEmail.setText(clienteEliminar.getEmail());
+            this.lblDigEdad.setText(String.valueOf(particular.getEdad()));
+            this.lblDigPuntos.setText(String.valueOf(particular.getPuntos()));
+            this.lblDigTelf.setText(clienteEliminar.getTelefono());
+            sesion.close();
+            dialogoEliminar.setVisible(true);
+        }else{
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnDigAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigAceptarActionPerformed

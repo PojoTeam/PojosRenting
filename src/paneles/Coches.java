@@ -17,6 +17,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import metodos.Altas;
+import metodos.Modificar;
 import org.hibernate.Session;
 import pojos.Coche;
 /**
@@ -85,6 +86,11 @@ public class Coches extends javax.swing.JPanel {
         jButton2.setText("BAJA");
 
         btnModificar.setText("MODIFICAR");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("BUSCAR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -193,12 +199,32 @@ public class Coches extends javax.swing.JPanel {
             int d1 = Integer.parseInt(formatter.format(fechaPM));
             int d2 = Integer.parseInt(formatter.format(fechaHoy));
             int años = (d2-d1)/10000;
-            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), this.entEstado.getText(), años, sdf.parse(entFechaPMatricula.getText()), Float.parseFloat(entPrecioDia.getText()));
+            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), años, fechaPM, Float.parseFloat(entPrecioDia.getText()));
             Altas.coches(coche);
+            vaciarCampos();
         }catch(ParseException pe){
             System.out.println(pe);
+            vaciarCampos();
         }
     }//GEN-LAST:event_btnAltaActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            Date fechaPM = sdf.parse(entFechaPMatricula.getText());
+            DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+            Date fechaHoy = new Date();
+            int d1 = Integer.parseInt(formatter.format(fechaPM));
+            int d2 = Integer.parseInt(formatter.format(fechaHoy));
+            int años = (d2-d1)/10000; 
+            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), años, fechaPM, Float.parseFloat(entPrecioDia.getText()));
+            Modificar.coches(coche);
+            vaciarCampos();
+        }catch(ParseException pe){
+            System.out.println(pe);
+            vaciarCampos();
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     public void mostrarDatosCocheSeleccionado(){  
         this.entMatricula.setText(cocheEnSeleccion.getMatricula());
@@ -262,6 +288,15 @@ public class Coches extends javax.swing.JPanel {
         scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
         panelMain.add(scrollPanel, BorderLayout.CENTER);
     
+    }
+    
+    public void vaciarCampos() {
+        entEstado.setText("");
+        entFechaPMatricula.setText("");
+        entMarca.setText("");
+        entMatricula.setText("");
+        entModelo.setText("");
+        entPrecioDia.setText("");
     }
 
     public Coche getCocheEnSeleccion() {
