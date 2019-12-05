@@ -16,6 +16,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import metodos.Altas;
+import metodos.Buscar;
 import org.hibernate.Session;
 import pojos.Cliente;
 import pojos.Empresa;
@@ -48,6 +49,28 @@ public class Clientes extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        dialogoBuscar = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        lblModNombre = new javax.swing.JLabel();
+        lblModApel = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        btnBuscarAceptar = new javax.swing.JButton();
+        btnBuscarCancelar1 = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        lblModDni = new javax.swing.JLabel();
+        lblModEmail = new javax.swing.JLabel();
+        entBuscarNombre = new javax.swing.JTextField();
+        entBuscarDni = new javax.swing.JTextField();
+        entBuscarApel = new javax.swing.JTextField();
+        entBuscarEmail = new javax.swing.JTextField();
+        entBuscarTelf = new javax.swing.JTextField();
+        entBuscarFechNac = new javax.swing.JTextField();
+        lblModTelefono = new javax.swing.JLabel();
+        lblModFechaNac = new javax.swing.JLabel();
+        entBuscarPuntos = new javax.swing.JTextField();
+        lblModPuntos = new javax.swing.JLabel();
+        entBuscarEdad = new javax.swing.JTextField();
+        lblModPuntos1 = new javax.swing.JLabel();
         panelDatosClientes = new javax.swing.JPanel();
         rbParticular = new javax.swing.JRadioButton();
         rbEmpresa = new javax.swing.JRadioButton();
@@ -59,7 +82,6 @@ public class Clientes extends javax.swing.JPanel {
         lblFechaNac = new javax.swing.JLabel();
         lblPuntos = new javax.swing.JLabel();
         btnAlta = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         entDni = new javax.swing.JTextField();
         entTelf = new javax.swing.JTextField();
@@ -70,7 +92,145 @@ public class Clientes extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         lblApellidos = new javax.swing.JLabel();
         entApellidos = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
         window = new javax.swing.JPanel();
+
+        dialogoBuscar.setTitle("ALERTA");
+        dialogoBuscar.setMinimumSize(new java.awt.Dimension(416, 299));
+        dialogoBuscar.setModal(true);
+        dialogoBuscar.setResizable(false);
+        dialogoBuscar.setSize(new java.awt.Dimension(472, 385));
+
+        jLabel6.setText("BUSQUEDA CLIENTES");
+
+        lblModNombre.setText("Nombre");
+
+        lblModApel.setText("Apellidos");
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searcher.png"))); // NOI18N
+
+        btnBuscarAceptar.setText("Aceptar");
+        btnBuscarAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAceptarActionPerformed(evt);
+            }
+        });
+
+        btnBuscarCancelar1.setText("Cancelar");
+        btnBuscarCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCancelar1ActionPerformed(evt);
+            }
+        });
+
+        lblModDni.setText("Dni/Cif");
+
+        lblModEmail.setText("Email");
+
+        lblModTelefono.setText("Telefono");
+
+        lblModFechaNac.setText("Fecha Nac");
+
+        lblModPuntos.setText("Puntos");
+
+        lblModPuntos1.setText("Edad");
+
+        javax.swing.GroupLayout dialogoBuscarLayout = new javax.swing.GroupLayout(dialogoBuscar.getContentPane());
+        dialogoBuscar.getContentPane().setLayout(dialogoBuscarLayout);
+        dialogoBuscarLayout.setHorizontalGroup(
+            dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6))
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBuscarAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(entBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(entBuscarPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addComponent(lblModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entBuscarApel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addComponent(lblModTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entBuscarTelf, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblModEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblModFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblModDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lblModPuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(entBuscarEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(entBuscarDni, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(entBuscarFechNac, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(entBuscarEdad)))
+                            .addComponent(btnBuscarCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        dialogoBuscarLayout.setVerticalGroup(
+            dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModDni, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarTelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarApel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarFechNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModPuntos1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscarAceptar)
+                    .addComponent(btnBuscarCancelar1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setMaximumSize(new java.awt.Dimension(1061, 606));
         setMinimumSize(new java.awt.Dimension(1061, 606));
@@ -118,13 +278,6 @@ public class Clientes extends javax.swing.JPanel {
         btnAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAltaActionPerformed(evt);
-            }
-        });
-
-        btnModificar.setText("MODIFICAR");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
             }
         });
 
@@ -181,7 +334,6 @@ public class Clientes extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,11 +351,8 @@ public class Clientes extends javax.swing.JPanel {
                             .addComponent(entFecha)
                             .addComponent(entPuntos)
                             .addComponent(entApellidos)))
-                    .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre)
-                            .addComponent(lblApellidos))
-                        .addGap(0, 0, 0)))
+                    .addComponent(lblNombre)
+                    .addComponent(lblApellidos))
                 .addContainerGap())
             .addGroup(panelDatosClientesLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
@@ -213,6 +362,7 @@ public class Clientes extends javax.swing.JPanel {
                 .addContainerGap(35, Short.MAX_VALUE))
             .addComponent(jSeparator1)
             .addComponent(jSeparator2)
+            .addComponent(jSeparator3)
         );
         panelDatosClientesLayout.setVerticalGroup(
             panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,12 +403,12 @@ public class Clientes extends javax.swing.JPanel {
                     .addComponent(lblPuntos))
                 .addGap(18, 18, 18)
                 .addComponent(btnAlta)
-                .addGap(21, 21, 21)
-                .addComponent(btnModificar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -271,7 +421,7 @@ public class Clientes extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(panelDatosClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(window, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(window, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +434,7 @@ public class Clientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        this.dialogoBuscar.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void rbEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEmpresaActionPerformed
@@ -336,47 +486,6 @@ public class Clientes extends javax.swing.JPanel {
         listarClientes();
     }//GEN-LAST:event_btnAltaActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
-        try{
-            if(clienteEnSeleccion != null){
-                if(clienteEnSeleccion instanceof Particular){
-                    
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                    Date fechaNac = sdf.parse(entFecha.getText());
-                    DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-                    int puntos = Integer.parseInt(entPuntos.getText());
-                    Date fechaHoy = new Date();
-                    int d1 = Integer.parseInt(formatter.format(fechaNac));
-                    int d2 = Integer.parseInt(formatter.format(fechaHoy));
-                    int edad = (d2-d1)/10000;
-                    Particular particular = (Particular)clienteEnSeleccion;
-                    particular.setDni(entDni.getText());
-                    particular.setFechaNacimiento(fechaNac);
-                    particular.setEdad(edad);
-                    particular.setNombre(entNombre.getText());
-                    particular.setEmail(entMail.getText());
-                    particular.setTelefono(entTelf.getText());
-                    Altas.particulares(particular);
-                    vaciarCampos();
-                    
-                }else {
-                    
-                    Empresa empresa = (Empresa)clienteEnSeleccion;
-                    empresa.setCif(entDni.getText());
-                    empresa.setNombre(entNombre.getText());
-                    empresa.setEmail(entMail.getText());
-                    empresa.setTelefono(entTelf.getText());
-                    Altas.empresas(empresa);
-                    vaciarCampos();
-                
-                }
-            }
-        }catch(ParseException e){
-            System.out.println(e);
-        }
-    }//GEN-LAST:event_btnModificarActionPerformed
-
     private void entDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entDniKeyPressed
         String cadena = entDni.getText();
         int maxLength = (cadena.length() < 8)?cadena.length():8;
@@ -423,6 +532,21 @@ public class Clientes extends javax.swing.JPanel {
     private void entApellidosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entApellidosKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_entApellidosKeyPressed
+
+    private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
+        List<Cliente> clientes;
+        if((this.entBuscarApel.getText().equals("")) && (this.entBuscarEdad.getText().equals("")) && (this.entBuscarFechNac.getText().equals("")) && (this.entBuscarPuntos.getText().equals(""))){
+            clientes = Buscar.empresas(this.entBuscarNombre.getText(), this.entBuscarDni.getText(), this.entBuscarTelf.getText(), this.entBuscarEmail.getText());
+        }else{
+            clientes = Buscar.particulares(this.entBuscarNombre.getText(), this.entBuscarDni.getText(), this.entBuscarTelf.getText(), this.entBuscarEmail.getText(), this.entBuscarPuntos.getText(), this.entBuscarFechNac.getText(), this.entBuscarEdad.getText());
+        }
+        listarClientes(clientes);
+        this.dialogoBuscar.setVisible(false);
+    }//GEN-LAST:event_btnBuscarAceptarActionPerformed
+
+    private void btnBuscarCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCancelar1ActionPerformed
+        dialogoBuscar.setVisible(false);
+    }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
 
     public void mostrarDatosClienteSeleccionado(){
         
@@ -510,6 +634,69 @@ public class Clientes extends javax.swing.JPanel {
     
     }
     
+    public void listarClientes(List<Cliente> clientes){ //modificar el metodo para que reciba el array de clientes
+        if(panelMain != null){
+            panelMain.removeAll();
+            panelMain.revalidate();
+            panelMain.repaint();
+            window.remove(panelMain);
+            window.revalidate();
+            window.repaint();
+        }
+        
+        panelMain = new JPanel(new BorderLayout());
+        window.add(panelMain);
+        GridBagLayout innerLayout = new GridBagLayout();
+        GridBagConstraints innerConstraints = new GridBagConstraints();
+        JPanel innerPanel = new JPanel(innerLayout);
+        
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        int numeroClientes = clientes.size();
+        int numeroIteracionesX = (numeroClientes/3)+1;
+        int numeroIteracionesTotales = 0;
+        
+        innerConstraints.weightx = 0.5;
+        innerConstraints.weighty = 0.5;
+        innerConstraints.gridy = 0;
+        
+        for(int i = 0; i < numeroIteracionesX; i++){    
+            for(int j = 0; j < 3; j++){
+                if(numeroIteracionesTotales != numeroClientes){
+                    Cliente cliente = clientes.get(numeroIteracionesTotales);
+                    boxClientes boxCliente;
+                    if(cliente instanceof Particular){
+                        boxCliente = new boxClientes(((Particular)cliente).getNombre(), ((Particular)cliente).getDni());
+                    }else{
+                        boxCliente = new boxClientes(((Empresa)cliente).getNombre(), ((Empresa)cliente).getCif());
+                    }
+                    boxCliente.setPanelPadre(this);
+                    boxCliente.setClienteRepresentado(cliente);
+                    innerConstraints.gridx = j;
+                    innerConstraints.gridy = i;
+                    innerPanel.add(boxCliente, innerConstraints);
+                    numeroIteracionesTotales++;
+                }else{
+                    break;
+                }
+            }
+        }
+
+        JPanel innerVoidPanel = new JPanel();
+        innerConstraints.weighty = 1.0;
+        innerConstraints.fill = GridBagConstraints.VERTICAL;
+        innerLayout.setConstraints(innerVoidPanel, innerConstraints);
+        innerPanel.add(innerVoidPanel);
+
+        //...
+
+        JScrollPane scrollPanel = new JScrollPane(innerPanel);
+        scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
+        panelMain.add(scrollPanel, BorderLayout.CENTER);
+        sesion.close();
+    
+    }
+    
     public void vaciarCampos() {
         entDni.setText("");
         entNombre.setText("");
@@ -530,9 +717,19 @@ public class Clientes extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
-    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnBuscarAceptar;
+    private javax.swing.JButton btnBuscarCancelar1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JDialog dialogoBuscar;
     private javax.swing.JTextField entApellidos;
+    private javax.swing.JTextField entBuscarApel;
+    private javax.swing.JTextField entBuscarDni;
+    private javax.swing.JTextField entBuscarEdad;
+    private javax.swing.JTextField entBuscarEmail;
+    private javax.swing.JTextField entBuscarFechNac;
+    private javax.swing.JTextField entBuscarNombre;
+    private javax.swing.JTextField entBuscarPuntos;
+    private javax.swing.JTextField entBuscarTelf;
     private javax.swing.JTextField entDni;
     private javax.swing.JTextField entFecha;
     private javax.swing.JTextField entMail;
@@ -540,12 +737,24 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JTextField entPuntos;
     private javax.swing.JTextField entTelf;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFechaNac;
+    private javax.swing.JLabel lblModApel;
+    private javax.swing.JLabel lblModDni;
+    private javax.swing.JLabel lblModEmail;
+    private javax.swing.JLabel lblModFechaNac;
+    private javax.swing.JLabel lblModNombre;
+    private javax.swing.JLabel lblModPuntos;
+    private javax.swing.JLabel lblModPuntos1;
+    private javax.swing.JLabel lblModTelefono;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPuntos;
     private javax.swing.JLabel lblTelefono;

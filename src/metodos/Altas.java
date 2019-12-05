@@ -1,8 +1,6 @@
 package metodos;
 
 import hibernate.NewHibernateUtil;
-import java.io.IOException;
-import java.util.Date;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import pojos.Coche;
@@ -20,7 +18,6 @@ public class Altas {
         try{
             NewHibernateUtil.getSession();
             Session sesion = NewHibernateUtil.getSession();
-
             sesion.beginTransaction();
             sesion.saveOrUpdate(particular);
             sesion.getTransaction().commit();

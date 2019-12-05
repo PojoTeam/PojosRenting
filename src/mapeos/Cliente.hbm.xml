@@ -25,6 +25,7 @@
             <property column="DNI" name="dni"/>
             <property column="EDAD" name="edad"/>
             <property column="PUNTOS" name="puntos"/>
+            <property column="FECHANAC" name="fechaNacimiento"/>
 
             <!-- RELACIÓN CON TABLA ALQUILERES -->
             <one-to-one class="pojos.Alquiler" name="alquiler"/>
