@@ -314,7 +314,7 @@ public class boxClientes extends javax.swing.JPanel {
         sesion.beginTransaction();
         clienteEliminar = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblNombre.getText())).uniqueResult();
         Particular particular = (Particular)clienteEliminar;
-        this.lblDigNombre.setText(clienteEliminar.getNombre());
+        this.lblDigNombre.setText(particular.getNombre());
         this.lblDigDni.setText(particular.getDni());
         this.lblDigEmail.setText(clienteEliminar.getEmail());
         this.lblDigEdad.setText(String.valueOf(particular.getEdad()));

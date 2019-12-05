@@ -460,9 +460,9 @@ public class Clientes extends javax.swing.JPanel {
                     Cliente cliente = clientes.get(numeroIteracionesTotales);
                     boxClientes boxCliente;
                     if(cliente instanceof Particular){
-                        boxCliente = new boxClientes(cliente.getNombre(), ((Particular)cliente).getDni());
+                        boxCliente = new boxClientes(((Particular)cliente).getNombre(), ((Particular)cliente).getDni());
                     }else{
-                        boxCliente = new boxClientes(cliente.getNombre(), ((Empresa)cliente).getCif());
+                        boxCliente = new boxClientes(((Empresa)cliente).getNombre(), ((Empresa)cliente).getCif());
                     }
                     boxCliente.setPanelPadre(this);
                     innerConstraints.gridx = j;
