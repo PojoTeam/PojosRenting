@@ -34,6 +34,7 @@ public class Coches extends javax.swing.JPanel {
      */
     public Coches() {
         initComponents();
+        listarCoches();
     }
 
     /**
@@ -61,6 +62,8 @@ public class Coches extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
         lblNombre1 = new javax.swing.JLabel();
         entModelo = new javax.swing.JTextField();
+        entPrecioDia = new javax.swing.JTextField();
+        lblPrecioDia = new javax.swing.JLabel();
         window = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(1061, 606));
@@ -101,6 +104,8 @@ public class Coches extends javax.swing.JPanel {
 
         lblNombre1.setText("Modelo");
 
+        lblPrecioDia.setText("Precio/Dia");
+
         javax.swing.GroupLayout panelDatosClientesLayout = new javax.swing.GroupLayout(panelDatosClientes);
         panelDatosClientes.setLayout(panelDatosClientesLayout);
         panelDatosClientesLayout.setHorizontalGroup(
@@ -116,14 +121,16 @@ public class Coches extends javax.swing.JPanel {
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTelefono)
                             .addComponent(lblDni)
-                            .addComponent(lblEmail))
+                            .addComponent(lblEmail)
+                            .addComponent(lblPrecioDia))
                         .addGap(19, 19, 19)
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(entMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                            .addComponent(entMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
                             .addComponent(entEstado)
                             .addComponent(entMarca)
                             .addComponent(entFechaPMatricula)
-                            .addComponent(entModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)))
+                            .addComponent(entModelo, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
+                            .addComponent(entPrecioDia)))
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNombre)
@@ -155,17 +162,21 @@ public class Coches extends javax.swing.JPanel {
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entFechaPMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblEmail))
+                .addGap(18, 18, 18)
+                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(entPrecioDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPrecioDia))
                 .addGap(38, 38, 38)
                 .addComponent(btnAlta)
                 .addGap(26, 26, 26)
                 .addComponent(jButton2)
                 .addGap(26, 26, 26)
                 .addComponent(btnModificar)
-                .addGap(33, 33, 33)
+                .addGap(24, 24, 24)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(21, 21, 21)
                 .addComponent(jButton4)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         window.setLayout(new java.awt.BorderLayout());
@@ -198,14 +209,15 @@ public class Coches extends javax.swing.JPanel {
             Date fechaHoy = new Date();
             int d1 = Integer.parseInt(formatter.format(fechaPM));
             int d2 = Integer.parseInt(formatter.format(fechaHoy));
-            int años = (d2-d1)/10000;
-            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), años, fechaPM, Float.parseFloat(entPrecioDia.getText()));
+            int anhos = (d2-d1)/10000;
+            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), anhos, fechaPM, Float.parseFloat(entPrecioDia.getText()));
             Altas.coches(coche);
             vaciarCampos();
         }catch(ParseException pe){
             System.out.println(pe);
             vaciarCampos();
         }
+        listarCoches();
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
@@ -233,7 +245,7 @@ public class Coches extends javax.swing.JPanel {
         this.entEstado.setText(cocheEnSeleccion.getEstado());
     }
     
-    public void listarClientes(){
+    public void listarCoches(){
         if(panelMain != null){
             panelMain.removeAll();
             panelMain.revalidate();
@@ -315,6 +327,7 @@ public class Coches extends javax.swing.JPanel {
     private javax.swing.JTextField entMarca;
     private javax.swing.JTextField entMatricula;
     private javax.swing.JTextField entModelo;
+    private javax.swing.JTextField entPrecioDia;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JSeparator jSeparator2;
@@ -322,6 +335,7 @@ public class Coches extends javax.swing.JPanel {
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombre1;
+    private javax.swing.JLabel lblPrecioDia;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JPanel panelDatosClientes;
     private javax.swing.JPanel window;

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="pojos.Sede" table="SEDES">
         <id column="ID" name="id"/>
         <property column="CIUDAD" name="ciudad"/>
         
-        <!-- RELACION CON TABLA COCHES -->
+        RELACION CON TABLA COCHES
         <set inverse="true" name="coches" table="COCHES">
             <key>
                 <column name="ID" not-null="true"/>
@@ -13,4 +13,4 @@
             <one-to-many class="pojos.Coche"/>
         </set>
     </class>
-</hibernate-mapping>
+</hibernate-mapping>-->

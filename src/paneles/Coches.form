@@ -63,14 +63,16 @@
                               <Component id="lblTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblDni" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPrecioDia" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="entMatricula" alignment="0" pref="143" max="32767" attributes="0"/>
+                              <Component id="entMatricula" alignment="0" pref="136" max="32767" attributes="0"/>
                               <Component id="entEstado" alignment="0" max="32767" attributes="0"/>
                               <Component id="entMarca" alignment="0" max="32767" attributes="0"/>
                               <Component id="entFechaPMatricula" alignment="0" max="32767" attributes="0"/>
-                              <Component id="entModelo" alignment="0" pref="143" max="32767" attributes="0"/>
+                              <Component id="entModelo" alignment="0" pref="136" max="32767" attributes="0"/>
+                              <Component id="entPrecioDia" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -114,17 +116,22 @@
                       <Component id="entFechaPMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="entPrecioDia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPrecioDia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="btnAlta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="btnModificar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="11" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="72" max="32767" attributes="0"/>
+                  <EmptySpace pref="41" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -195,6 +202,13 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="entModelo">
+        </Component>
+        <Component class="javax.swing.JTextField" name="entPrecioDia">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPrecioDia">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Precio/Dia"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

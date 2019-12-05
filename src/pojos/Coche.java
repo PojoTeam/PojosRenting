@@ -13,7 +13,6 @@ public class Coche {
     private String matricula, modelo, marca, estado;
     private int anhos;
     private Set<Reserva> reservas;
-    private Sede sede;
     private Alquiler alquiler;
     private Date fechaM;
     private float precioDia;
@@ -22,9 +21,10 @@ public class Coche {
     }
 
     public Coche(String matricula, String modelo, String marca, String estado, int anhos, Date fechaM, float precioDia) {
+        this.matricula = matricula;
         this.modelo = modelo;
         this.marca = marca;
-        this.marca = estado;
+        this.estado = estado;
         this.anhos = anhos;
         this.fechaM = fechaM;
         this.reservas = new HashSet<>();
@@ -85,14 +85,6 @@ public class Coche {
 
     public void setReservas(Set<Reserva> reservas) {
         this.reservas = reservas;
-    }
-
-    public Sede getSede() {
-        return sede;
-    }
-
-    public void setSede(Sede sede) {
-        this.sede = sede;
     }
 
     public Alquiler getAlquiler() {

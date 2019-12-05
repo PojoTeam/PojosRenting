@@ -6,6 +6,7 @@
         <id column="MATRICULA" name="matricula"/>
         <property column="ANHOS" name="anhos"/>
         <property column="MODELO" name="modelo"/>
+        <property column="ESTADO" name="estado"/>
         <property column="MARCA" name="marca"/>
         <property column="FECHA_M" name="fechaM"/>
         <property column="PRECIO_DIA" name="precioDia"/>
@@ -20,12 +21,13 @@
         
         <!-- RELACION CON TABLA ALQUILER-->
         <one-to-one class="pojos.Alquiler" name="alquiler"/>
-        
-        <!-- RELACION CON TABLA SEDE-->
+       
+        <!-- RELACION CON TABLA SEDE
         <many-to-one class="pojos.Sede" name="sede">
             <column name="ID_SEDE" not-null="true"/>
         </many-to-one>
-              
+        -->     
+         
     </class>
   
 </hibernate-mapping>
