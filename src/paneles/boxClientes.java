@@ -7,6 +7,7 @@ package paneles;
 
 import hibernate.NewHibernateUtil;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import metodos.Altas;
@@ -530,7 +531,9 @@ public class boxClientes extends javax.swing.JPanel {
                 Altas.empresas(empresa);
                 panelPadre.vaciarCampos();
             }
-       
+        }catch(ParseException pe){
+            System.out.println(pe);
+        }
         panelPadre.listarClientes();
     }//GEN-LAST:event_btnDigAceptar1ActionPerformed
 
