@@ -222,16 +222,19 @@ public class Coches extends javax.swing.JPanel {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         try{
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-            Date fechaPM = sdf.parse(entFechaPMatricula.getText());
-            DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-            Date fechaHoy = new Date();
-            int d1 = Integer.parseInt(formatter.format(fechaPM));
-            int d2 = Integer.parseInt(formatter.format(fechaHoy));
-            int años = (d2-d1)/10000; 
-            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), años, fechaPM, Float.parseFloat(entPrecioDia.getText()));
-            Modificar.coches(coche);
-            vaciarCampos();
+            if(cocheEnSeleccion != null){
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                Date fechaPM = sdf.parse(entFechaPMatricula.getText());
+                DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+                Date fechaHoy = new Date();
+                int d1 = Integer.parseInt(formatter.format(fechaPM));
+                int d2 = Integer.parseInt(formatter.format(fechaHoy));
+                int años = (d2-d1)/10000;
+                cocheEnSeleccion.setMatricula(entMatricula.getText());
+                Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), años, fechaPM, Float.parseFloat(entPrecioDia.getText()));
+                Modificar.coches(coche);
+                vaciarCampos();
+            }
         }catch(ParseException pe){
             System.out.println(pe);
             vaciarCampos();

@@ -17,7 +17,6 @@ public class Modificar {
         try{
             NewHibernateUtil.getSession();
             Session sesion = NewHibernateUtil.getSession();
-
             sesion.beginTransaction();
             sesion.saveOrUpdate(particular);
             sesion.getTransaction().commit();
@@ -32,7 +31,6 @@ public class Modificar {
         try{
             NewHibernateUtil.getSession();
             Session sesion = NewHibernateUtil.getSession();
-            
             sesion.beginTransaction();
             sesion.saveOrUpdate(empresa);
             sesion.getTransaction().commit();
@@ -46,7 +44,6 @@ public class Modificar {
         try{
             NewHibernateUtil.getSession();
             Session sesion = NewHibernateUtil.getSession();
-            
             sesion.beginTransaction();
             sesion.saveOrUpdate(coche);
             sesion.getTransaction().commit();

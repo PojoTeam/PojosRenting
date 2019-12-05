@@ -59,7 +59,6 @@ public class Clientes extends javax.swing.JPanel {
         lblFechaNac = new javax.swing.JLabel();
         lblPuntos = new javax.swing.JLabel();
         btnAlta = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         entDni = new javax.swing.JTextField();
@@ -122,8 +121,6 @@ public class Clientes extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("BAJA");
-
         btnModificar.setText("MODIFICAR");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +181,6 @@ public class Clientes extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
@@ -257,9 +253,7 @@ public class Clientes extends javax.swing.JPanel {
                     .addComponent(lblPuntos))
                 .addGap(18, 18, 18)
                 .addComponent(btnAlta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(21, 21, 21)
                 .addComponent(btnModificar)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -519,23 +513,6 @@ public class Clientes extends javax.swing.JPanel {
         entTelf.setText("");
         entFecha.setText("");
     }
-    
-    
-    /**
-     * GridBagConstraints c = new GridBagConstraints();
-     *  //c.fill = GridBagConstraints.HORIZONTAL;
-     *  c.weighty = 0.5;
-     *  c.weightx = 0.5;
-     *  
-     *  for(int i = 0; i < 10; i++){    
-     *      for(int j = 0; j < 3; j++){
-     *          button = new JButton("Button" + i + j);
-               c.gridx = j;
-                c.gridy = i;
-                window.add(button, c);
-            }
-        }
-     */
 
     public Cliente getClienteEnSeleccion() {
         return clienteEnSeleccion;
@@ -556,7 +533,6 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JTextField entNombre;
     private javax.swing.JTextField entPuntos;
     private javax.swing.JTextField entTelf;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
