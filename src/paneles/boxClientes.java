@@ -461,20 +461,29 @@ public class boxClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        Session sesion = NewHibernateUtil.getSession();
-        sesion.beginTransaction();
         if(clienteRepresentado instanceof Particular){
-            clienteRepresentado = (Particular) sesion.createCriteria(Cliente.class).add(Restrictions.eq("dni", this.lblDni.getText())).uniqueResult();
-            Particular particular = (Particular)clienteRepresentado;
-            this.lblDigNombre.setText(particular.getNombre());
-            this.lblDigDni.setText(particular.getDni());
+            jLabel15.setVisible(true);
+            jLabel5.setVisible(true);
+            lblDigEdad.setVisible(true);
+            lblDigPuntos.setVisible(true);
+            this.lblDigNombre.setText(((Particular)clienteRepresentado).getNombre());
+            this.lblDigDni.setText(((Particular)clienteRepresentado).getDni());
             this.lblDigEmail.setText(clienteRepresentado.getEmail());
-            this.lblDigEdad.setText(String.valueOf(particular.getEdad()));
-            this.lblDigPuntos.setText(String.valueOf(particular.getPuntos()));
+            this.lblDigEdad.setText(String.valueOf(((Particular)clienteRepresentado).getEdad()));
+            this.lblDigPuntos.setText(String.valueOf(((Particular)clienteRepresentado).getPuntos()));
             this.lblDigTelf.setText(clienteRepresentado.getTelefono());
-            sesion.close();
             dialogoEliminar.setVisible(true);
         }else{
+            jLabel15.setVisible(false);
+            jLabel5.setVisible(false);
+            lblDigEdad.setVisible(false);
+            lblDigPuntos.setVisible(false);
+            this.lblDigNombre.setText(((Empresa)clienteRepresentado).getNombre());
+            this.lblDigDni.setText(((Empresa)clienteRepresentado).getCif());
+            this.lblDigEmail.setText(clienteRepresentado.getEmail());
+            this.lblDigTelf.setText(clienteRepresentado.getTelefono());
+            dialogoEliminar.setVisible(true);
+            
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -547,6 +556,14 @@ public class boxClientes extends javax.swing.JPanel {
 
     public void setPanelPadre(Clientes panelPadre) {
         this.panelPadre = panelPadre;
+    }
+
+    public Cliente getClienteRepresentado() {
+        return clienteRepresentado;
+    }
+
+    public void setClienteRepresentado(Cliente clienteRepresentado) {
+        this.clienteRepresentado = clienteRepresentado;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

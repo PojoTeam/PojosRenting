@@ -68,7 +68,7 @@ public class Clientes extends javax.swing.JPanel {
         entPuntos = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        lblNombre1 = new javax.swing.JLabel();
+        lblApellidos = new javax.swing.JLabel();
         entApellidos = new javax.swing.JTextField();
         window = new javax.swing.JPanel();
 
@@ -165,7 +165,7 @@ public class Clientes extends javax.swing.JPanel {
             }
         });
 
-        lblNombre1.setText("Apellidos");
+        lblApellidos.setText("Apellidos");
 
         entApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -202,8 +202,8 @@ public class Clientes extends javax.swing.JPanel {
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNombre)
-                            .addComponent(lblNombre1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(lblApellidos))
+                        .addGap(0, 0, 0)))
                 .addContainerGap())
             .addGroup(panelDatosClientesLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
@@ -229,7 +229,7 @@ public class Clientes extends javax.swing.JPanel {
                     .addComponent(entNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre1)
+                    .addComponent(lblApellidos)
                     .addComponent(entApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -293,6 +293,8 @@ public class Clientes extends javax.swing.JPanel {
         entPuntos.setVisible(false);
         lblFechaNac.setVisible(false);
         entFecha.setVisible(false);
+        lblApellidos.setVisible(false);
+        entApellidos.setVisible(false);
 
     }//GEN-LAST:event_rbEmpresaActionPerformed
 
@@ -302,6 +304,8 @@ public class Clientes extends javax.swing.JPanel {
         entPuntos.setVisible(true);
         lblFechaNac.setVisible(true);
         entFecha.setVisible(true);
+        lblApellidos.setVisible(true);
+        entApellidos.setVisible(true);
 
     }//GEN-LAST:event_rbParticularActionPerformed
 
@@ -480,6 +484,7 @@ public class Clientes extends javax.swing.JPanel {
                         boxCliente = new boxClientes(((Empresa)cliente).getNombre(), ((Empresa)cliente).getCif());
                     }
                     boxCliente.setPanelPadre(this);
+                    boxCliente.setClienteRepresentado(cliente);
                     innerConstraints.gridx = j;
                     innerConstraints.gridy = i;
                     innerPanel.add(boxCliente, innerConstraints);
@@ -501,6 +506,7 @@ public class Clientes extends javax.swing.JPanel {
         JScrollPane scrollPanel = new JScrollPane(innerPanel);
         scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
         panelMain.add(scrollPanel, BorderLayout.CENTER);
+        sesion.close();
     
     }
     
@@ -536,11 +542,11 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblApellidos;
     private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFechaNac;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNombre1;
     private javax.swing.JLabel lblPuntos;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JPanel panelDatosClientes;
