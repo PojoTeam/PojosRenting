@@ -59,15 +59,17 @@ public class boxCoches extends javax.swing.JPanel {
         lblDigEmail = new javax.swing.JLabel();
         boxCliente = new javax.swing.JPanel();
         lblNomCli = new javax.swing.JLabel();
-        lblModelo = new javax.swing.JLabel();
+        lblDniCli = new javax.swing.JLabel();
         lblImg = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        lblMatricula = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        btnModCli = new javax.swing.JButton();
         lblDni = new javax.swing.JLabel();
+        lblDni1 = new javax.swing.JLabel();
+        lblDniCli1 = new javax.swing.JLabel();
 
         dialogoEliminar.setTitle("ALERTA");
-        dialogoEliminar.setLocationByPlatform(true);
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setModal(true);
         dialogoEliminar.setResizable(false);
@@ -210,11 +212,11 @@ public class boxCoches extends javax.swing.JPanel {
 
         lblNomCli.setText("Matricula");
 
-        lblModelo.setText("Modelo");
+        lblDniCli.setText("Marca");
 
-        lblImg.setText("       IMAGEN");
+        lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sedan-car-front.png"))); // NOI18N
 
-        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.setText("Datos");
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeleccionarActionPerformed(evt);
@@ -228,89 +230,94 @@ public class boxCoches extends javax.swing.JPanel {
             }
         });
 
-        lblMatricula.setText("lblMatricula");
+        lblNombre.setText("lblNombre");
 
-        lblDni.setText("lblModelo");
+        btnModCli.setText("Modificar");
+        btnModCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModCliActionPerformed(evt);
+            }
+        });
+
+        lblDni.setText("lblMarca");
+
+        lblDni1.setText("lblModelo");
+
+        lblDniCli1.setText("Modelo");
 
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
         boxClienteLayout.setHorizontalGroup(
             boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boxClienteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51))
             .addGroup(boxClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(boxClienteLayout.createSequentialGroup()
-                        .addComponent(btnSeleccionar)
-                        .addGap(10, 10, 10)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
-                    .addGroup(boxClienteLayout.createSequentialGroup()
-                        .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNomCli))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                        .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnModCli, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boxClienteLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(boxClienteLayout.createSequentialGroup()
+                                .addComponent(lblNomCli, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32))
+                            .addGroup(boxClienteLayout.createSequentialGroup()
+                                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(boxClienteLayout.createSequentialGroup()
+                                        .addComponent(lblDniCli1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(boxClienteLayout.createSequentialGroup()
+                                        .addComponent(lblDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(34, 34, 34))))))
+            .addGroup(boxClienteLayout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addComponent(lblImg)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         boxClienteLayout.setVerticalGroup(
             boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(boxClienteLayout.createSequentialGroup()
                 .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomCli)
-                    .addComponent(lblMatricula))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblModelo)
-                    .addComponent(lblDni))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnSeleccionar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNomCli, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDniCli1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnModCli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 216, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(boxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(boxCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 194, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(boxCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(boxCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-        Session sesion = NewHibernateUtil.getSession();
-        sesion.beginTransaction();
-        Coche coche = (Coche) sesion.createCriteria(Coche.class).add(Restrictions.eq("matricula", lblMatricula.getText())).uniqueResult();
-        panelPadre.setCocheEnSeleccion(coche);
-        panelPadre.mostrarDatosCocheSeleccionado();
-        sesion.getTransaction().commit();
-        sesion.close();
-    }//GEN-LAST:event_btnSeleccionarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        dialogoEliminar.setVisible(true);
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnDigAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigAceptarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
@@ -327,6 +334,38 @@ public class boxCoches extends javax.swing.JPanel {
         dialogoEliminar.setVisible(false);
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        Cliente cliente = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblNombre.getText())).uniqueResult();
+        panelPadre.setClienteEnSeleccion(cliente);
+        panelPadre.mostrarDatosClienteSeleccionado();
+        sesion.getTransaction().commit();
+        sesion.close();
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        if(clienteEliminar instanceof Particular){
+            clienteEliminar = (Particular) sesion.createCriteria(Cliente.class).add(Restrictions.eq("dni", this.lblDni.getText())).uniqueResult();
+            Particular particular = (Particular)clienteEliminar;
+            this.lblDigNombre.setText(particular.getNombre());
+            this.lblDigDni.setText(particular.getDni());
+            this.lblDigEmail.setText(clienteEliminar.getEmail());
+            this.lblDigEdad.setText(String.valueOf(particular.getEdad()));
+            this.lblDigPuntos.setText(String.valueOf(particular.getPuntos()));
+            this.lblDigTelf.setText(clienteEliminar.getTelefono());
+            sesion.close();
+            dialogoEliminar.setVisible(true);
+        }else{
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCliActionPerformed
+
+    }//GEN-LAST:event_btnModCliActionPerformed
+
     public Coches getPanelPadre() {
         return panelPadre;
     }
@@ -340,6 +379,7 @@ public class boxCoches extends javax.swing.JPanel {
     private javax.swing.JButton btnDigAceptar;
     private javax.swing.JButton btnDigCancelar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModCli;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JDialog dialogoEliminar;
     private javax.swing.JLabel jLabel1;
@@ -358,9 +398,11 @@ public class boxCoches extends javax.swing.JPanel {
     private javax.swing.JLabel lblDigPuntos;
     private javax.swing.JLabel lblDigTelf;
     private javax.swing.JLabel lblDni;
+    private javax.swing.JLabel lblDni1;
+    private javax.swing.JLabel lblDniCli;
+    private javax.swing.JLabel lblDniCli1;
     private javax.swing.JLabel lblImg;
-    private javax.swing.JLabel lblMatricula;
-    private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblNomCli;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

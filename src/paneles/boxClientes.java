@@ -6,9 +6,14 @@
 package paneles;
 
 import hibernate.NewHibernateUtil;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import metodos.Altas;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import pojos.Cliente;
+import pojos.Empresa;
 import pojos.Particular;
 
 
@@ -23,7 +28,7 @@ public class boxClientes extends javax.swing.JPanel {
      */
     
     private Clientes panelPadre;
-    private Cliente clienteEliminar;
+    private Cliente clienteRepresentado;
     
     public boxClientes(String nombre, String dni) {
         initComponents();
@@ -87,7 +92,6 @@ public class boxClientes extends javax.swing.JPanel {
         lblNombre = new javax.swing.JLabel();
         btnModCli = new javax.swing.JButton();
         lblDni = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         dialogoEliminar.setTitle("ALERTA");
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
@@ -395,8 +399,8 @@ public class boxClientes extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnModCli, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                        .addContainerGap())
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boxClienteLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -433,27 +437,15 @@ public class boxClientes extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jButton1.setText("jButton1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(171, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(55, 55, 55))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(boxCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(boxCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(43, 43, 43))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(boxCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(boxCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -470,15 +462,15 @@ public class boxClientes extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        if(clienteEliminar instanceof Particular){
-            clienteEliminar = (Particular) sesion.createCriteria(Cliente.class).add(Restrictions.eq("dni", this.lblDni.getText())).uniqueResult();
-            Particular particular = (Particular)clienteEliminar;
+        if(clienteRepresentado instanceof Particular){
+            clienteRepresentado = (Particular) sesion.createCriteria(Cliente.class).add(Restrictions.eq("dni", this.lblDni.getText())).uniqueResult();
+            Particular particular = (Particular)clienteRepresentado;
             this.lblDigNombre.setText(particular.getNombre());
             this.lblDigDni.setText(particular.getDni());
-            this.lblDigEmail.setText(clienteEliminar.getEmail());
+            this.lblDigEmail.setText(clienteRepresentado.getEmail());
             this.lblDigEdad.setText(String.valueOf(particular.getEdad()));
             this.lblDigPuntos.setText(String.valueOf(particular.getPuntos()));
-            this.lblDigTelf.setText(clienteEliminar.getTelefono());
+            this.lblDigTelf.setText(clienteRepresentado.getTelefono());
             sesion.close();
             dialogoEliminar.setVisible(true);
         }else{
@@ -488,7 +480,7 @@ public class boxClientes extends javax.swing.JPanel {
     private void btnDigAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigAceptarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        sesion.delete(clienteEliminar);
+        sesion.delete(clienteRepresentado);
         sesion.getTransaction().commit();
         sesion.close();
         panelPadre.listarClientes();
@@ -500,15 +492,50 @@ public class boxClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
     private void btnModCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCliActionPerformed
-        
+        dialogoModificar.setVisible(true);
     }//GEN-LAST:event_btnModCliActionPerformed
 
     private void btnDigAceptar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigAceptar1ActionPerformed
-        // TODO add your handling code here:
+        try{
+            if(clienteRepresentado instanceof Particular){   
+                this.entModApel.setVisible(true);
+                this.entModFechNac.setVisible(true);
+                this.entModPuntos.setVisible(true);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                Date fechaNac = sdf.parse(this.entModFechNac.getText());
+                DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+                int puntos = Integer.parseInt(this.entModPuntos.getText());
+                Date fechaHoy = new Date();
+                int d1 = Integer.parseInt(formatter.format(fechaNac));
+                int d2 = Integer.parseInt(formatter.format(fechaHoy));
+                int edad = (d2-d1)/10000;
+                Particular particular = (Particular)clienteRepresentado;
+                particular.setDni(this.entModDni.getText());
+                particular.setFechaNacimiento(fechaNac);
+                particular.setEdad(edad);
+                particular.setNombre(this.entModNombre.getText());
+                particular.setEmail(this.entModEmail.getText());
+                particular.setTelefono(this.entModTelf.getText());
+                Altas.particulares(particular);
+                panelPadre.vaciarCampos();
+            }else {
+                this.entModApel.setVisible(false);
+                this.entModFechNac.setVisible(false);
+                this.entModPuntos.setVisible(false);
+                Empresa empresa = (Empresa)clienteRepresentado;
+                empresa.setCif(this.entModDni.getText());
+                empresa.setNombre(this.entModNombre.getText());
+                empresa.setEmail(this.entModEmail.getText());
+                empresa.setTelefono(this.entModTelf.getText());
+                Altas.empresas(empresa);
+                panelPadre.vaciarCampos();
+            }
+       
+        panelPadre.listarClientes();
     }//GEN-LAST:event_btnDigAceptar1ActionPerformed
 
     private void btnDigCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigCancelar1ActionPerformed
-        // TODO add your handling code here:
+        dialogoModificar.setVisible(false);
     }//GEN-LAST:event_btnDigCancelar1ActionPerformed
 
     public Clientes getPanelPadre() {
@@ -537,7 +564,6 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JTextField entModNombre;
     private javax.swing.JTextField entModPuntos;
     private javax.swing.JTextField entModTelf;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

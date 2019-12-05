@@ -5,7 +5,6 @@
     <Container class="javax.swing.JDialog" name="dialogoEliminar">
       <Properties>
         <Property name="title" type="java.lang.String" value="ALERTA"/>
-        <Property name="locationByPlatform" type="boolean" value="true"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 289]"/>
         </Property>
@@ -246,26 +245,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="216" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="boxCliente" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
+          <Component id="boxCliente" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="194" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="boxCliente" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-          </Group>
+          <Component id="boxCliente" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -282,32 +267,49 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="lblImg" min="-2" pref="108" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="btnSeleccionar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="btnEliminar" pref="90" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btnSeleccionar" min="-2" pref="75" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnModCli" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnEliminar" min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblModelo" min="-2" pref="72" max="-2" attributes="0"/>
-                              <Component id="lblNomCli" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblDni" max="32767" attributes="0"/>
-                              <Component id="lblMatricula" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblNomCli" min="-2" pref="66" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblNombre" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblDniCli1" min="-2" pref="66" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblDni1" min="-2" pref="125" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lblDniCli" min="-2" pref="66" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblDni" min="-2" pref="125" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                  <Component id="lblImg" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -315,22 +317,28 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="lblImg" min="-2" pref="85" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblNomCli" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblMatricula" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblModelo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDni" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnEliminar" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSeleccionar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblNomCli" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="lblNombre" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblDni" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="lblDniCli" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblDni1" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="lblDniCli1" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnSeleccionar" max="32767" attributes="0"/>
+                      <Component id="btnEliminar" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnModCli" alignment="1" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -341,19 +349,21 @@
             <Property name="text" type="java.lang.String" value="Matricula"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblModelo">
+        <Component class="javax.swing.JLabel" name="lblDniCli">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Modelo"/>
+            <Property name="text" type="java.lang.String" value="Marca"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblImg">
           <Properties>
-            <Property name="text" type="java.lang.String" value="       IMAGEN"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/iconos/sedan-car-front.png"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnSeleccionar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Seleccionar"/>
+            <Property name="text" type="java.lang.String" value="Datos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarActionPerformed"/>
@@ -367,14 +377,32 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblMatricula">
+        <Component class="javax.swing.JLabel" name="lblNombre">
           <Properties>
-            <Property name="text" type="java.lang.String" value="lblMatricula"/>
+            <Property name="text" type="java.lang.String" value="lblNombre"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnModCli">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modificar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModCliActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDni">
           <Properties>
+            <Property name="text" type="java.lang.String" value="lblMarca"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblDni1">
+          <Properties>
             <Property name="text" type="java.lang.String" value="lblModelo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblDniCli1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
         </Component>
       </SubComponents>
