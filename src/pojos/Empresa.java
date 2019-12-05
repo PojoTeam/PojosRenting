@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class Empresa extends Cliente implements Serializable {
 
-    private String cif;
+    private String nombre, cif;
     private int nAlquileres;
     private Set<Alquiler> alquileres;
 
@@ -18,9 +18,18 @@ public class Empresa extends Cliente implements Serializable {
     }
 
     public Empresa(String cif, String nombre, String email, String telefono) {
-        super(nombre, email, telefono);
+        super(email, telefono);
+        this.nombre = nombre;
         this.cif = cif;
         this.alquileres = new HashSet<>();
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getCif() {

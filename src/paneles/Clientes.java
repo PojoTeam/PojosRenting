@@ -305,7 +305,7 @@ public class Clientes extends javax.swing.JPanel {
                 int d1 = Integer.parseInt(formatter.format(fechaNac));
                 int d2 = Integer.parseInt(formatter.format(fechaHoy));
                 int edad = (d2-d1)/10000;
-                Particular particular = new Particular(entDni.getText(), fechaNac, puntos, edad, entNombre.getText(), entMail.getText(), entTelf.getText());
+                Particular particular = new Particular(entNombre.getText(), entApellidos.getText(), entDni.getText(), fechaNac, puntos, edad, entMail.getText(), entTelf.getText());
                 Altas.particulares(particular);
                 vaciarCampos();
                 

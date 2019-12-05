@@ -11,7 +11,7 @@ import java.util.Set;
  */
 public class Particular extends Cliente implements Serializable {
 
-    private String dni;
+    private String nombre, apellidos, dni;
     private int puntos, edad;
     private Date fechaNacimiento;
     private Alquiler alquiler;
@@ -19,12 +19,28 @@ public class Particular extends Cliente implements Serializable {
     public Particular() {
     }
     
-    public Particular(String dni, Date fechaNacimiento, int puntos, int edad, String nombre, String email, String telefono) {
-        super(nombre, email, telefono);
+    public Particular(String nombre, String apellidos, String dni, Date fechaNacimiento, int puntos, int edad, String email, String telefono) {
+        super( email, telefono);
         this.dni = dni;
         this.fechaNacimiento = fechaNacimiento;
         this.edad = edad;
         this.puntos = puntos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public int getEdad() {

@@ -16,17 +16,19 @@ public class Coche {
     private Sede sede;
     private Alquiler alquiler;
     private Date fechaM;
+    private float precioDia;
 
     public Coche() {
     }
 
-    public Coche(String matricula, String modelo, String marca, String estado, int anhos, Date fechaM) {
+    public Coche(String matricula, String modelo, String marca, String estado, int anhos, Date fechaM, float precioDia) {
         this.modelo = modelo;
         this.marca = marca;
         this.marca = estado;
         this.anhos = anhos;
         this.fechaM = fechaM;
         this.reservas = new HashSet<>();
+        this.precioDia = precioDia;
     }
 
     public String getMatricula() {
@@ -100,6 +102,13 @@ public class Coche {
     public void setAlquiler(Alquiler alquiler) {
         this.alquiler = alquiler;
     }
-    
+
+    public float getPrecioDia() {
+        return precioDia;
+    }
+
+    public void setPrecioDia(float precioDia) {
+        this.precioDia = precioDia;
+    }
     
 }

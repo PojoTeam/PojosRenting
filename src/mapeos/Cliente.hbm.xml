@@ -6,7 +6,6 @@
         <id column="ID" name="id">
             <generator class="increment"/>
         </id>
-        <property column="NOMBRE" name="nombre"/>
         <property column="TELEFONO" name="telefono"/>
         <property column="EMAIL" name="email"/>
 
@@ -21,6 +20,8 @@
         <!-- SUBCLASE PARTICULAR -->
         <joined-subclass name="pojos.Particular" table="PARTICULARES">
             <key column="ID"/>
+            <property column="NOMBRE" name="nombre"/>
+            <property column="APELLIDOS" name="apellidos"/>
             <property column="DNI" name="dni"/>
             <property column="EDAD" name="edad"/>
             <property column="PUNTOS" name="puntos"/>
@@ -32,6 +33,7 @@
         <!-- SUBCLASE EMPRESA -->
         <joined-subclass name="pojos.Empresa" table="EMPRESAS">
             <key column="ID"/>
+            <property column="NOMBRE" name="nombre"/>
             <property column="CIF" name="cif"/>
             <property column="N_ALQUILERES" name="nAlquileres"/>
 

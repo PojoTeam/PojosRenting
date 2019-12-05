@@ -194,7 +194,7 @@ public class Coches extends javax.swing.JPanel {
             int d1 = Integer.parseInt(formatter.format(fechaPM));
             int d2 = Integer.parseInt(formatter.format(fechaHoy));
             int años = (d2-d1)/10000;
-            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), this.entEstado.getText(), años, sdf.parse(entFechaPMatricula.getText()));
+            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), this.entEstado.getText(), años, sdf.parse(entFechaPMatricula.getText()), Float.parseFloat(entPrecioDia.getText()));
             Altas.coches(coche);
         }catch(ParseException pe){
             System.out.println(pe);

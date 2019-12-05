@@ -8,6 +8,7 @@
         <property column="MODELO" name="modelo"/>
         <property column="MARCA" name="marca"/>
         <property column="FECHA_M" name="fechaM"/>
+        <property column="PRECIO_DIA" name="precioDia"/>
         
         <!-- RELACION CON TABLA RESERVA-->
         <set inverse="true" name="reservas" table="RESERVAS">

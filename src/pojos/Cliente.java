@@ -11,14 +11,13 @@ import java.util.Set;
 public class Cliente implements Serializable {
 
     private int id;
-    private String nombre, email, telefono;
+    private String  email, telefono;
     private Set<Reserva> reservas;
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String email, String telefono) {
-        this.nombre = nombre;
+    public Cliente(String email, String telefono) {
         this.email = email;
         this.telefono = telefono;
         this.reservas = new HashSet<>();
@@ -30,14 +29,6 @@ public class Cliente implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public String getEmail() {
