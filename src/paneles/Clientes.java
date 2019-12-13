@@ -496,7 +496,7 @@ public class Clientes extends javax.swing.JPanel {
 
     private void entNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entNombreKeyPressed
         String cadena = entNombre.getText();
-        int maxLength = (cadena.length() < 29)?cadena.length():29;
+        int maxLength = (cadena.length() < 14)?cadena.length():14;
         cadena = cadena.substring(0, maxLength);
         entNombre.setText(cadena);
     }//GEN-LAST:event_entNombreKeyPressed
@@ -530,7 +530,10 @@ public class Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_entPuntosKeyPressed
 
     private void entApellidosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entApellidosKeyPressed
-        // TODO add your handling code here:
+        String cadena = entPuntos.getText();
+        int maxLength = (cadena.length() < 24)?cadena.length():24;
+        cadena = cadena.substring(0, maxLength);
+        entPuntos.setText(cadena);
     }//GEN-LAST:event_entApellidosKeyPressed
 
     private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed

@@ -18,8 +18,9 @@ public class Altas {
         try{
             NewHibernateUtil.getSession();
             Session sesion = NewHibernateUtil.getSession();
+            
             sesion.beginTransaction();
-            sesion.saveOrUpdate(particular);
+            sesion.save(particular);
             sesion.getTransaction().commit();
             sesion.close();
         }catch(HibernateException e){
@@ -34,7 +35,7 @@ public class Altas {
             Session sesion = NewHibernateUtil.getSession();
             
             sesion.beginTransaction();
-            sesion.saveOrUpdate(empresa);
+            sesion.save(empresa);
             sesion.getTransaction().commit();
             sesion.close();
         }catch(HibernateException e) {
@@ -48,7 +49,7 @@ public class Altas {
             Session sesion = NewHibernateUtil.getSession();
             
             sesion.beginTransaction();
-            sesion.saveOrUpdate(coche);
+            sesion.save(coche);
             sesion.getTransaction().commit();
             sesion.close();
         }catch(HibernateException e){

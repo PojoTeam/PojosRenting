@@ -6,6 +6,12 @@
 package paneles;
 
 import hibernate.NewHibernateUtil;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import metodos.Altas;
+import metodos.Modificar;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import pojos.Cliente;
@@ -23,11 +29,13 @@ public class boxCoches extends javax.swing.JPanel {
      */
     
     private Coches panelPadre;
+    private Coche cocheRepresentado;
     
-    public boxCoches(String matricula, String modelo) {
+    public boxCoches(String matricula, String marca, String modelo) {
         initComponents();
         lblMatricula.setText(matricula);
-        lblDni.setText(modelo);
+        lblMarca.setText(marca);
+        lblModelo.setText(modelo);
     }
 
     /**
@@ -42,32 +50,69 @@ public class boxCoches extends javax.swing.JPanel {
         dialogoEliminar = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblDigNombre = new javax.swing.JLabel();
+        lblDigMatricula = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        lblDigTelf = new javax.swing.JLabel();
+        lblDigMarca = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         btnDigAceptar = new javax.swing.JButton();
         btnDigCancelar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        lblDigEdad = new javax.swing.JLabel();
+        lblDigModelo = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        lblDigPuntos = new javax.swing.JLabel();
+        lblDigPrecio = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        lblDigDni = new javax.swing.JLabel();
+        lblDigEstado = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        lblDigEmail = new javax.swing.JLabel();
+        lblDigAnos = new javax.swing.JLabel();
+        dialogoModificar = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        lblModMatricula = new javax.swing.JLabel();
+        lblModModelo = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        btnModAceptar = new javax.swing.JButton();
+        btnDigCancelar1 = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        lblModFecha = new javax.swing.JLabel();
+        lblModPrecio = new javax.swing.JLabel();
+        entModMatricula = new javax.swing.JTextField();
+        entModFecha = new javax.swing.JTextField();
+        entModModelo = new javax.swing.JTextField();
+        entModPrecio = new javax.swing.JTextField();
+        entModMarca = new javax.swing.JTextField();
+        entModEstado = new javax.swing.JTextField();
+        lblModMarca = new javax.swing.JLabel();
+        lblModFechaNac = new javax.swing.JLabel();
+        dialogoDatos = new javax.swing.JDialog();
+        jLabel7 = new javax.swing.JLabel();
+        lblMatriculaData = new javax.swing.JLabel();
+        lblDataMatricula = new javax.swing.JLabel();
+        lblEstadoData = new javax.swing.JLabel();
+        lblDataEstado = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        btnDatosAceptar = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        lblModeloData = new javax.swing.JLabel();
+        lblDataModelo = new javax.swing.JLabel();
+        lblPrecioData = new javax.swing.JLabel();
+        lblDataPrecio = new javax.swing.JLabel();
+        lblFechaData = new javax.swing.JLabel();
+        lblDataFecha = new javax.swing.JLabel();
+        lblAnhosData = new javax.swing.JLabel();
+        lblDataAnhos = new javax.swing.JLabel();
+        lblmarcaData = new javax.swing.JLabel();
+        lblDataMarca = new javax.swing.JLabel();
         boxCliente = new javax.swing.JPanel();
-        lblNomCli = new javax.swing.JLabel();
-        lblDniCli = new javax.swing.JLabel();
+        lblMatriculaCoc = new javax.swing.JLabel();
+        lblMarcaCoc = new javax.swing.JLabel();
         lblImg = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        lblNombre = new javax.swing.JLabel();
-        btnModCli = new javax.swing.JButton();
-        lblDni = new javax.swing.JLabel();
-        lblDni1 = new javax.swing.JLabel();
-        lblDniCli1 = new javax.swing.JLabel();
+        lblMatricula = new javax.swing.JLabel();
+        btnModCoc = new javax.swing.JButton();
+        lblMarca = new javax.swing.JLabel();
+        lblModelo = new javax.swing.JLabel();
+        lblModeloCoc = new javax.swing.JLabel();
 
         dialogoEliminar.setTitle("ALERTA");
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
@@ -75,15 +120,15 @@ public class boxCoches extends javax.swing.JPanel {
         dialogoEliminar.setResizable(false);
         dialogoEliminar.setSize(new java.awt.Dimension(416, 289));
 
-        jLabel1.setText("DESEA ELIMINAR AL CLIENTE?");
+        jLabel1.setText("DESEA ELIMINAR EL COCHE?");
 
-        jLabel2.setText("Nombre");
+        jLabel2.setText("Matricula");
 
-        lblDigNombre.setText("jLabel3");
+        lblDigMatricula.setText("jLabel3");
 
-        jLabel4.setText("Telefono");
+        jLabel4.setText("Marca");
 
-        lblDigTelf.setText("jLabel3");
+        lblDigMarca.setText("jLabel3");
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/exclamation-mark.png"))); // NOI18N
 
@@ -101,21 +146,21 @@ public class boxCoches extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setText("Edad");
+        jLabel5.setText("Modelo");
 
-        lblDigEdad.setText("jLabel3");
+        lblDigModelo.setText("jLabel3");
 
-        jLabel15.setText("Puntos");
+        jLabel15.setText("Precio día");
 
-        lblDigPuntos.setText("jLabel3");
+        lblDigPrecio.setText("jLabel3");
 
-        jLabel3.setText("Dni/Cif");
+        jLabel3.setText("Estado");
 
-        lblDigDni.setText("jLabel3");
+        lblDigEstado.setText("jLabel3");
 
-        jLabel16.setText("Email");
+        jLabel16.setText("Años");
 
-        lblDigEmail.setText("jLabel3");
+        lblDigAnos.setText("jLabel3");
 
         javax.swing.GroupLayout dialogoEliminarLayout = new javax.swing.GroupLayout(dialogoEliminar.getContentPane());
         dialogoEliminar.getContentPane().setLayout(dialogoEliminarLayout);
@@ -132,9 +177,9 @@ public class boxCoches extends javax.swing.JPanel {
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDigTelf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDigNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDigEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDigMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDigMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDigModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,9 +187,9 @@ public class boxCoches extends javax.swing.JPanel {
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDigPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDigDni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDigEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDigPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDigEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDigAnos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoEliminarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -178,27 +223,27 @@ public class boxCoches extends javax.swing.JPanel {
                     .addGroup(dialogoEliminarLayout.createSequentialGroup()
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigNombre))
+                            .addComponent(lblDigMatricula))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigTelf))
+                            .addComponent(lblDigMarca))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigEdad)))
+                            .addComponent(lblDigModelo)))
                     .addGroup(dialogoEliminarLayout.createSequentialGroup()
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigDni))
+                            .addComponent(lblDigEstado))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigEmail))
+                            .addComponent(lblDigAnos))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigPuntos))))
+                            .addComponent(lblDigPrecio))))
                 .addGap(18, 18, 18)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDigAceptar)
@@ -206,13 +251,275 @@ public class boxCoches extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        dialogoModificar.setTitle("ALERTA");
+        dialogoModificar.setMinimumSize(new java.awt.Dimension(416, 299));
+        dialogoModificar.setModal(true);
+        dialogoModificar.setResizable(false);
+        dialogoModificar.setSize(new java.awt.Dimension(472, 385));
+
+        jLabel6.setText("MODIFICACIONES");
+
+        lblModMatricula.setText("Matricula");
+
+        lblModModelo.setText("Modelo");
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/resume(1).png"))); // NOI18N
+
+        btnModAceptar.setText("Aceptar");
+        btnModAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModAceptarActionPerformed(evt);
+            }
+        });
+
+        btnDigCancelar1.setText("Cancelar");
+        btnDigCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDigCancelar1ActionPerformed(evt);
+            }
+        });
+
+        lblModFecha.setText("Fecha PM");
+
+        lblModPrecio.setText("Precio día");
+
+        entModMatricula.setEditable(false);
+
+        lblModMarca.setText("Marca");
+
+        lblModFechaNac.setText("Estado");
+
+        javax.swing.GroupLayout dialogoModificarLayout = new javax.swing.GroupLayout(dialogoModificar.getContentPane());
+        dialogoModificar.getContentPane().setLayout(dialogoModificarLayout);
+        dialogoModificarLayout.setHorizontalGroup(
+            dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(dialogoModificarLayout.createSequentialGroup()
+                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoModificarLayout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6))
+                    .addGroup(dialogoModificarLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnModAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(dialogoModificarLayout.createSequentialGroup()
+                                .addComponent(lblModMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entModMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dialogoModificarLayout.createSequentialGroup()
+                                .addComponent(lblModModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entModModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dialogoModificarLayout.createSequentialGroup()
+                                .addComponent(lblModMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entModMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dialogoModificarLayout.createSequentialGroup()
+                                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblModPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblModFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblModFecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(entModPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(entModFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(entModEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnDigCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        dialogoModificarLayout.setVerticalGroup(
+            dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoModificarLayout.createSequentialGroup()
+                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoModificarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoModificarLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entModMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entModFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entModMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entModPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entModModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entModEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModAceptar)
+                    .addComponent(btnDigCancelar1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        dialogoDatos.setTitle("ALERTA");
+        dialogoDatos.setMinimumSize(new java.awt.Dimension(416, 289));
+        dialogoDatos.setModal(true);
+        dialogoDatos.setPreferredSize(new java.awt.Dimension(416, 358));
+        dialogoDatos.setResizable(false);
+        dialogoDatos.setSize(new java.awt.Dimension(416, 339));
+
+        jLabel7.setText("DATOS DEL CLIENTE");
+
+        lblMatriculaData.setText("Matricula");
+
+        lblDataMatricula.setText("jLabel3");
+
+        lblEstadoData.setText("Estado");
+
+        lblDataEstado.setText("jLabel3");
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/contact-form.png"))); // NOI18N
+
+        btnDatosAceptar.setText("Aceptar");
+        btnDatosAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDatosAceptarActionPerformed(evt);
+            }
+        });
+
+        lblModeloData.setText("Modelo");
+
+        lblDataModelo.setText("jLabel3");
+
+        lblPrecioData.setText("Precio día");
+
+        lblDataPrecio.setText("jLabel3");
+
+        lblFechaData.setText("Fecha PM");
+
+        lblDataFecha.setText("jLabel3");
+
+        lblAnhosData.setText("Años");
+
+        lblDataAnhos.setText("jLabel3");
+
+        lblmarcaData.setText("Marca");
+
+        lblDataMarca.setText("jLabel3");
+
+        javax.swing.GroupLayout dialogoDatosLayout = new javax.swing.GroupLayout(dialogoDatos.getContentPane());
+        dialogoDatos.getContentPane().setLayout(dialogoDatosLayout);
+        dialogoDatosLayout.setHorizontalGroup(
+            dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(dialogoDatosLayout.createSequentialGroup()
+                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoDatosLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblMatriculaData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblModeloData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDataMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDataModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                .addComponent(lblmarcaData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDataMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                .addComponent(lblEstadoData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDataEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPrecioData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAnhosData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDataPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataAnhos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(dialogoDatosLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel18)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel7))
+                    .addGroup(dialogoDatosLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(btnDatosAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dialogoDatosLayout.setVerticalGroup(
+            dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoDatosLayout.createSequentialGroup()
+                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoDatosLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)))
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoDatosLayout.createSequentialGroup()
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMatriculaData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataMatricula))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblModeloData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataModelo)))
+                    .addGroup(dialogoDatosLayout.createSequentialGroup()
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataFecha))
+                        .addGap(0, 0, 0)
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblAnhosData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataAnhos)
+                            .addComponent(lblmarcaData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataMarca))
+                        .addGap(0, 0, 0)
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPrecioData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataPrecio))))
+                .addGap(0, 0, 0)
+                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEstadoData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataEstado))
+                .addGap(18, 18, 18)
+                .addComponent(btnDatosAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+
         setBorder(new javax.swing.border.MatteBorder(null));
 
         boxCliente.setBorder(new javax.swing.border.MatteBorder(null));
 
-        lblNomCli.setText("Matricula");
+        lblMatriculaCoc.setText("Matricula");
 
-        lblDniCli.setText("Marca");
+        lblMarcaCoc.setText("Marca");
 
         lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sedan-car-front.png"))); // NOI18N
 
@@ -230,20 +537,20 @@ public class boxCoches extends javax.swing.JPanel {
             }
         });
 
-        lblNombre.setText("lblNombre");
+        lblMatricula.setText("lblNombre");
 
-        btnModCli.setText("Modificar");
-        btnModCli.addActionListener(new java.awt.event.ActionListener() {
+        btnModCoc.setText("Modificar");
+        btnModCoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModCliActionPerformed(evt);
+                btnModCocActionPerformed(evt);
             }
         });
 
-        lblDni.setText("lblMarca");
+        lblMarca.setText("lblMarca");
 
-        lblDni1.setText("lblModelo");
+        lblModelo.setText("lblModelo");
 
-        lblDniCli1.setText("Modelo");
+        lblModeloCoc.setText("Modelo");
 
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
@@ -255,7 +562,7 @@ public class boxCoches extends javax.swing.JPanel {
                     .addGroup(boxClienteLayout.createSequentialGroup()
                         .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnModCli, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnModCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -263,20 +570,20 @@ public class boxCoches extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(boxClienteLayout.createSequentialGroup()
-                                .addComponent(lblNomCli, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblMatriculaCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32))
                             .addGroup(boxClienteLayout.createSequentialGroup()
                                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(boxClienteLayout.createSequentialGroup()
-                                        .addComponent(lblDniCli1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblModeloCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(boxClienteLayout.createSequentialGroup()
-                                        .addComponent(lblDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblMarcaCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(34, 34, 34))))))
             .addGroup(boxClienteLayout.createSequentialGroup()
                 .addGap(98, 98, 98)
@@ -289,21 +596,21 @@ public class boxCoches extends javax.swing.JPanel {
                 .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNomCli, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblMatriculaCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblMarcaCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDni1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDniCli1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblModeloCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModCli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnModCoc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18))
         );
 
@@ -322,11 +629,10 @@ public class boxCoches extends javax.swing.JPanel {
     private void btnDigAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigAceptarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        Cliente cliente = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblMatricula.getText())).uniqueResult();
-        sesion.delete(cliente);
+        sesion.delete(cocheRepresentado);
         sesion.getTransaction().commit();
         sesion.close();
-        panelPadre.listarClientes();
+        panelPadre.listarCoches();
         dialogoEliminar.setVisible(false);
     }//GEN-LAST:event_btnDigAceptarActionPerformed
 
@@ -335,36 +641,74 @@ public class boxCoches extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-        Session sesion = NewHibernateUtil.getSession();
-        sesion.beginTransaction();
-        Cliente cliente = (Cliente) sesion.createCriteria(Cliente.class).add(Restrictions.eq("nombre", lblNombre.getText())).uniqueResult();
-        panelPadre.setClienteEnSeleccion(cliente);
-        panelPadre.mostrarDatosClienteSeleccionado();
-        sesion.getTransaction().commit();
-        sesion.close();
+        this.lblDataMatricula.setText(cocheRepresentado.getMatricula());
+        this.lblDataMarca.setText(cocheRepresentado.getMarca());
+        this.lblDataModelo.setText(cocheRepresentado.getModelo());
+        this.lblDataEstado.setText(cocheRepresentado.getEstado());
+        this.lblDataPrecio.setText(String.valueOf(cocheRepresentado.getPrecioDia()));
+        this.lblDataAnhos.setText(String.valueOf(cocheRepresentado.getAnhos()));
+        this.lblDataFecha.setText(String.valueOf(cocheRepresentado.getFechaM()));
+        dialogoDatos.setVisible(true);
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        if(clienteEliminar instanceof Particular){
-            clienteEliminar = (Particular) sesion.createCriteria(Cliente.class).add(Restrictions.eq("dni", this.lblDni.getText())).uniqueResult();
-            Particular particular = (Particular)clienteEliminar;
-            this.lblDigNombre.setText(particular.getNombre());
-            this.lblDigDni.setText(particular.getDni());
-            this.lblDigEmail.setText(clienteEliminar.getEmail());
-            this.lblDigEdad.setText(String.valueOf(particular.getEdad()));
-            this.lblDigPuntos.setText(String.valueOf(particular.getPuntos()));
-            this.lblDigTelf.setText(clienteEliminar.getTelefono());
-            sesion.close();
-            dialogoEliminar.setVisible(true);
-        }else{
-        }
+        this.lblDigMatricula.setText(cocheRepresentado.getMatricula());
+        this.lblDigEstado.setText(cocheRepresentado.getEstado());
+        this.lblDigAnos.setText(String.valueOf(cocheRepresentado.getAnhos()));
+        this.lblDigModelo.setText(cocheRepresentado.getModelo());
+        this.lblDigPrecio.setText(String.valueOf(cocheRepresentado.getPrecioDia()));
+        this.lblDigMarca.setText(cocheRepresentado.getMarca());
+        sesion.close();
+        dialogoEliminar.setVisible(true);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnModCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCliActionPerformed
+    private void btnModCocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCocActionPerformed
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        this.entModMatricula.setText(cocheRepresentado.getMatricula());
+        this.entModMarca.setText(cocheRepresentado.getMarca());
+        this.entModModelo.setText(cocheRepresentado.getModelo());
+        this.entModEstado.setText(cocheRepresentado.getEstado());
+        this.entModPrecio.setText(String.valueOf(cocheRepresentado.getPrecioDia()));
+        Date fechaPM= cocheRepresentado.getFechaM();
+        String fechaString = sdf.format(fechaPM);
+        this.entModFecha.setText(fechaString);
+        dialogoModificar.setVisible(true);
+    }//GEN-LAST:event_btnModCocActionPerformed
 
-    }//GEN-LAST:event_btnModCliActionPerformed
+    private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+            Date fechaPM = sdf.parse(entModFecha.getText());
+            Date fechaHoy = new Date();
+            int d1 = Integer.parseInt(formatter.format(fechaPM));
+            int d2 = Integer.parseInt(formatter.format(fechaHoy));
+            int anhos = (d2-d1)/10000;
+            entModMatricula.setText(cocheRepresentado.getMatricula());
+            cocheRepresentado.setMarca(entModMarca.getText());
+            cocheRepresentado.setModelo(entModModelo.getText());
+            cocheRepresentado.setAnhos(anhos);
+            cocheRepresentado.setFechaM(fechaPM);
+            cocheRepresentado.setPrecioDia(Float.parseFloat(entModPrecio.getText()));
+            cocheRepresentado.setEstado(entModEstado.getText());
+            Modificar.coches(cocheRepresentado);
+        }catch(ParseException pe){
+            System.out.println(pe);
+        }
+        panelPadre.vaciarCampos();
+        panelPadre.listarCoches();
+        this.dialogoModificar.setVisible(false);
+    }//GEN-LAST:event_btnModAceptarActionPerformed
+
+    private void btnDigCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigCancelar1ActionPerformed
+        dialogoModificar.setVisible(false);
+    }//GEN-LAST:event_btnDigCancelar1ActionPerformed
+
+    private void btnDatosAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosAceptarActionPerformed
+        dialogoDatos.setVisible(false);
+    }//GEN-LAST:event_btnDatosAceptarActionPerformed
 
     public Coches getPanelPadre() {
         return panelPadre;
@@ -373,36 +717,83 @@ public class boxCoches extends javax.swing.JPanel {
     public void setPanelPadre(Coches panelPadre) {
         this.panelPadre = panelPadre;
     }
+
+    public Coche getCocheRepresentado() {
+        return cocheRepresentado;
+    }
+
+    public void setCocheRepresentado(Coche cocheRepresentado) {
+        this.cocheRepresentado = cocheRepresentado;
+    }
+    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel boxCliente;
+    private javax.swing.JButton btnDatosAceptar;
     private javax.swing.JButton btnDigAceptar;
     private javax.swing.JButton btnDigCancelar;
+    private javax.swing.JButton btnDigCancelar1;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModCli;
+    private javax.swing.JButton btnModAceptar;
+    private javax.swing.JButton btnModCoc;
     private javax.swing.JButton btnSeleccionar;
+    private javax.swing.JDialog dialogoDatos;
     private javax.swing.JDialog dialogoEliminar;
+    private javax.swing.JDialog dialogoModificar;
+    private javax.swing.JTextField entModEstado;
+    private javax.swing.JTextField entModFecha;
+    private javax.swing.JTextField entModMarca;
+    private javax.swing.JTextField entModMatricula;
+    private javax.swing.JTextField entModModelo;
+    private javax.swing.JTextField entModPrecio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lblDigDni;
-    private javax.swing.JLabel lblDigEdad;
-    private javax.swing.JLabel lblDigEmail;
-    private javax.swing.JLabel lblDigNombre;
-    private javax.swing.JLabel lblDigPuntos;
-    private javax.swing.JLabel lblDigTelf;
-    private javax.swing.JLabel lblDni;
-    private javax.swing.JLabel lblDni1;
-    private javax.swing.JLabel lblDniCli;
-    private javax.swing.JLabel lblDniCli1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblAnhosData;
+    private javax.swing.JLabel lblDataAnhos;
+    private javax.swing.JLabel lblDataEstado;
+    private javax.swing.JLabel lblDataFecha;
+    private javax.swing.JLabel lblDataMarca;
+    private javax.swing.JLabel lblDataMatricula;
+    private javax.swing.JLabel lblDataModelo;
+    private javax.swing.JLabel lblDataPrecio;
+    private javax.swing.JLabel lblDigAnos;
+    private javax.swing.JLabel lblDigEstado;
+    private javax.swing.JLabel lblDigMarca;
+    private javax.swing.JLabel lblDigMatricula;
+    private javax.swing.JLabel lblDigModelo;
+    private javax.swing.JLabel lblDigPrecio;
+    private javax.swing.JLabel lblEstadoData;
+    private javax.swing.JLabel lblFechaData;
     private javax.swing.JLabel lblImg;
-    private javax.swing.JLabel lblNomCli;
-    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblMarca;
+    private javax.swing.JLabel lblMarcaCoc;
+    private javax.swing.JLabel lblMatricula;
+    private javax.swing.JLabel lblMatriculaCoc;
+    private javax.swing.JLabel lblMatriculaData;
+    private javax.swing.JLabel lblModFecha;
+    private javax.swing.JLabel lblModFechaNac;
+    private javax.swing.JLabel lblModMarca;
+    private javax.swing.JLabel lblModMatricula;
+    private javax.swing.JLabel lblModModelo;
+    private javax.swing.JLabel lblModPrecio;
+    private javax.swing.JLabel lblModelo;
+    private javax.swing.JLabel lblModeloCoc;
+    private javax.swing.JLabel lblModeloData;
+    private javax.swing.JLabel lblPrecioData;
+    private javax.swing.JLabel lblmarcaData;
     // End of variables declaration//GEN-END:variables
 }

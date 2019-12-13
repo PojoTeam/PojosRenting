@@ -35,5 +35,6 @@ public class main {
         for(Cliente cli : clientes) { 
             System.out.println(((Particular)cli).getDni());
         }
+        System.out.println("hola");
     }
 }

@@ -11,6 +11,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import metodos.Altas;
+import metodos.Modificar;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import pojos.Cliente;
@@ -524,12 +525,13 @@ public class boxClientes extends javax.swing.JPanel {
                             .addComponent(lblPuntosData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDataPuntos))))
                 .addGap(0, 0, 0)
-                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDataFecha)
+                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblTelfData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblDataTelf)))
+                        .addComponent(lblDataTelf))
+                    .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDataFecha)))
                 .addGap(18, 18, 18)
                 .addComponent(btnDatosAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
@@ -765,7 +767,7 @@ public class boxClientes extends javax.swing.JPanel {
                 ((Particular)clienteRepresentado).setEmail(this.entModEmail.getText());
                 ((Particular)clienteRepresentado).setTelefono(this.entModTelf.getText());
                 ((Particular)clienteRepresentado).setPuntos(puntosMod);
-                Altas.particulares(((Particular)clienteRepresentado));
+                Modificar.particulares(((Particular)clienteRepresentado));
                 panelPadre.vaciarCampos();
                 panelPadre.listarClientes();
             }else {
@@ -773,7 +775,7 @@ public class boxClientes extends javax.swing.JPanel {
                 ((Empresa)clienteRepresentado).setNombre(this.entModNombre.getText());
                 ((Empresa)clienteRepresentado).setEmail(this.entModEmail.getText());
                 ((Empresa)clienteRepresentado).setTelefono(this.entModTelf.getText());
-                Altas.empresas(((Empresa)clienteRepresentado));
+                Modificar.empresas(((Empresa)clienteRepresentado));
                 panelPadre.vaciarCampos();
                 panelPadre.listarClientes();
             }

@@ -17,6 +17,7 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import metodos.Altas;
+import metodos.Buscar;
 import metodos.Modificar;
 import org.hibernate.Session;
 import pojos.Coche;
@@ -46,6 +47,26 @@ public class Coches extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogoBuscar = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        lblModNombre = new javax.swing.JLabel();
+        lblModApel = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        btnBuscarAceptar = new javax.swing.JButton();
+        btnBuscarCancelar1 = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        lblModDni = new javax.swing.JLabel();
+        lblModEmail = new javax.swing.JLabel();
+        entBuscarMatricula = new javax.swing.JTextField();
+        entBuscarEstado = new javax.swing.JTextField();
+        entBuscarModelo = new javax.swing.JTextField();
+        entBuscarAnhos = new javax.swing.JTextField();
+        entBuscarMarca = new javax.swing.JTextField();
+        entBuscarFecha = new javax.swing.JTextField();
+        lblModTelefono = new javax.swing.JLabel();
+        lblModFechaNac = new javax.swing.JLabel();
+        entBuscarPrecio = new javax.swing.JTextField();
+        lblModPuntos = new javax.swing.JLabel();
         panelDatosClientes = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         entMatricula = new javax.swing.JTextField();
@@ -55,7 +76,7 @@ public class Coches extends javax.swing.JPanel {
         btnAlta = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         entEstado = new javax.swing.JTextField();
         entMarca = new javax.swing.JTextField();
         entFechaPMatricula = new javax.swing.JTextField();
@@ -65,6 +86,136 @@ public class Coches extends javax.swing.JPanel {
         entPrecioDia = new javax.swing.JTextField();
         lblPrecioDia = new javax.swing.JLabel();
         window = new javax.swing.JPanel();
+
+        dialogoBuscar.setTitle("ALERTA");
+        dialogoBuscar.setMinimumSize(new java.awt.Dimension(416, 299));
+        dialogoBuscar.setModal(true);
+        dialogoBuscar.setResizable(false);
+        dialogoBuscar.setSize(new java.awt.Dimension(472, 385));
+
+        jLabel6.setText("BUSQUEDA COCHES");
+
+        lblModNombre.setText("Matricula");
+
+        lblModApel.setText("Mocelo");
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searcher.png"))); // NOI18N
+
+        btnBuscarAceptar.setText("Aceptar");
+        btnBuscarAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAceptarActionPerformed(evt);
+            }
+        });
+
+        btnBuscarCancelar1.setText("Cancelar");
+        btnBuscarCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCancelar1ActionPerformed(evt);
+            }
+        });
+
+        lblModDni.setText("Estado");
+
+        lblModEmail.setText("Años");
+
+        lblModTelefono.setText("Marca");
+
+        lblModFechaNac.setText("Fecha PM");
+
+        lblModPuntos.setText("Precio Dia");
+
+        javax.swing.GroupLayout dialogoBuscarLayout = new javax.swing.GroupLayout(dialogoBuscar.getContentPane());
+        dialogoBuscar.getContentPane().setLayout(dialogoBuscarLayout);
+        dialogoBuscarLayout.setHorizontalGroup(
+            dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6))
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBuscarAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(entBuscarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(entBuscarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addComponent(lblModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entBuscarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addComponent(lblModTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entBuscarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblModEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblModFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblModDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(entBuscarAnhos, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(entBuscarEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(entBuscarFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
+                            .addComponent(btnBuscarCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        dialogoBuscarLayout.setVerticalGroup(
+            dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModDni, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarAnhos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscarAceptar)
+                    .addComponent(btnBuscarCancelar1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         setMaximumSize(new java.awt.Dimension(1061, 606));
         setMinimumSize(new java.awt.Dimension(1061, 606));
@@ -95,10 +246,10 @@ public class Coches extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setText("BUSCAR");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
 
@@ -116,7 +267,7 @@ public class Coches extends javax.swing.JPanel {
                     .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTelefono)
@@ -175,7 +326,7 @@ public class Coches extends javax.swing.JPanel {
                 .addGap(24, 24, 24)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
-                .addComponent(jButton4)
+                .addComponent(btnBuscar)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
@@ -197,9 +348,9 @@ public class Coches extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
             
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        this.dialogoBuscar.setVisible(true);
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         try{
@@ -241,6 +392,17 @@ public class Coches extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
+    private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
+        List<Coche> coches;
+        coches = Buscar.coches(entBuscarMatricula.getText(), entBuscarModelo.getText(), entBuscarEstado.getText(), entBuscarMarca.getText(), entBuscarFecha.getText(), entBuscarAnhos.getText());
+        listarCoches(coches);
+        this.dialogoBuscar.setVisible(false);
+    }//GEN-LAST:event_btnBuscarAceptarActionPerformed
+
+    private void btnBuscarCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCancelar1ActionPerformed
+        dialogoBuscar.setVisible(false);
+    }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
+
     public void mostrarDatosCocheSeleccionado(){  
         this.entMatricula.setText(cocheEnSeleccion.getMatricula());
         this.entModelo.setText(cocheEnSeleccion.getModelo());
@@ -279,8 +441,9 @@ public class Coches extends javax.swing.JPanel {
             for(int j = 0; j < 3; j++){
                 if(numeroIteracionesTotales != numeroCoches){
                     Coche coche = coches.get(numeroIteracionesTotales);
-                    boxCoches boxCoches = new boxCoches(coche.getMatricula(), coche.getModelo());
+                    boxCoches boxCoches = new boxCoches(coche.getMatricula(), coche.getMarca(), coche.getModelo());
                     boxCoches.setPanelPadre(this);
+                    boxCoches.setCocheRepresentado(coche);
                     innerConstraints.gridx = j;
                     innerConstraints.gridy = i;
                     innerPanel.add(boxCoches, innerConstraints);
@@ -302,6 +465,67 @@ public class Coches extends javax.swing.JPanel {
         JScrollPane scrollPanel = new JScrollPane(innerPanel);
         scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
         panelMain.add(scrollPanel, BorderLayout.CENTER);
+        sesion.getTransaction().commit();
+        sesion.close();
+    
+    }
+    
+    public void listarCoches(List<Coche> coches){
+        if(panelMain != null){
+            panelMain.removeAll();
+            panelMain.revalidate();
+            panelMain.repaint();
+            window.remove(panelMain);
+            window.revalidate();
+            window.repaint();
+        }
+        
+        panelMain = new JPanel(new BorderLayout());
+        window.add(panelMain);
+        GridBagLayout innerLayout = new GridBagLayout();
+        GridBagConstraints innerConstraints = new GridBagConstraints();
+        JPanel innerPanel = new JPanel(innerLayout);
+        
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        int numeroCoches = coches.size();
+        int numeroIteracionesX = (numeroCoches/3)+1;
+        int numeroIteracionesTotales = 0;
+        
+        innerConstraints.weightx = 0.5;
+        innerConstraints.weighty = 0.5;
+        innerConstraints.gridy = 0;
+        
+        for(int i = 0; i < numeroIteracionesX; i++){    
+            for(int j = 0; j < 3; j++){
+                if(numeroIteracionesTotales != numeroCoches){
+                    Coche coche = coches.get(numeroIteracionesTotales);
+                    boxCoches boxCoches = new boxCoches(coche.getMatricula(), coche.getMarca(), coche.getModelo());
+                    boxCoches.setPanelPadre(this);
+                    boxCoches.setCocheRepresentado(coche);
+                    innerConstraints.gridx = j;
+                    innerConstraints.gridy = i;
+                    innerPanel.add(boxCoches, innerConstraints);
+                    numeroIteracionesTotales++;
+                }else{
+                    break;
+                }
+            }
+        }
+
+        JPanel innerVoidPanel = new JPanel();
+        innerConstraints.weighty = 1.0;
+        innerConstraints.fill = GridBagConstraints.VERTICAL;
+        innerLayout.setConstraints(innerVoidPanel, innerConstraints);
+        innerPanel.add(innerVoidPanel);
+
+        //...
+
+        JScrollPane scrollPanel = new JScrollPane(innerPanel);
+        scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
+        panelMain.add(scrollPanel, BorderLayout.CENTER);
+        sesion.getTransaction().commit();
+        sesion.close();
     
     }
     
@@ -324,7 +548,18 @@ public class Coches extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarAceptar;
+    private javax.swing.JButton btnBuscarCancelar1;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JDialog dialogoBuscar;
+    private javax.swing.JTextField entBuscarAnhos;
+    private javax.swing.JTextField entBuscarEstado;
+    private javax.swing.JTextField entBuscarFecha;
+    private javax.swing.JTextField entBuscarMarca;
+    private javax.swing.JTextField entBuscarMatricula;
+    private javax.swing.JTextField entBuscarModelo;
+    private javax.swing.JTextField entBuscarPrecio;
     private javax.swing.JTextField entEstado;
     private javax.swing.JTextField entFechaPMatricula;
     private javax.swing.JTextField entMarca;
@@ -332,10 +567,19 @@ public class Coches extends javax.swing.JPanel {
     private javax.swing.JTextField entModelo;
     private javax.swing.JTextField entPrecioDia;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblModApel;
+    private javax.swing.JLabel lblModDni;
+    private javax.swing.JLabel lblModEmail;
+    private javax.swing.JLabel lblModFechaNac;
+    private javax.swing.JLabel lblModNombre;
+    private javax.swing.JLabel lblModPuntos;
+    private javax.swing.JLabel lblModTelefono;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombre1;
     private javax.swing.JLabel lblPrecioDia;

@@ -3,6 +3,7 @@ package metodos;
 import hibernate.NewHibernateUtil;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -78,7 +79,7 @@ public class Buscar {
             sesion.close();
             return null;
         } else {
-            Criteria filtros = sesion.createCriteria(Particular.class);
+            Criteria filtros = sesion.createCriteria(Empresa.class);
             if (!nombre.equalsIgnoreCase("")) {
                 Criterion nameCriteria = Restrictions.eq("nombre", nombre);
                 filtros.add(nameCriteria);
@@ -103,11 +104,11 @@ public class Buscar {
         return clientes;
     }
 
-    public static List<Coche> coches(String matricula, String modelo, String estado, String marca, String fechaPM) {
+    public static List<Coche> coches(String matricula, String modelo, String estado, String marca, String fechaPM, String anhos) {
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
         List<Coche> coches;
-        if (matricula.equalsIgnoreCase("") && modelo.equalsIgnoreCase("") && estado.equalsIgnoreCase("") && marca.equalsIgnoreCase("") && fechaPM.equalsIgnoreCase("")) {
+        if (matricula.equalsIgnoreCase("") && modelo.equalsIgnoreCase("") && estado.equalsIgnoreCase("") && marca.equalsIgnoreCase("") && fechaPM.equalsIgnoreCase("") && anhos.equalsIgnoreCase("")) {
             //todos los campos estan vacios, por lo que no hay nada a buscar.
             sesion.close();
             return null;
@@ -117,20 +118,24 @@ public class Buscar {
                 Criterion nameCriteria = Restrictions.eq("matricula", matricula);
                 filtros.add(nameCriteria);
             }
-            if (!modelo.equalsIgnoreCase(modelo)) {
+            if (!modelo.equalsIgnoreCase("")) {
                 Criterion nameCriteria = Restrictions.eq("modelo", modelo);
                 filtros.add(nameCriteria);
             }
-            if (!estado.equalsIgnoreCase(estado)) {
+            if (!estado.equalsIgnoreCase("")) {
                 Criterion nameCriteria = Restrictions.eq("estado", estado);
                 filtros.add(nameCriteria);
             }
-            if (!marca.equalsIgnoreCase(marca)) {
+            if (!marca.equalsIgnoreCase("")) {
                 Criterion nameCriteria = Restrictions.eq("marca", marca);
                 filtros.add(nameCriteria);
             }
-            if (!fechaPM.equalsIgnoreCase(fechaPM)) {
+            if (!fechaPM.equalsIgnoreCase("")) {
                 Criterion nameCriteria = Restrictions.eq("fechaPM", fechaPM);
+                filtros.add(nameCriteria);
+            }
+            if(!anhos.equalsIgnoreCase("")){
+                Criterion nameCriteria = Restrictions.eq("anhos", fechaPM);
                 filtros.add(nameCriteria);
             }
             coches = filtros.list();

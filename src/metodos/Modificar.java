@@ -9,20 +9,22 @@ import pojos.Particular;
 
 /**
  *
- * @author pablo
+ * @author carlos
  */
 public class Modificar {
+    
     public static void particulares(Particular particular) {
         
         try{
             NewHibernateUtil.getSession();
             Session sesion = NewHibernateUtil.getSession();
+            
             sesion.beginTransaction();
-            sesion.saveOrUpdate(particular);
+            sesion.update(particular);
             sesion.getTransaction().commit();
             sesion.close();
         }catch(HibernateException e){
-            System.out.println(e);
+            e.printStackTrace();
         }
             
     }
@@ -31,8 +33,9 @@ public class Modificar {
         try{
             NewHibernateUtil.getSession();
             Session sesion = NewHibernateUtil.getSession();
+            
             sesion.beginTransaction();
-            sesion.saveOrUpdate(empresa);
+            sesion.update(empresa);
             sesion.getTransaction().commit();
             sesion.close();
         }catch(HibernateException e) {
@@ -44,11 +47,12 @@ public class Modificar {
         try{
             NewHibernateUtil.getSession();
             Session sesion = NewHibernateUtil.getSession();
+            
             sesion.beginTransaction();
-            sesion.saveOrUpdate(coche);
+            sesion.update(coche);
             sesion.getTransaction().commit();
             sesion.close();
-        }catch(HibernateException e) {
+        }catch(HibernateException e){
             System.out.println(e);
         }
     }
