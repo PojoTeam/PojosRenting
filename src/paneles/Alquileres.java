@@ -45,6 +45,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
      */
     public Alquileres() {
         initComponents();
+        listarAlquileres();
     }
 
     /**

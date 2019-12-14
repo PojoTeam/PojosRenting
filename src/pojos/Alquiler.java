@@ -79,8 +79,8 @@ public class Alquiler implements Serializable {
     
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
-        empresa.setnAlquileres(empresa.getnAlquileres() + 1);
-        calculoPrecio();
+        //empresa.setnAlquileres(empresa.getnAlquileres() + 1);
+        //calculoPrecio();
     }
     
     public Particular getParticular() {
@@ -89,7 +89,7 @@ public class Alquiler implements Serializable {
     
     public void setParticular(Particular particular) {
         this.particular = particular;
-        calculoPrecio();
+        //calculoPrecio();
     }
     
     private void calculoPrecio() {
