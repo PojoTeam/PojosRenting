@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import metodos.Altas;
@@ -26,10 +27,11 @@ import pojos.Particular;
  *
  * @author a18carlosva
  */
-public class Clientes extends javax.swing.JPanel {
+public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
     
     private Cliente clienteEnSeleccion = null;
     private JPanel panelMain;
+    private JFrame aplicacion;
     
     public Clientes() {
         
@@ -573,7 +575,8 @@ public class Clientes extends javax.swing.JPanel {
         
     }
     
-    public void listarClientes(){ //modificar el metodo para que reciba el array de clientes
+    @Override
+    public void listarClientes(){ //lista los clientes
         if(panelMain != null){
             panelMain.removeAll();
             panelMain.revalidate();
@@ -612,6 +615,7 @@ public class Clientes extends javax.swing.JPanel {
                     }
                     boxCliente.setPanelPadre(this);
                     boxCliente.setClienteRepresentado(cliente);
+                    boxCliente.setAplicacion(aplicacion);
                     innerConstraints.gridx = j;
                     innerConstraints.gridy = i;
                     innerPanel.add(boxCliente, innerConstraints);
@@ -675,6 +679,7 @@ public class Clientes extends javax.swing.JPanel {
                     }
                     boxCliente.setPanelPadre(this);
                     boxCliente.setClienteRepresentado(cliente);
+                    boxCliente.setAplicacion(aplicacion);
                     innerConstraints.gridx = j;
                     innerConstraints.gridy = i;
                     innerPanel.add(boxCliente, innerConstraints);
@@ -716,6 +721,15 @@ public class Clientes extends javax.swing.JPanel {
 
     public void setClienteEnSeleccion(Cliente clienteEnSeleccion) {
         this.clienteEnSeleccion = clienteEnSeleccion;
+    }
+
+    public JFrame getAplicacion() {
+        return aplicacion;
+    }
+
+    public void setAplicacion(JFrame aplicacion) {
+        this.aplicacion = aplicacion;
+        dialogoBuscar.setLocationRelativeTo(aplicacion);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import metodos.Altas;
@@ -29,6 +30,7 @@ public class Coches extends javax.swing.JPanel {
     
     private Coche cocheEnSeleccion = null;
     private JPanel panelMain;
+    private JFrame aplicacion;
     
     /**
      * Creates new form Clientes

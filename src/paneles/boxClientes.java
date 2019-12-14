@@ -10,6 +10,10 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import metodos.Altas;
 import metodos.Modificar;
 import org.hibernate.Session;
@@ -29,13 +33,16 @@ public class boxClientes extends javax.swing.JPanel {
      * Creates new form boxClientes
      */
     
-    private Clientes panelPadre;
+    private IClientesAlquileres panelPadre;
     private Cliente clienteRepresentado;
+    private JFrame aplicacion;
+    private JDialog CentrarEnDialogo;
     
     public boxClientes(String nombre, String dni) {
         initComponents();
         lblNombre.setText(nombre);
         lblDni.setText(dni);
+        btnSeleccionar.setVisible(false);
     }
 
     /**
@@ -110,11 +117,12 @@ public class boxClientes extends javax.swing.JPanel {
         lblNomCli = new javax.swing.JLabel();
         lblDniCli = new javax.swing.JLabel();
         lblImg = new javax.swing.JLabel();
-        btnSeleccionar = new javax.swing.JButton();
+        btnDatos = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
         btnModCli = new javax.swing.JButton();
         lblDni = new javax.swing.JLabel();
+        btnSeleccionar = new javax.swing.JButton();
 
         dialogoEliminar.setTitle("ALERTA");
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
@@ -386,7 +394,6 @@ public class boxClientes extends javax.swing.JPanel {
         dialogoDatos.setTitle("ALERTA");
         dialogoDatos.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoDatos.setModal(true);
-        dialogoDatos.setPreferredSize(new java.awt.Dimension(416, 358));
         dialogoDatos.setResizable(false);
         dialogoDatos.setSize(new java.awt.Dimension(416, 339));
 
@@ -547,10 +554,10 @@ public class boxClientes extends javax.swing.JPanel {
 
         lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/man-user(1).png"))); // NOI18N
 
-        btnSeleccionar.setText("Datos");
-        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+        btnDatos.setText("Datos");
+        btnDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarActionPerformed(evt);
+                btnDatosActionPerformed(evt);
             }
         });
 
@@ -572,6 +579,8 @@ public class boxClientes extends javax.swing.JPanel {
 
         lblDni.setText("lblDni");
 
+        btnSeleccionar.setText("Seleccionar");
+
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
         boxClienteLayout.setHorizontalGroup(
@@ -580,7 +589,9 @@ public class boxClientes extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(boxClienteLayout.createSequentialGroup()
-                        .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSeleccionar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnModCli, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -618,7 +629,9 @@ public class boxClientes extends javax.swing.JPanel {
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnModCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSeleccionar)))
                 .addContainerGap())
         );
 
@@ -634,7 +647,7 @@ public class boxClientes extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+    private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         if(clienteRepresentado instanceof Particular){
             this.lblDataApel.setVisible(true);
@@ -672,7 +685,7 @@ public class boxClientes extends javax.swing.JPanel {
             this.lblDataNombre.setText(((Empresa)clienteRepresentado).getNombre());
         }
         dialogoDatos.setVisible(true);
-    }//GEN-LAST:event_btnSeleccionarActionPerformed
+    }//GEN-LAST:event_btnDatosActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         if(clienteRepresentado instanceof Particular){
@@ -767,8 +780,7 @@ public class boxClientes extends javax.swing.JPanel {
                 ((Particular)clienteRepresentado).setEmail(this.entModEmail.getText());
                 ((Particular)clienteRepresentado).setTelefono(this.entModTelf.getText());
                 ((Particular)clienteRepresentado).setPuntos(puntosMod);
-                Modificar.particulares(((Particular)clienteRepresentado));
-                panelPadre.vaciarCampos();
+                Modificar.particulares(((Particular)clienteRepresentado));               
                 panelPadre.listarClientes();
             }else {
                 ((Empresa)clienteRepresentado).setCif(this.entModDni.getText());
@@ -776,7 +788,6 @@ public class boxClientes extends javax.swing.JPanel {
                 ((Empresa)clienteRepresentado).setEmail(this.entModEmail.getText());
                 ((Empresa)clienteRepresentado).setTelefono(this.entModTelf.getText());
                 Modificar.empresas(((Empresa)clienteRepresentado));
-                panelPadre.vaciarCampos();
                 panelPadre.listarClientes();
             }
         }catch(ParseException pe){
@@ -794,11 +805,11 @@ public class boxClientes extends javax.swing.JPanel {
         dialogoDatos.setVisible(false);
     }//GEN-LAST:event_btnDatosAceptarActionPerformed
 
-    public Clientes getPanelPadre() {
+    public IClientesAlquileres getPanelPadre() {
         return panelPadre;
     }
 
-    public void setPanelPadre(Clientes panelPadre) {
+    public void setPanelPadre(IClientesAlquileres panelPadre) {
         this.panelPadre = panelPadre;
     }
 
@@ -809,9 +820,64 @@ public class boxClientes extends javax.swing.JPanel {
     public void setClienteRepresentado(Cliente clienteRepresentado) {
         this.clienteRepresentado = clienteRepresentado;
     }
+
+    public JFrame getAplicacion() {
+        return aplicacion;
+    }
+
+    public void setAplicacion(JFrame aplicacion) {
+        this.aplicacion = aplicacion;
+        dialogoDatos.setLocationRelativeTo(aplicacion);
+        dialogoEliminar.setLocationRelativeTo(aplicacion);
+        dialogoModificar.setLocationRelativeTo(aplicacion);
+    }
+
+    public JButton getBtnSeleccionar() {
+        return btnSeleccionar;
+    }
+
+    public void setBtnSeleccionar(JButton btnSeleccionar) {
+        this.btnSeleccionar = btnSeleccionar;
+    }
+
+    public JButton getBtnDatos() {
+        return btnDatos;
+    }
+
+    public void setBtnDatos(JButton btnDatos) {
+        this.btnDatos = btnDatos;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public void setBtnEliminar(JButton btnEliminar) {
+        this.btnEliminar = btnEliminar;
+    }
+
+    public JButton getBtnModCli() {
+        return btnModCli;
+    }
+
+    public void setBtnModCli(JButton btnModCli) {
+        this.btnModCli = btnModCli;
+    }
+
+    public JDialog getCentrarEnDialogo() {
+        return CentrarEnDialogo;
+    }
+
+    public void setCentrarEnDialogo(JDialog CentrarEnDialogo) {
+        this.CentrarEnDialogo = CentrarEnDialogo;
+        dialogoDatos.setLocationRelativeTo(CentrarEnDialogo);
+        dialogoEliminar.setLocationRelativeTo(CentrarEnDialogo);
+        dialogoModificar.setLocationRelativeTo(CentrarEnDialogo);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel boxCliente;
+    private javax.swing.JButton btnDatos;
     private javax.swing.JButton btnDatosAceptar;
     private javax.swing.JButton btnDigAceptar;
     private javax.swing.JButton btnDigCancelar;

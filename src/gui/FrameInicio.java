@@ -13,10 +13,10 @@ import paneles.*;
 public class FrameInicio extends jFramePadre{
     
     public PanelAsButton botonActivado;
-    private JPanel panelClientes;
+    private Clientes panelClientes;
     private JPanel panelInicio;
-    private JPanel panelCoches;
-    private JPanel panelAlquileres;
+    private Coches panelCoches;
+    private Alquileres panelAlquileres;
     
     /**
      * Creates new form FrameInicio
@@ -32,9 +32,11 @@ public class FrameInicio extends jFramePadre{
         panelAsButton3.setjLabel(jLabel3);
         panelAsButton4.setjLabel(jLabel4);
         panelClientes = new Clientes();
+        panelClientes.setAplicacion(this);
         panelInicio = new Inicio();
         panelCoches = new Coches();
         panelAlquileres = new Alquileres();
+        panelAlquileres.setAplicacion(this);
         botonActivado = panelAsButton1;
         panelAsButton1.setBackground(new Color(100,100,100));
         new CambiarPanel(panelContenedor, panelInicio);
