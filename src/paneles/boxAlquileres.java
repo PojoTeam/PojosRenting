@@ -15,6 +15,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import metodos.Modificar;
 import org.hibernate.Session;
+import pojos.Alquiler;
 import pojos.Cliente;
 import pojos.Empresa;
 import pojos.Particular;
@@ -24,21 +25,21 @@ import pojos.Particular;
  *
  * @author carlos
  */
-public class boxClientes extends javax.swing.JPanel {
+public class boxAlquileres extends javax.swing.JPanel {
 
     /**
      * Creates new form boxClientes
      */
     
-    private IClientesAlquileres panelPadre;
-    private Cliente clienteRepresentado;
+    private Alquileres panelPadre;
+    private Alquiler alquilerRepresentado;
     private JFrame aplicacion;
     private JDialog CentrarEnDialogo;
     
-    public boxClientes(String nombre, String dni) {
+    public boxAlquileres(String nombre, String dni) {
         initComponents();
-        lblNombre.setText(nombre);
-        lblDni.setText(dni);
+        lblDniCif.setText(nombre);
+        lblMatricula.setText(dni);
         btnSeleccionar.setVisible(false);
     }
 
@@ -111,15 +112,17 @@ public class boxClientes extends javax.swing.JPanel {
         lblApelData = new javax.swing.JLabel();
         lblDataApel = new javax.swing.JLabel();
         boxCliente = new javax.swing.JPanel();
-        lblNomCli = new javax.swing.JLabel();
-        lblDniCli = new javax.swing.JLabel();
+        lblVerCliente = new javax.swing.JLabel();
+        lblVerCoche = new javax.swing.JLabel();
         lblImg = new javax.swing.JLabel();
         btnDatos = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-        lblNombre = new javax.swing.JLabel();
-        btnModCli = new javax.swing.JButton();
-        lblDni = new javax.swing.JLabel();
+        lblDniCif = new javax.swing.JLabel();
+        btnMod = new javax.swing.JButton();
+        lblMatricula = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
+        lblVerCodigo = new javax.swing.JLabel();
 
         dialogoEliminar.setTitle("ALERTA");
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
@@ -545,11 +548,11 @@ public class boxClientes extends javax.swing.JPanel {
 
         boxCliente.setBorder(new javax.swing.border.MatteBorder(null));
 
-        lblNomCli.setText("Nombre");
+        lblVerCliente.setText("Cliente");
 
-        lblDniCli.setText("DNI/CIF");
+        lblVerCoche.setText("Coche");
 
-        lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/man-user(1).png"))); // NOI18N
+        lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/car-rent.png"))); // NOI18N
 
         btnDatos.setText("Datos");
         btnDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -565,18 +568,22 @@ public class boxClientes extends javax.swing.JPanel {
             }
         });
 
-        lblNombre.setText("lblNombre");
+        lblDniCif.setText("lblDniCif");
 
-        btnModCli.setText("Modificar");
-        btnModCli.addActionListener(new java.awt.event.ActionListener() {
+        btnMod.setText("Modificar");
+        btnMod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModCliActionPerformed(evt);
+                btnModActionPerformed(evt);
             }
         });
 
-        lblDni.setText("lblDni");
+        lblMatricula.setText("lblMatricula");
 
         btnSeleccionar.setText("Seleccionar");
+
+        lblCodigo.setText("lblCodigo");
+
+        lblVerCodigo.setText("Codigo");
 
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
@@ -590,19 +597,21 @@ public class boxClientes extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSeleccionar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnModCli, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMod, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boxClienteLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblNomCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblVerCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblVerCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblVerCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)
                         .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDniCif, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(26, 26, 26))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boxClienteLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -616,19 +625,23 @@ public class boxClientes extends javax.swing.JPanel {
                 .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNomCli, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDniCif, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVerCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDniCli, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVerCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblVerCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModCli, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSeleccionar)))
+                        .addComponent(btnSeleccionar))
+                    .addComponent(btnMod, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -646,78 +659,20 @@ public class boxClientes extends javax.swing.JPanel {
 
     private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        if(clienteRepresentado instanceof Particular){
-            this.lblDataApel.setVisible(true);
-            this.lblApelData.setVisible(true);
-            this.lblDataFecha.setVisible(true);
-            this.lblFechaData.setVisible(true);
-            this.lblDataPuntos.setVisible(true);
-            this.lblPuntosData.setVisible(true);
-            this.lblDataEdad.setVisible(true);
-            this.lblEdadData.setVisible(true);
-            this.lblDataDni.setText(((Particular)clienteRepresentado).getDni());
-            this.lblDataEmail.setText(((Particular)clienteRepresentado).getEmail());
-            this.lblDataNombre.setText(((Particular)clienteRepresentado).getNombre());
-            this.lblDataTelf.setText(((Particular)clienteRepresentado).getTelefono());
-            this.lblDataApel.setText(((Particular)clienteRepresentado).getApellidos());
-            String edad = String.valueOf(((Particular)clienteRepresentado).getEdad());
-            this.lblDataEdad.setText(edad);
-            Date fechaNacNoMod = ((Particular)clienteRepresentado).getFechaNacimiento();
-            String fechaString = sdf.format(fechaNacNoMod);
-            this.lblDataFecha.setText(fechaString);
-            int puntos = ((Particular)clienteRepresentado).getPuntos();
-            this.lblDataPuntos.setText(String.valueOf(puntos));
-        }else{
-            this.lblDataApel.setVisible(false);
-            this.lblApelData.setVisible(false);
-            this.lblDataFecha.setVisible(false);
-            this.lblFechaData.setVisible(false);
-            this.lblDataPuntos.setVisible(false);
-            this.lblPuntosData.setVisible(false);
-            this.lblDataEdad.setVisible(false);
-            this.lblEdadData.setVisible(false);
-            this.lblDataDni.setText(((Empresa)clienteRepresentado).getCif());
-            this.lblDataEmail.setText(((Empresa)clienteRepresentado).getEmail());
-            this.lblDataTelf.setText(((Empresa)clienteRepresentado).getTelefono());
-            this.lblDataNombre.setText(((Empresa)clienteRepresentado).getNombre());
-        }
         dialogoDatos.setVisible(true);
     }//GEN-LAST:event_btnDatosActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        if(clienteRepresentado instanceof Particular){
-            lblPuntosEliminar.setVisible(true);
-            lblEdadEliminar.setVisible(true);
-            lblDigEdad.setVisible(true);
-            lblDigPuntos.setVisible(true);
-            this.lblDigNombre.setText(((Particular)clienteRepresentado).getNombre());
-            this.lblDigDni.setText(((Particular)clienteRepresentado).getDni());
-            this.lblDigEmail.setText(clienteRepresentado.getEmail());
-            this.lblDigEdad.setText(String.valueOf(((Particular)clienteRepresentado).getEdad()));
-            this.lblDigPuntos.setText(String.valueOf(((Particular)clienteRepresentado).getPuntos()));
-            this.lblDigTelf.setText(clienteRepresentado.getTelefono());
-            dialogoEliminar.setVisible(true);
-        }else{
-            lblPuntosEliminar.setVisible(false);
-            lblEdadEliminar.setVisible(false);
-            lblDigEdad.setVisible(false);
-            lblDigPuntos.setVisible(false);
-            this.lblDigNombre.setText(((Empresa)clienteRepresentado).getNombre());
-            this.lblDigDni.setText(((Empresa)clienteRepresentado).getCif());
-            this.lblDigEmail.setText(clienteRepresentado.getEmail());
-            this.lblDigTelf.setText(clienteRepresentado.getTelefono());
-            dialogoEliminar.setVisible(true);
-            
-        }
+        dialogoEliminar.setVisible(true);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnDigAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigAceptarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        sesion.delete(clienteRepresentado);
+        sesion.delete(alquilerRepresentado);
         sesion.getTransaction().commit();
         sesion.close();
-        panelPadre.listarClientes();
+        panelPadre.listarAlquileres();
         dialogoEliminar.setVisible(false);
     }//GEN-LAST:event_btnDigAceptarActionPerformed
 
@@ -725,73 +680,13 @@ public class boxClientes extends javax.swing.JPanel {
         dialogoEliminar.setVisible(false);
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
-    private void btnModCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCliActionPerformed
+    private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        if(clienteRepresentado instanceof Particular){
-            this.lblModApel.setVisible(true);
-            this.entModApel.setVisible(true);
-            this.lblModFechaNac.setVisible(true);
-            this.entModFechNac.setVisible(true);
-            this.lblModPuntos.setVisible(true);
-            this.entModPuntos.setVisible(true);
-            this.entModDni.setText(((Particular)clienteRepresentado).getDni());
-            this.entModEmail.setText(((Particular)clienteRepresentado).getEmail());
-            this.entModNombre.setText(((Particular)clienteRepresentado).getNombre());
-            this.entModTelf.setText(((Particular)clienteRepresentado).getTelefono());
-            this.entModApel.setText(((Particular)clienteRepresentado).getApellidos());
-            Date fechaNacNoMod = ((Particular)clienteRepresentado).getFechaNacimiento();
-            String fechaString = sdf.format(fechaNacNoMod);
-            this.entModFechNac.setText(fechaString);
-            int puntos = ((Particular)clienteRepresentado).getPuntos();
-            this.entModPuntos.setText(String.valueOf(puntos));
-        }else{
-            this.lblModApel.setVisible(false);
-            this.entModApel.setVisible(false);
-            this.lblModFechaNac.setVisible(false);
-            this.entModFechNac.setVisible(false);
-            this.lblModPuntos.setVisible(false);
-            this.entModPuntos.setVisible(false);
-            this.entModDni.setText(((Empresa)clienteRepresentado).getCif());
-            this.entModEmail.setText(((Empresa)clienteRepresentado).getEmail());
-            this.entModTelf.setText(((Empresa)clienteRepresentado).getTelefono());
-            this.entModNombre.setText(((Empresa)clienteRepresentado).getNombre());
-        }
         dialogoModificar.setVisible(true);
-    }//GEN-LAST:event_btnModCliActionPerformed
+    }//GEN-LAST:event_btnModActionPerformed
 
     private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
-        try{
-            if(clienteRepresentado instanceof Particular){
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-                Date fechaNac = sdf.parse(this.entModFechNac.getText());
-                int puntosMod = Integer.parseInt(this.entModPuntos.getText());
-                Date fechaHoy = new Date();
-                int d1 = Integer.parseInt(formatter.format(fechaNac));
-                int d2 = Integer.parseInt(formatter.format(fechaHoy));
-                int edad = (d2-d1)/10000;
-                ((Particular)clienteRepresentado).setDni(this.entModDni.getText());
-                ((Particular)clienteRepresentado).setFechaNacimiento(fechaNac);
-                ((Particular)clienteRepresentado).setEdad(edad);
-                ((Particular)clienteRepresentado).setNombre(this.entModNombre.getText());
-                ((Particular)clienteRepresentado).setEmail(this.entModEmail.getText());
-                ((Particular)clienteRepresentado).setTelefono(this.entModTelf.getText());
-                ((Particular)clienteRepresentado).setPuntos(puntosMod);
-                Modificar.particulares(((Particular)clienteRepresentado));               
-                panelPadre.listarClientes();
-            }else {
-                ((Empresa)clienteRepresentado).setCif(this.entModDni.getText());
-                ((Empresa)clienteRepresentado).setNombre(this.entModNombre.getText());
-                ((Empresa)clienteRepresentado).setEmail(this.entModEmail.getText());
-                ((Empresa)clienteRepresentado).setTelefono(this.entModTelf.getText());
-                Modificar.empresas(((Empresa)clienteRepresentado));
-                panelPadre.listarClientes();
-            }
-        }catch(ParseException pe){
-            System.out.println(pe);
-        }
-        panelPadre.listarClientes();
-        this.dialogoModificar.setVisible(false);
+        
     }//GEN-LAST:event_btnModAceptarActionPerformed
 
     private void btnDigCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigCancelar1ActionPerformed
@@ -808,14 +703,6 @@ public class boxClientes extends javax.swing.JPanel {
 
     public void setPanelPadre(IClientesAlquileres panelPadre) {
         this.panelPadre = panelPadre;
-    }
-
-    public Cliente getClienteRepresentado() {
-        return clienteRepresentado;
-    }
-
-    public void setClienteRepresentado(Cliente clienteRepresentado) {
-        this.clienteRepresentado = clienteRepresentado;
     }
 
     public JFrame getAplicacion() {
@@ -854,11 +741,11 @@ public class boxClientes extends javax.swing.JPanel {
     }
 
     public JButton getBtnModCli() {
-        return btnModCli;
+        return btnMod;
     }
 
     public void setBtnModCli(JButton btnModCli) {
-        this.btnModCli = btnModCli;
+        this.btnMod = btnModCli;
     }
 
     public JDialog getCentrarEnDialogo() {
@@ -880,8 +767,8 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JButton btnDigCancelar;
     private javax.swing.JButton btnDigCancelar1;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnMod;
     private javax.swing.JButton btnModAceptar;
-    private javax.swing.JButton btnModCli;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JDialog dialogoDatos;
     private javax.swing.JDialog dialogoEliminar;
@@ -903,6 +790,7 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblApelData;
+    private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDataApel;
     private javax.swing.JLabel lblDataDni;
     private javax.swing.JLabel lblDataEdad;
@@ -917,8 +805,7 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JLabel lblDigNombre;
     private javax.swing.JLabel lblDigPuntos;
     private javax.swing.JLabel lblDigTelf;
-    private javax.swing.JLabel lblDni;
-    private javax.swing.JLabel lblDniCli;
+    private javax.swing.JLabel lblDniCif;
     private javax.swing.JLabel lblDniData;
     private javax.swing.JLabel lblDniEliminar;
     private javax.swing.JLabel lblEdadData;
@@ -927,6 +814,7 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JLabel lblEmailEliminar;
     private javax.swing.JLabel lblFechaData;
     private javax.swing.JLabel lblImg;
+    private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblModApel;
     private javax.swing.JLabel lblModDni;
     private javax.swing.JLabel lblModEmail;
@@ -934,13 +822,14 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JLabel lblModNombre;
     private javax.swing.JLabel lblModPuntos;
     private javax.swing.JLabel lblModTelefono;
-    private javax.swing.JLabel lblNomCli;
-    private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreData;
     private javax.swing.JLabel lblNombreEliminar;
     private javax.swing.JLabel lblPuntosData;
     private javax.swing.JLabel lblPuntosEliminar;
     private javax.swing.JLabel lblTelfData;
     private javax.swing.JLabel lblTelfEliminar;
+    private javax.swing.JLabel lblVerCliente;
+    private javax.swing.JLabel lblVerCoche;
+    private javax.swing.JLabel lblVerCodigo;
     // End of variables declaration//GEN-END:variables
 }
