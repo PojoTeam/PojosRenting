@@ -12,7 +12,6 @@ import paneles.*;
  */
 public class FrameInicio extends jFramePadre{
     
-    public PanelAsButton botonActivado;
     private Clientes panelClientes;
     private JPanel panelInicio;
     private Coches panelCoches;
@@ -23,14 +22,19 @@ public class FrameInicio extends jFramePadre{
      */
     public FrameInicio() {
         initComponents();
+        NewHibernateUtil.getSessionFactory();
         panelAsButton1.setjFramePadre(this);
         panelAsButton2.setjFramePadre(this);
         panelAsButton3.setjFramePadre(this);
         panelAsButton4.setjFramePadre(this);
         panelAsButton1.setjLabel(jLabel1);
+        panelAsButton1.addListener(this);
         panelAsButton2.setjLabel(jLabel2);
+        panelAsButton2.addListener(this);
         panelAsButton3.setjLabel(jLabel3);
+        panelAsButton3.addListener(this);
         panelAsButton4.setjLabel(jLabel4);
+        panelAsButton4.addListener(this);
         panelClientes = new Clientes();
         panelClientes.setAplicacion(this);
         panelInicio = new Inicio();
@@ -40,7 +44,7 @@ public class FrameInicio extends jFramePadre{
         botonActivado = panelAsButton1;
         panelAsButton1.setBackground(new Color(100,100,100));
         new CambiarPanel(panelContenedor, panelInicio);
-        NewHibernateUtil.getSessionFactory();
+        
     }
 
     /**
@@ -272,13 +276,7 @@ public class FrameInicio extends jFramePadre{
     }
 
     @Override
-    public PanelAsButton getBotonActivado() {
-        return botonActivado; //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setBotonActivado(PanelAsButton botonActivado) {
-        this.botonActivado = botonActivado; //To change body of generated methods, choose Tools | Templates.
+    public void cambiarPanel() {
         if(botonActivado == panelAsButton1){
             new CambiarPanel(panelContenedor, panelInicio);
         }else if(botonActivado == panelAsButton2){
@@ -313,8 +311,4 @@ public class FrameInicio extends jFramePadre{
     private javax.swing.JPanel panelContenedor;
     private javax.swing.JPanel panelGlobal;
     // End of variables declaration//GEN-END:variables
-
-    private void ChangePanel(JPanel panelContenedor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
