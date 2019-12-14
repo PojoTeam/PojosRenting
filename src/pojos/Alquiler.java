@@ -13,16 +13,16 @@ public class Alquiler implements Serializable {
     private Date fechaInicio, fechaFin;
     private float precioTotal, descuento;
     private Coche coche;
-    private Empresa empresa;
-    private Particular particular;
+    private Cliente cliente;
 
     public Alquiler() {
     }
     
-    public Alquiler(int codigo, Date fechaInicio, Date fechaFin) {
-        this.codigo = codigo;
+    public Alquiler(Date fechaInicio, Date fechaFin, Coche coche, Cliente cliente) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.coche = coche;
+        this.cliente = cliente;
         calculoPrecio();
     }
 
@@ -74,20 +74,12 @@ public class Alquiler implements Serializable {
         this.coche = coche;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-
-    public Particular getParticular() {
-        return particular;
-    }
-
-    public void setParticular(Particular particular) {
-        this.particular = particular;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
     
     private void calculoPrecio(){
@@ -95,9 +87,12 @@ public class Alquiler implements Serializable {
     }
     
     public float calculoDescuento(){
-        if(particular.getPuntos() == 15){
-            this.descuento = 0.1f;
-        }else if(empresa.getnAlquileres() > 100){
+        if(cliente instanceof Particular){
+            if(((Particular)cliente).getPuntos() == 15){
+                this.descuento = 0.1f;
+            }
+        }
+        else if(((Empresa)cliente).getnAlquileres() > 100){
             this.descuento = 0.1f;
         }
         return descuento;

@@ -147,7 +147,7 @@ public class Buscar {
         return coches;
     }
     
-    public static List<Alquiler> alquileres(String precioTotal, String descuento, String fechaInicio, String fechaFin, String coche, String cliente) {
+    public static List<Alquiler> alquileres(String precioTotal, String fechaInicio, String fechaFin, String coche, String cliente) {
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
         List<Alquiler> alquileres;
@@ -159,10 +159,6 @@ public class Buscar {
             Criteria filtros = sesion.createCriteria(Alquiler.class);
             if (!precioTotal.equalsIgnoreCase("")) {
                 Criterion nameCriteria = Restrictions.eq("precioTotal", precioTotal);
-                filtros.add(nameCriteria);
-            }
-            if (!descuento.equalsIgnoreCase("")) {
-                Criterion nameCriteria = Restrictions.eq("descuento", descuento);
                 filtros.add(nameCriteria);
             }
             if (!fechaInicio.equalsIgnoreCase("")) {

@@ -552,6 +552,11 @@ public class boxCoches extends javax.swing.JPanel {
         lblModeloCoc.setText("Modelo");
 
         btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
@@ -713,6 +718,13 @@ public class boxCoches extends javax.swing.JPanel {
     private void btnDatosAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosAceptarActionPerformed
         dialogoDatos.setVisible(false);
     }//GEN-LAST:event_btnDatosAceptarActionPerformed
+
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        ((Alquileres)panelPadre).setCocheSel(cocheRepresentado);
+        ((Alquileres)panelPadre).getSeleccionCoche().setVisible(false);
+        ((Alquileres)panelPadre).getEntCoche().setText(cocheRepresentado.getMatricula());
+        ((Alquileres)panelPadre).getEntCoche().setEnabled(false);
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     public ICochesAlquileres getPanelPadre() {
         return panelPadre;

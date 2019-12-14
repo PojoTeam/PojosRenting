@@ -701,7 +701,7 @@ public class boxAlquileres extends javax.swing.JPanel {
         return panelPadre;
     }
 
-    public void setPanelPadre(IClientesAlquileres panelPadre) {
+    public void setPanelPadre(Alquileres panelPadre) {
         this.panelPadre = panelPadre;
     }
 
@@ -757,6 +757,14 @@ public class boxAlquileres extends javax.swing.JPanel {
         dialogoDatos.setLocationRelativeTo(CentrarEnDialogo);
         dialogoEliminar.setLocationRelativeTo(CentrarEnDialogo);
         dialogoModificar.setLocationRelativeTo(CentrarEnDialogo);
+    }
+
+    public Alquiler getAlquilerRepresentado() {
+        return alquilerRepresentado;
+    }
+
+    public void setAlquilerRepresentado(Alquiler alquilerRepresentado) {
+        this.alquilerRepresentado = alquilerRepresentado;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

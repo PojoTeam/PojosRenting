@@ -9,11 +9,19 @@ import hibernate.NewHibernateUtil;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import metodos.Altas;
+import metodos.Buscar;
 import org.hibernate.Session;
+import pojos.Alquiler;
 import pojos.Cliente;
 import pojos.Coche;
 import pojos.Empresa;
@@ -27,7 +35,10 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     
     private JPanel panelMainClientes;
     private JPanel panelMainCoches;
+    private JPanel panelMainAlquileres;
     private JFrame aplicacion;
+    private Cliente clienteSel;
+    private Coche cocheSel;
     
     /**
      * Creates new form Alquileres
@@ -47,23 +58,161 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
 
         seleccionCoche = new javax.swing.JDialog();
         seleccionCliente = new javax.swing.JDialog();
+        dialogoBuscar = new javax.swing.JDialog();
+        jLabel6 = new javax.swing.JLabel();
+        lblModNombre = new javax.swing.JLabel();
+        lblModApel = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        btnBuscarAceptar = new javax.swing.JButton();
+        btnBuscarCancelar1 = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        lblModDni = new javax.swing.JLabel();
+        lblModEmail = new javax.swing.JLabel();
+        entBuscarDni = new javax.swing.JTextField();
+        entBuscarFechaI = new javax.swing.JTextField();
+        entBuscarDuracion = new javax.swing.JTextField();
+        entBuscarFechaF = new javax.swing.JTextField();
+        entBuscarMatricula = new javax.swing.JTextField();
+        entBuscarPrecio = new javax.swing.JTextField();
+        lblModTelefono = new javax.swing.JLabel();
+        lblModFechaNac = new javax.swing.JLabel();
         panelDatosClientes = new javax.swing.JPanel();
         lblDni = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         btnAlta = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        entEstado = new javax.swing.JTextField();
-        entMarca = new javax.swing.JTextField();
+        entFechaI = new javax.swing.JTextField();
+        entFechaF = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        entModelo = new javax.swing.JTextField();
+        entCoche = new javax.swing.JTextField();
         btnSeleccionarCliente = new javax.swing.JButton();
         btnSeleccionarCoche = new javax.swing.JButton();
-        entModelo1 = new javax.swing.JTextField();
+        entCliente = new javax.swing.JTextField();
         window = new javax.swing.JPanel();
 
         seleccionCoche.setSize(new java.awt.Dimension(809, 606));
 
         seleccionCliente.setSize(new java.awt.Dimension(809, 606));
+
+        dialogoBuscar.setTitle("ALERTA");
+        dialogoBuscar.setMinimumSize(new java.awt.Dimension(416, 299));
+        dialogoBuscar.setModal(true);
+        dialogoBuscar.setResizable(false);
+        dialogoBuscar.setSize(new java.awt.Dimension(472, 385));
+
+        jLabel6.setText("BUSQUEDA ALQUILERES");
+
+        lblModNombre.setText("DNI/CIF");
+
+        lblModApel.setText("Duracion");
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/searcher.png"))); // NOI18N
+
+        btnBuscarAceptar.setText("Aceptar");
+        btnBuscarAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAceptarActionPerformed(evt);
+            }
+        });
+
+        btnBuscarCancelar1.setText("Cancelar");
+        btnBuscarCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarCancelar1ActionPerformed(evt);
+            }
+        });
+
+        lblModDni.setText("Fecha inicio");
+
+        lblModEmail.setText("Fecha fin");
+
+        lblModTelefono.setText("Matricula");
+
+        lblModFechaNac.setText("Precio");
+
+        javax.swing.GroupLayout dialogoBuscarLayout = new javax.swing.GroupLayout(dialogoBuscar.getContentPane());
+        dialogoBuscar.getContentPane().setLayout(dialogoBuscarLayout);
+        dialogoBuscarLayout.setHorizontalGroup(
+            dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel17)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6))
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnBuscarAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addComponent(lblModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entBuscarDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addComponent(lblModTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(entBuscarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblModEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblModFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblModDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(entBuscarFechaF, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(entBuscarFechaI, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(entBuscarPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
+                            .addComponent(btnBuscarCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(11, Short.MAX_VALUE))
+        );
+        dialogoBuscarLayout.setVerticalGroup(
+            dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblModDni, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entBuscarFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblModFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(entBuscarPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscarAceptar)
+                    .addComponent(btnBuscarCancelar1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         panelDatosClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
 
@@ -72,6 +221,11 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         lblTelefono.setText("Fecha Final");
 
         btnAlta.setText("ALTA");
+        btnAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltaActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("BUSCAR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -79,6 +233,8 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                 jButton4ActionPerformed(evt);
             }
         });
+
+        entCoche.setEditable(false);
 
         btnSeleccionarCliente.setText("Selec Cliente");
         btnSeleccionarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +249,8 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                 btnSeleccionarCocheActionPerformed(evt);
             }
         });
+
+        entCliente.setEditable(false);
 
         javax.swing.GroupLayout panelDatosClientesLayout = new javax.swing.GroupLayout(panelDatosClientes);
         panelDatosClientes.setLayout(panelDatosClientesLayout);
@@ -113,10 +271,10 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                                     .addComponent(lblDni, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(entModelo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
-                                    .addComponent(entEstado, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(entMarca, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(entModelo1)))
+                                    .addComponent(entCoche, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+                                    .addComponent(entFechaI, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(entFechaF, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(entCliente)))
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -127,18 +285,18 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                 .addGap(40, 40, 40)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSeleccionarCliente)
-                    .addComponent(entModelo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(entCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(entModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entCoche, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSeleccionarCoche))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(entEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDni))
                 .addGap(18, 18, 18)
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(entMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTelefono))
                 .addGap(30, 30, 30)
                 .addComponent(btnAlta)
@@ -181,6 +339,33 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         listarCoches(); //Listo los clientes en el dialogo
         seleccionCoche.setVisible(true); //Enseño el dialogo
     }//GEN-LAST:event_btnSeleccionarCocheActionPerformed
+
+    private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            Date fechaI = sdf.parse(this.entFechaI.getText());
+            Date fechaF = sdf.parse(this.entFechaF.getText());
+            Alquiler alquiler = new Alquiler(fechaI, fechaF, cocheSel, clienteSel);
+            Altas.alquileres(alquiler);
+            vaciarCampos();
+        }catch(ParseException pe){
+            System.out.println(pe);
+            vaciarCampos();
+        }
+        listarCoches();
+    }//GEN-LAST:event_btnAltaActionPerformed
+
+    private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
+        
+        List<Alquiler> alquileres;
+        alquileres = Buscar.alquileres(entBuscarPrecio.getText(), entBuscarFechaI.getText() , entBuscarFechaF.getText(), entBuscarDni.getText(), entBuscarMatricula.getText());
+        listarAlquileres(alquileres);
+        this.dialogoBuscar.setVisible(false);
+    }//GEN-LAST:event_btnBuscarAceptarActionPerformed
+
+    private void btnBuscarCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCancelar1ActionPerformed
+        dialogoBuscar.setVisible(false);
+    }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
     
     @Override
     public void listarClientes(){ //lista los clientes
@@ -314,6 +499,138 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         sesion.close();
     
     }
+    
+    public void listarAlquileres(){
+        if(panelMainAlquileres != null){
+            panelMainAlquileres.removeAll();
+            panelMainAlquileres.revalidate();
+            panelMainAlquileres.repaint();
+            window.remove(panelMainAlquileres);
+            window.revalidate();
+            window.repaint();
+        }
+        
+        panelMainAlquileres = new JPanel(new BorderLayout());
+        window.add(panelMainAlquileres);
+        GridBagLayout innerLayout = new GridBagLayout();
+        GridBagConstraints innerConstraints = new GridBagConstraints();
+        JPanel innerPanel = new JPanel(innerLayout);
+        
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        List<Alquiler> alquileres = sesion.createCriteria(Cliente.class).list();
+        int numeroAlquileres = alquileres.size();
+        int numeroIteracionesX = (numeroAlquileres/3)+1;
+        int numeroIteracionesTotales = 0;
+        
+        innerConstraints.weightx = 0.5;
+        innerConstraints.weighty = 0.5;
+        innerConstraints.gridy = 0;
+        
+        for(int i = 0; i < numeroIteracionesX; i++){    
+            for(int j = 0; j < 3; j++){
+                if(numeroIteracionesTotales != numeroAlquileres){
+                    Alquiler alquiler = alquileres.get(numeroIteracionesTotales);
+                    boxAlquileres boxAlquiler;
+                    if(alquiler.getCliente() instanceof Particular) {
+                        boxAlquiler = new boxAlquileres(((Particular)alquiler.getCliente()).getDni(), alquiler.getCoche().getMatricula());
+                    }else {
+                        boxAlquiler = new boxAlquileres(((Empresa)alquiler.getCliente()).getCif(), alquiler.getCoche().getMatricula());
+                    }
+                    boxAlquiler.setPanelPadre(this);
+                    boxAlquiler.setAlquilerRepresentado(alquiler);
+                    boxAlquiler.setAplicacion(aplicacion);
+                    innerConstraints.gridx = j;
+                    innerConstraints.gridy = i;
+                    innerPanel.add(boxAlquiler, innerConstraints);
+                    numeroIteracionesTotales++;
+                }else{
+                    break;
+                }
+            }
+        }
+
+        JPanel innerVoidPanel = new JPanel();
+        innerConstraints.weighty = 1.0;
+        innerConstraints.fill = GridBagConstraints.VERTICAL;
+        innerLayout.setConstraints(innerVoidPanel, innerConstraints);
+        innerPanel.add(innerVoidPanel);
+
+        //...
+
+        JScrollPane scrollPanel = new JScrollPane(innerPanel);
+        scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
+        panelMainAlquileres.add(scrollPanel, BorderLayout.CENTER);
+        sesion.close();
+    
+    }
+    
+    public void listarAlquileres(List<Alquiler> alquileres){ //modificar el metodo para que reciba el array de clientes
+        if(panelMainAlquileres != null){
+            panelMainAlquileres.removeAll();
+            panelMainAlquileres.revalidate();
+            panelMainAlquileres.repaint();
+            window.remove(panelMainAlquileres);
+            window.revalidate();
+            window.repaint();
+        }
+        
+        panelMainAlquileres = new JPanel(new BorderLayout());
+        window.add(panelMainAlquileres);
+        GridBagLayout innerLayout = new GridBagLayout();
+        GridBagConstraints innerConstraints = new GridBagConstraints();
+        JPanel innerPanel = new JPanel(innerLayout);
+        
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        int numeroClientes = alquileres.size();
+        int numeroIteracionesX = (numeroClientes/3)+1;
+        int numeroIteracionesTotales = 0;
+        
+        innerConstraints.weightx = 0.5;
+        innerConstraints.weighty = 0.5;
+        innerConstraints.gridy = 0;
+        
+        for(int i = 0; i < numeroIteracionesX; i++){    
+            for(int j = 0; j < 3; j++){
+                if(numeroIteracionesTotales != numeroClientes){
+                    Alquiler alquiler = alquileres.get(numeroIteracionesTotales);
+                    boxClientes boxAlquiler;
+                    boxAlquiler = new boxAlquiler(alquiler.getCliente(), alquiler.getCoche());
+                    boxAlquiler.setPanelPadre(this);
+                    boxAlquiler.setAlquilerRepresentado(alquiler);
+                    boxAlquiler.setAplicacion(aplicacion);
+                    innerConstraints.gridx = j;
+                    innerConstraints.gridy = i;
+                    innerPanel.add(boxAlquiler, innerConstraints);
+                    numeroIteracionesTotales++;
+                }else{
+                    break;
+                }
+            }
+        }
+
+        JPanel innerVoidPanel = new JPanel();
+        innerConstraints.weighty = 1.0;
+        innerConstraints.fill = GridBagConstraints.VERTICAL;
+        innerLayout.setConstraints(innerVoidPanel, innerConstraints);
+        innerPanel.add(innerVoidPanel);
+
+        //...
+
+        JScrollPane scrollPanel = new JScrollPane(innerPanel);
+        scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
+        panelMain.add(scrollPanel, BorderLayout.CENTER);
+        sesion.close();
+    
+    }
+    
+    public void vaciarCampos() {
+        entCliente.setText("");
+        entCoche.setText("");
+        entFechaI.setText("");
+        entFechaF.setText("");
+    }
 
     public JFrame getAplicacion() {
         return aplicacion;
@@ -323,17 +640,85 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         this.aplicacion = aplicacion;
     }
 
+    public Cliente getClienteSel() {
+        return clienteSel;
+    }
+
+    public void setClienteSel(Cliente clienteSel) {
+        this.clienteSel = clienteSel;
+    }
+
+    public Coche getCocheSel() {
+        return cocheSel;
+    }
+
+    public void setCocheSel(Coche cocheSel) {
+        this.cocheSel = cocheSel;
+    }
+
+    public JDialog getSeleccionCliente() {
+        return seleccionCliente;
+    }
+
+    public void setSeleccionCliente(JDialog seleccionCliente) {
+        this.seleccionCliente = seleccionCliente;
+    }
+
+    public JDialog getSeleccionCoche() {
+        return seleccionCoche;
+    }
+
+    public void setSeleccionCoche(JDialog seleccionCoche) {
+        this.seleccionCoche = seleccionCoche;
+    }
+
+    public JTextField getEntCliente() {
+        return entCliente;
+    }
+
+    public void setEntCliente(JTextField entCliente) {
+        this.entCliente = entCliente;
+    }
+
+    public JTextField getEntCoche() {
+        return entCoche;
+    }
+
+    public void setEntCoche(JTextField entCoche) {
+        this.entCoche = entCoche;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
+    private javax.swing.JButton btnBuscarAceptar;
+    private javax.swing.JButton btnBuscarCancelar1;
     private javax.swing.JButton btnSeleccionarCliente;
     private javax.swing.JButton btnSeleccionarCoche;
-    private javax.swing.JTextField entEstado;
-    private javax.swing.JTextField entMarca;
-    private javax.swing.JTextField entModelo;
-    private javax.swing.JTextField entModelo1;
+    private javax.swing.JDialog dialogoBuscar;
+    private javax.swing.JTextField entBuscarDni;
+    private javax.swing.JTextField entBuscarDuracion;
+    private javax.swing.JTextField entBuscarFechaF;
+    private javax.swing.JTextField entBuscarFechaI;
+    private javax.swing.JTextField entBuscarMatricula;
+    private javax.swing.JTextField entBuscarPrecio;
+    private javax.swing.JTextField entCliente;
+    private javax.swing.JTextField entCoche;
+    private javax.swing.JTextField entFechaF;
+    private javax.swing.JTextField entFechaI;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblDni;
+    private javax.swing.JLabel lblModApel;
+    private javax.swing.JLabel lblModDni;
+    private javax.swing.JLabel lblModEmail;
+    private javax.swing.JLabel lblModFechaNac;
+    private javax.swing.JLabel lblModNombre;
+    private javax.swing.JLabel lblModTelefono;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JPanel panelDatosClientes;
     private javax.swing.JDialog seleccionCliente;

@@ -577,6 +577,11 @@ public class boxClientes extends javax.swing.JPanel {
         lblDni.setText("lblDni");
 
         btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSeleccionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
@@ -801,6 +806,17 @@ public class boxClientes extends javax.swing.JPanel {
     private void btnDatosAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosAceptarActionPerformed
         dialogoDatos.setVisible(false);
     }//GEN-LAST:event_btnDatosAceptarActionPerformed
+
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        ((Alquileres)panelPadre).setClienteSel(clienteRepresentado);
+        ((Alquileres)panelPadre).getSeleccionCoche().setVisible(false);
+        if(clienteRepresentado instanceof Particular) {
+            ((Alquileres)panelPadre).getEntCoche().setText(((Particular)clienteRepresentado).getDni());
+        }else {
+            ((Alquileres)panelPadre).getEntCoche().setText(((Empresa)clienteRepresentado).getCif());
+        }
+        ((Alquileres)panelPadre).getEntCoche().setEnabled(false);
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     public IClientesAlquileres getPanelPadre() {
         return panelPadre;
