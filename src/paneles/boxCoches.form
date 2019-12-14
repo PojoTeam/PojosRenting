@@ -429,9 +429,6 @@
           <Dimension value="[416, 289]"/>
         </Property>
         <Property name="modal" type="boolean" value="true"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[416, 358]"/>
-        </Property>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 339]"/>
@@ -704,7 +701,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnSeleccionar" min="-2" pref="75" max="-2" attributes="0"/>
+                          <Component id="btnDatos" min="-2" pref="75" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnSeleccionar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnModCoc" min="-2" pref="77" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -767,9 +766,12 @@
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnSeleccionar" max="32767" attributes="0"/>
+                      <Component id="btnDatos" max="32767" attributes="0"/>
                       <Component id="btnEliminar" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnModCoc" alignment="1" max="32767" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Component id="btnModCoc" alignment="3" max="32767" attributes="0"/>
+                          <Component id="btnSeleccionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
               </Group>
@@ -794,12 +796,12 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSeleccionar">
+        <Component class="javax.swing.JButton" name="btnDatos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Datos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDatosActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnEliminar">
@@ -836,6 +838,11 @@
         <Component class="javax.swing.JLabel" name="lblModeloCoc">
           <Properties>
             <Property name="text" type="java.lang.String" value="Modelo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnSeleccionar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Seleccionar"/>
           </Properties>
         </Component>
       </SubComponents>

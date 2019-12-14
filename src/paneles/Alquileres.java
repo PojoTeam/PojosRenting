@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import org.hibernate.Session;
 import pojos.Cliente;
+import pojos.Coche;
 import pojos.Empresa;
 import pojos.Particular;
 
@@ -22,9 +23,10 @@ import pojos.Particular;
  *
  * @author a18carlosva
  */
-public class Alquileres extends javax.swing.JPanel implements IClientesAlquileres{
+public class Alquileres extends javax.swing.JPanel implements IClientesAlquileres, ICochesAlquileres{
     
-    private JPanel panelMain;
+    private JPanel panelMainClientes;
+    private JPanel panelMainCoches;
     private JFrame aplicacion;
     
     /**
@@ -176,22 +178,23 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     }//GEN-LAST:event_btnSeleccionarClienteActionPerformed
 
     private void btnSeleccionarCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarCocheActionPerformed
-        
+        listarCoches(); //Listo los clientes en el dialogo
+        seleccionCoche.setVisible(true); //Enseño el dialogo
     }//GEN-LAST:event_btnSeleccionarCocheActionPerformed
     
     @Override
     public void listarClientes(){ //lista los clientes
-        if(panelMain != null){
-            panelMain.removeAll();
-            panelMain.revalidate();
-            panelMain.repaint();
-            seleccionCliente.remove(panelMain);
+        if(panelMainClientes != null){
+            panelMainClientes.removeAll();
+            panelMainClientes.revalidate();
+            panelMainClientes.repaint();
+            seleccionCliente.remove(panelMainClientes);
             seleccionCliente.revalidate();
             seleccionCliente.repaint();
         }
 
-        panelMain = new JPanel(new BorderLayout());
-        seleccionCliente.add(panelMain);
+        panelMainClientes = new JPanel(new BorderLayout());
+        seleccionCliente.add(panelMainClientes);
         GridBagLayout innerLayout = new GridBagLayout();
         GridBagConstraints innerConstraints = new GridBagConstraints();
         JPanel innerPanel = new JPanel(innerLayout);
@@ -243,9 +246,73 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
 
         JScrollPane scrollPanel = new JScrollPane(innerPanel);
         scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
-        panelMain.add(scrollPanel, BorderLayout.CENTER);
+        panelMainClientes.add(scrollPanel, BorderLayout.CENTER);
         sesion.close();
 
+    }
+    
+    @Override
+    public void listarCoches(){
+        if(panelMainCoches != null){
+            panelMainCoches.removeAll();
+            panelMainCoches.revalidate();
+            panelMainCoches.repaint();
+            seleccionCoche.remove(panelMainCoches);
+            seleccionCoche.revalidate();
+            seleccionCoche.repaint();
+        }
+        
+        panelMainCoches = new JPanel(new BorderLayout());
+        seleccionCoche.add(panelMainCoches);
+        GridBagLayout innerLayout = new GridBagLayout();
+        GridBagConstraints innerConstraints = new GridBagConstraints();
+        JPanel innerPanel = new JPanel(innerLayout);
+        
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        List<Coche> coches = sesion.createCriteria(Coche.class).list();
+        int numeroCoches = coches.size();
+        int numeroIteracionesX = (numeroCoches/3)+1;
+        int numeroIteracionesTotales = 0;
+        
+        innerConstraints.weightx = 0.5;
+        innerConstraints.weighty = 0.5;
+        innerConstraints.gridy = 0;
+        
+        for(int i = 0; i < numeroIteracionesX; i++){    
+            for(int j = 0; j < 3; j++){
+                if(numeroIteracionesTotales != numeroCoches){
+                    Coche coche = coches.get(numeroIteracionesTotales);
+                    boxCoches boxCoches = new boxCoches(coche.getMatricula(), coche.getMarca(), coche.getModelo());
+                    boxCoches.setPanelPadre(this);
+                    boxCoches.setCocheRepresentado(coche);
+                    boxCoches.getBtnModCoc().setVisible(false);
+                    boxCoches.getBtnEliminar().setVisible(false);
+                    boxCoches.getBtnSeleccionar().setVisible(true);
+                    innerConstraints.gridx = j;
+                    innerConstraints.gridy = i;
+                    innerPanel.add(boxCoches, innerConstraints);
+                    numeroIteracionesTotales++;
+                }else{
+                    break;
+                }
+            }
+        }
+
+        JPanel innerVoidPanel = new JPanel();
+        innerConstraints.weighty = 1.0;
+        innerConstraints.fill = GridBagConstraints.VERTICAL;
+        innerLayout.setConstraints(innerVoidPanel, innerConstraints);
+        innerPanel.add(innerVoidPanel);
+
+        //...
+
+        JScrollPane scrollPanel = new JScrollPane(innerPanel);
+        scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
+        panelMainCoches.add(scrollPanel, BorderLayout.CENTER);
+        sesion.getTransaction().commit();
+        sesion.close();
+    
     }
 
     public JFrame getAplicacion() {

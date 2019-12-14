@@ -10,11 +10,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import metodos.Altas;
+import javax.swing.JButton;
 import metodos.Modificar;
 import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
-import pojos.Cliente;
 import pojos.Coche;
 
 
@@ -28,7 +26,7 @@ public class boxCoches extends javax.swing.JPanel {
      * Creates new form boxClientes
      */
     
-    private Coches panelPadre;
+    private ICochesAlquileres panelPadre;
     private Coche cocheRepresentado;
     
     public boxCoches(String matricula, String marca, String modelo) {
@@ -36,6 +34,7 @@ public class boxCoches extends javax.swing.JPanel {
         lblMatricula.setText(matricula);
         lblMarca.setText(marca);
         lblModelo.setText(modelo);
+        btnSeleccionar.setVisible(false);
     }
 
     /**
@@ -106,13 +105,14 @@ public class boxCoches extends javax.swing.JPanel {
         lblMatriculaCoc = new javax.swing.JLabel();
         lblMarcaCoc = new javax.swing.JLabel();
         lblImg = new javax.swing.JLabel();
-        btnSeleccionar = new javax.swing.JButton();
+        btnDatos = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         lblMatricula = new javax.swing.JLabel();
         btnModCoc = new javax.swing.JButton();
         lblMarca = new javax.swing.JLabel();
         lblModelo = new javax.swing.JLabel();
         lblModeloCoc = new javax.swing.JLabel();
+        btnSeleccionar = new javax.swing.JButton();
 
         dialogoEliminar.setTitle("ALERTA");
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
@@ -376,7 +376,6 @@ public class boxCoches extends javax.swing.JPanel {
         dialogoDatos.setTitle("ALERTA");
         dialogoDatos.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoDatos.setModal(true);
-        dialogoDatos.setPreferredSize(new java.awt.Dimension(416, 358));
         dialogoDatos.setResizable(false);
         dialogoDatos.setSize(new java.awt.Dimension(416, 339));
 
@@ -523,10 +522,10 @@ public class boxCoches extends javax.swing.JPanel {
 
         lblImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/sedan-car-front.png"))); // NOI18N
 
-        btnSeleccionar.setText("Datos");
-        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+        btnDatos.setText("Datos");
+        btnDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarActionPerformed(evt);
+                btnDatosActionPerformed(evt);
             }
         });
 
@@ -552,6 +551,8 @@ public class boxCoches extends javax.swing.JPanel {
 
         lblModeloCoc.setText("Modelo");
 
+        btnSeleccionar.setText("Seleccionar");
+
         javax.swing.GroupLayout boxClienteLayout = new javax.swing.GroupLayout(boxCliente);
         boxCliente.setLayout(boxClienteLayout);
         boxClienteLayout.setHorizontalGroup(
@@ -560,7 +561,9 @@ public class boxCoches extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(boxClienteLayout.createSequentialGroup()
-                        .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSeleccionar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnModCoc, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -608,9 +611,11 @@ public class boxCoches extends javax.swing.JPanel {
                     .addComponent(lblModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnSeleccionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnDatos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModCoc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, boxClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnModCoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSeleccionar)))
                 .addGap(18, 18, 18))
         );
 
@@ -640,7 +645,7 @@ public class boxCoches extends javax.swing.JPanel {
         dialogoEliminar.setVisible(false);
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
-    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+    private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
         this.lblDataMatricula.setText(cocheRepresentado.getMatricula());
         this.lblDataMarca.setText(cocheRepresentado.getMarca());
         this.lblDataModelo.setText(cocheRepresentado.getModelo());
@@ -649,7 +654,7 @@ public class boxCoches extends javax.swing.JPanel {
         this.lblDataAnhos.setText(String.valueOf(cocheRepresentado.getAnhos()));
         this.lblDataFecha.setText(String.valueOf(cocheRepresentado.getFechaM()));
         dialogoDatos.setVisible(true);
-    }//GEN-LAST:event_btnSeleccionarActionPerformed
+    }//GEN-LAST:event_btnDatosActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         Session sesion = NewHibernateUtil.getSession();
@@ -697,7 +702,6 @@ public class boxCoches extends javax.swing.JPanel {
         }catch(ParseException pe){
             System.out.println(pe);
         }
-        panelPadre.vaciarCampos();
         panelPadre.listarCoches();
         this.dialogoModificar.setVisible(false);
     }//GEN-LAST:event_btnModAceptarActionPerformed
@@ -710,11 +714,11 @@ public class boxCoches extends javax.swing.JPanel {
         dialogoDatos.setVisible(false);
     }//GEN-LAST:event_btnDatosAceptarActionPerformed
 
-    public Coches getPanelPadre() {
+    public ICochesAlquileres getPanelPadre() {
         return panelPadre;
     }
 
-    public void setPanelPadre(Coches panelPadre) {
+    public void setPanelPadre(ICochesAlquileres panelPadre) {
         this.panelPadre = panelPadre;
     }
 
@@ -725,11 +729,34 @@ public class boxCoches extends javax.swing.JPanel {
     public void setCocheRepresentado(Coche cocheRepresentado) {
         this.cocheRepresentado = cocheRepresentado;
     }
-    
-    
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public void setBtnEliminar(JButton btnEliminar) {
+        this.btnEliminar = btnEliminar;
+    }
+
+    public JButton getBtnModCoc() {
+        return btnModCoc;
+    }
+
+    public void setBtnModCoc(JButton btnModCoc) {
+        this.btnModCoc = btnModCoc;
+    }
+
+    public JButton getBtnSeleccionar() {
+        return btnSeleccionar;
+    }
+
+    public void setBtnSeleccionar(JButton btnSeleccionar) {
+        this.btnSeleccionar = btnSeleccionar;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel boxCliente;
+    private javax.swing.JButton btnDatos;
     private javax.swing.JButton btnDatosAceptar;
     private javax.swing.JButton btnDigAceptar;
     private javax.swing.JButton btnDigCancelar;

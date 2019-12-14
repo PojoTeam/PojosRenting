@@ -26,7 +26,7 @@ import pojos.Coche;
  *
  * @author a18carlosva
  */
-public class Coches extends javax.swing.JPanel {
+public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
     
     private Coche cocheEnSeleccion = null;
     private JPanel panelMain;
@@ -412,6 +412,7 @@ public class Coches extends javax.swing.JPanel {
         this.entEstado.setText(cocheEnSeleccion.getEstado());
     }
     
+    @Override
     public void listarCoches(){
         if(panelMain != null){
             panelMain.removeAll();
