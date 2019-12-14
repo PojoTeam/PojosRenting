@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import java.sql.*;
 import java.util.List;
 import metodos.Buscar;
+import pojos.Alquiler;
 import pojos.Cliente;
 import pojos.Particular;
 
@@ -31,9 +32,9 @@ public class main {
         }
         NewHibernateUtil.getSession();
         Session sesion = NewHibernateUtil.getSession();
-        List<Cliente> clientes = Buscar.particulares("Pablo","","","","","","");
-        for(Cliente cli : clientes) { 
-            System.out.println(((Particular)cli).getDni());
+        List<Alquiler> alquileres = Buscar.alquileres("","","","1","");
+        for(Alquiler alq : alquileres) { 
+            System.out.println(alq.getCodigo());
         }
         System.out.println("hola");
     }
