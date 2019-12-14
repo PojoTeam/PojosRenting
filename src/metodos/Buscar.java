@@ -11,6 +11,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
+import pojos.Alquiler;
 import pojos.Cliente;
 import pojos.Coche;
 import pojos.Empresa;
@@ -144,6 +145,48 @@ public class Buscar {
                 .commit();
         sesion.close();
         return coches;
+    }
+    
+    public static List<Alquiler> alquileres(String precioTotal, String descuento, String fechaInicio, String fechaFin, String coche, String cliente) {
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        List<Alquiler> alquileres;
+        if (precioTotal.equalsIgnoreCase("") && descuento.equalsIgnoreCase("") && fechaInicio.equalsIgnoreCase("") && fechaFin.equalsIgnoreCase("") && coche.equalsIgnoreCase("")&& cliente.equalsIgnoreCase("")) {
+            //todos los campos estan vacios, por lo que no hay nada a buscar.
+            sesion.close();
+            return null;
+        }else {
+            Criteria filtros = sesion.createCriteria(Alquiler.class);
+            if (!precioTotal.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("precioTotal", precioTotal);
+                filtros.add(nameCriteria);
+            }
+            if (!descuento.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("descuento", descuento);
+                filtros.add(nameCriteria);
+            }
+            if (!fechaInicio.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("fechaInicio", fechaInicio);
+                filtros.add(nameCriteria);
+            }
+            if (!fechaFin.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("fechaFin", fechaFin);
+                filtros.add(nameCriteria);
+            }
+            if (!coche.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("coche", coche);
+                filtros.add(nameCriteria);
+            }
+            if(!cliente.equalsIgnoreCase("")){
+                Criterion nameCriteria = Restrictions.eq("cliente", cliente);
+                filtros.add(nameCriteria);
+            }
+            alquileres = filtros.list();
+        }
+        sesion.getTransaction()
+                .commit();
+        sesion.close();
+        return alquileres;
     }
 
 }
