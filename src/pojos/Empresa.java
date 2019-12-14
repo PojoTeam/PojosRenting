@@ -22,6 +22,7 @@ public class Empresa extends Cliente implements Serializable {
         this.nombre = nombre;
         this.cif = cif;
         this.alquileres = new HashSet<>();
+        this.nAlquileres = 0;
     }
 
     public String getNombre() {

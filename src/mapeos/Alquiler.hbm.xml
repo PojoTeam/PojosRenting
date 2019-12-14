@@ -9,14 +9,14 @@
         <property column="DESCUENTO" name="descuento"/>
         
         <!--RELACION CON TABLA PARTICULARES -->
-        <one-to-one class="pojos.Particular" name="particular" constrained="true"/>
+        <one-to-one class="pojos.Particular" name="particular" foreign-key="ID_CLIENTE" constrained="true"/>
         
         <!--RELACION CON TABLA EMPRESAS -->
         <many-to-one class="pojos.Empresa" name="empresa">
-            <column name="ID_CLIENTE" not-null="true"/>
+            <column name="ID_EMPRESA" not-null="false"/>
         </many-to-one>
                     
         <!--RELACION CON TABLA COCHES -->
-        <one-to-one class="pojos.Coche" name="coche" constrained="true"/>
+        <one-to-one class="pojos.Coche" name="coche" foreign-key="MATRICULA" constrained="true"/>
     </class>
 </hibernate-mapping>

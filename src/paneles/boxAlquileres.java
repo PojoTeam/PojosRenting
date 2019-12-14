@@ -36,10 +36,11 @@ public class boxAlquileres extends javax.swing.JPanel {
     private JFrame aplicacion;
     private JDialog CentrarEnDialogo;
     
-    public boxAlquileres(String nombre, String dni) {
+    public boxAlquileres(String dni, String matricula, int codigo) {
         initComponents();
-        lblDniCif.setText(nombre);
-        lblMatricula.setText(dni);
+        lblDniCif.setText(dni);
+        lblMatricula.setText(matricula);
+        lblCodigo.setText(String.valueOf(codigo));
         btnSeleccionar.setVisible(false);
     }
 

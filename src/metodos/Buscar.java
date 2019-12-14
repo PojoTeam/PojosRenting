@@ -151,7 +151,7 @@ public class Buscar {
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
         List<Alquiler> alquileres;
-        if (precioTotal.equalsIgnoreCase("") && descuento.equalsIgnoreCase("") && fechaInicio.equalsIgnoreCase("") && fechaFin.equalsIgnoreCase("") && coche.equalsIgnoreCase("")&& cliente.equalsIgnoreCase("")) {
+        if (precioTotal.equalsIgnoreCase("") && fechaInicio.equalsIgnoreCase("") && fechaFin.equalsIgnoreCase("") && coche.equalsIgnoreCase("")&& cliente.equalsIgnoreCase("")) {
             //todos los campos estan vacios, por lo que no hay nada a buscar.
             sesion.close();
             return null;

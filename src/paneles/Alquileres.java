@@ -345,14 +345,22 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             Date fechaI = sdf.parse(this.entFechaI.getText());
             Date fechaF = sdf.parse(this.entFechaF.getText());
-            Alquiler alquiler = new Alquiler(fechaI, fechaF, cocheSel, clienteSel);
+            Alquiler alquiler = null;
+            if(clienteSel instanceof Particular) {
+                alquiler = new Alquiler(fechaI, fechaF, cocheSel);
+                alquiler.setParticular((Particular)clienteSel);
+            }else {
+                alquiler = new Alquiler(fechaI, fechaF, cocheSel);
+                alquiler.setEmpresa((Empresa)clienteSel);
+            }
+            
             Altas.alquileres(alquiler);
             vaciarCampos();
         }catch(ParseException pe){
             System.out.println(pe);
             vaciarCampos();
         }
-        listarCoches();
+        listarAlquileres();
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
@@ -518,7 +526,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        List<Alquiler> alquileres = sesion.createCriteria(Cliente.class).list();
+        List<Alquiler> alquileres = sesion.createCriteria(Alquiler.class).list();
         int numeroAlquileres = alquileres.size();
         int numeroIteracionesX = (numeroAlquileres/3)+1;
         int numeroIteracionesTotales = 0;
@@ -532,10 +540,10 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                 if(numeroIteracionesTotales != numeroAlquileres){
                     Alquiler alquiler = alquileres.get(numeroIteracionesTotales);
                     boxAlquileres boxAlquiler;
-                    if(alquiler.getCliente() instanceof Particular) {
-                        boxAlquiler = new boxAlquileres(((Particular)alquiler.getCliente()).getDni(), alquiler.getCoche().getMatricula());
+                    if(alquiler.getParticular() != null) {
+                        boxAlquiler = new boxAlquileres(alquiler.getParticular().getDni(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
                     }else {
-                        boxAlquiler = new boxAlquileres(((Empresa)alquiler.getCliente()).getCif(), alquiler.getCoche().getMatricula());
+                        boxAlquiler = new boxAlquileres(alquiler.getEmpresa().getCif(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
                     }
                     boxAlquiler.setPanelPadre(this);
                     boxAlquiler.setAlquilerRepresentado(alquiler);
@@ -583,8 +591,8 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        int numeroClientes = alquileres.size();
-        int numeroIteracionesX = (numeroClientes/3)+1;
+        int numeroAlquileres = alquileres.size();
+        int numeroIteracionesX = (numeroAlquileres/3)+1;
         int numeroIteracionesTotales = 0;
         
         innerConstraints.weightx = 0.5;
@@ -593,10 +601,14 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         
         for(int i = 0; i < numeroIteracionesX; i++){    
             for(int j = 0; j < 3; j++){
-                if(numeroIteracionesTotales != numeroClientes){
+                if(numeroIteracionesTotales != numeroAlquileres){
                     Alquiler alquiler = alquileres.get(numeroIteracionesTotales);
-                    boxClientes boxAlquiler;
-                    boxAlquiler = new boxAlquiler(alquiler.getCliente(), alquiler.getCoche());
+                    boxAlquileres boxAlquiler;
+                    if(alquiler.getParticular() != null) {
+                        boxAlquiler = new boxAlquileres(alquiler.getParticular().getDni(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
+                    }else {
+                        boxAlquiler = new boxAlquileres(alquiler.getEmpresa().getCif(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
+                    }
                     boxAlquiler.setPanelPadre(this);
                     boxAlquiler.setAlquilerRepresentado(alquiler);
                     boxAlquiler.setAplicacion(aplicacion);
@@ -620,7 +632,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
 
         JScrollPane scrollPanel = new JScrollPane(innerPanel);
         scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
-        panelMain.add(scrollPanel, BorderLayout.CENTER);
+        panelMainAlquileres.add(scrollPanel, BorderLayout.CENTER);
         sesion.close();
     
     }

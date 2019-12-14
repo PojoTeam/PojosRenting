@@ -594,7 +594,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
         
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        List<Cliente> clientes = sesion.createCriteria(Cliente.class).list();//quitar esta linea
+        List<Cliente> clientes = sesion.createCriteria(Cliente.class).list();
         int numeroClientes = clientes.size();
         int numeroIteracionesX = (numeroClientes/3)+1;
         int numeroIteracionesTotales = 0;

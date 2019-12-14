@@ -809,13 +809,13 @@ public class boxClientes extends javax.swing.JPanel {
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         ((Alquileres)panelPadre).setClienteSel(clienteRepresentado);
-        ((Alquileres)panelPadre).getSeleccionCoche().setVisible(false);
+        ((Alquileres)panelPadre).getSeleccionCliente().setVisible(false);
         if(clienteRepresentado instanceof Particular) {
-            ((Alquileres)panelPadre).getEntCoche().setText(((Particular)clienteRepresentado).getDni());
+            ((Alquileres)panelPadre).getEntCliente().setText(((Particular)clienteRepresentado).getDni());
         }else {
-            ((Alquileres)panelPadre).getEntCoche().setText(((Empresa)clienteRepresentado).getCif());
+            ((Alquileres)panelPadre).getEntCliente().setText(((Empresa)clienteRepresentado).getCif());
         }
-        ((Alquileres)panelPadre).getEntCoche().setEnabled(false);
+        ((Alquileres)panelPadre).getEntCliente().setEnabled(false);
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     public IClientesAlquileres getPanelPadre() {
