@@ -8,9 +8,14 @@ import java.util.Date;
  * @author a18pablobc
  */
 public class LargoPlazo extends Alquiler implements Serializable {
-    public LargoPlazo(int codigo, Date fechaInicio, Date fechaFin, float precioTotal, float descuento) {
+    public LargoPlazo(Date fechaInicio, Date fechaFin, Coche coche, float precioTotal, float descuento) {
+        super(fechaInicio, fechaFin, coche, precioTotal, descuento);
     }
-       
+    
+
+    public LargoPlazo() {
+    }
+    
     @Override
     public float calculoDescuento() {
         if(this.calculoDuracion() > 30 && this.calculoDuracion() < 180){

@@ -641,13 +641,14 @@ public class boxCoches extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
     private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         this.lblDataMatricula.setText(cocheRepresentado.getMatricula());
         this.lblDataMarca.setText(cocheRepresentado.getMarca());
         this.lblDataModelo.setText(cocheRepresentado.getModelo());
         this.lblDataEstado.setText(cocheRepresentado.getEstado());
         this.lblDataPrecio.setText(String.valueOf(cocheRepresentado.getPrecioDia()));
         this.lblDataAnhos.setText(String.valueOf(cocheRepresentado.getAnhos()));
-        this.lblDataFecha.setText(String.valueOf(cocheRepresentado.getFechaM()));
+        this.lblDataFecha.setText(sdf.format(cocheRepresentado.getFechaM()));
         dialogoDatos.setVisible(true);
     }//GEN-LAST:event_btnDatosActionPerformed
 

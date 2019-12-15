@@ -19,10 +19,12 @@ public class Alquiler implements Serializable {
     public Alquiler() {
     }
     
-    public Alquiler(Date fechaInicio, Date fechaFin, Coche coche) {
+    public Alquiler(Date fechaInicio, Date fechaFin, Coche coche, float precioTotal, float descuento) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.coche = coche;
+        this.precioTotal = precioTotal;
+        this.descuento = descuento;
     }
     
     public int getCodigo() {

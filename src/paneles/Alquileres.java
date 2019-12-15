@@ -20,6 +20,7 @@ import pojos.Alquiler;
 import pojos.Cliente;
 import pojos.Coche;
 import pojos.Empresa;
+import pojos.LargoPlazo;
 import pojos.Particular;
 
 public class Alquileres extends javax.swing.JPanel implements IClientesAlquileres, ICochesAlquileres{
@@ -340,16 +341,32 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             Date fechaI = sdf.parse(this.entFechaI.getText());
             Date fechaF = sdf.parse(this.entFechaF.getText());
+            float precioTotal,
+                    descuento = 0;
+            int duracion = (int) ((fechaF.getTime() - fechaI.getTime()) / 86400000);
+            if (clienteSel instanceof Particular) {
+                if (((Particular)clienteSel).getPuntos() == 15) {
+                    descuento = 0.1f;
+                }
+
+            } else if (((Empresa)clienteSel).getnAlquileres() > 100) {
+                descuento = 0.1f;
+            }
+            precioTotal = cocheSel.getPrecioDia() * duracion * (descuento + 1);
             Alquiler alquiler = null;
+            LargoPlazo largoPlazo = null;
             if(clienteSel instanceof Particular) {
-                alquiler = new Alquiler(fechaI, fechaF, cocheSel);
+                alquiler = new Alquiler(fechaI, fechaF, cocheSel, precioTotal, descuento);
                 alquiler.setParticular((Particular)clienteSel);
             }else {
-                alquiler = new Alquiler(fechaI, fechaF, cocheSel);
+                alquiler = new Alquiler(fechaI, fechaF, cocheSel, precioTotal, descuento);
                 alquiler.setEmpresa((Empresa)clienteSel);
             }
-            
             Altas.alquileres(alquiler);
+            if(duracion > 30) {
+                largoPlazo = new LargoPlazo(fechaI, fechaF, cocheSel, precioTotal, descuento);
+                Altas.largoPlazo(largoPlazo);
+            }
             vaciarCampos();
         }catch(ParseException pe){
             System.out.println(pe);

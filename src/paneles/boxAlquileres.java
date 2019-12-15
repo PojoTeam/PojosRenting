@@ -621,7 +621,7 @@ public class boxAlquileres extends javax.swing.JPanel {
         
         lblDigFechaI.setText(sdf.format(alquilerRepresentado.getFechaInicio()));
         lblDigFechaF.setText(sdf.format(alquilerRepresentado.getFechaFin()));
-        lblDigPrecio.setText(sdf.format(alquilerRepresentado.getPrecioTotal()));
+        lblDigPrecio.setText(String.valueOf(alquilerRepresentado.getPrecioTotal()));
         dialogoEliminar.setVisible(true);
     }//GEN-LAST:event_btnEliminarActionPerformed
 

@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import pojos.Alquiler;
 import pojos.Coche;
 import pojos.Empresa;
+import pojos.LargoPlazo;
 import pojos.Particular;
 
 public class Altas {
@@ -61,6 +62,20 @@ public class Altas {
             
             sesion.beginTransaction();
             sesion.save(alquiler);
+            sesion.getTransaction().commit();
+            sesion.close();
+        }catch(HibernateException e){
+            System.out.println(e);
+        }
+    }
+    
+    public static void largoPlazo(LargoPlazo largoPlazo) {
+        try{
+            NewHibernateUtil.getSession();
+            Session sesion = NewHibernateUtil.getSession();
+            
+            sesion.beginTransaction();
+            sesion.save(largoPlazo);
             sesion.getTransaction().commit();
             sesion.close();
         }catch(HibernateException e){
