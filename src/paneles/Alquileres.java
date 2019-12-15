@@ -372,6 +372,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                 }
 
             } else if (((Empresa)clienteSel).getnAlquileres() > 100) {
+                ((Empresa)clienteSel).setnAlquileres(((Empresa)clienteSel).getnAlquileres() + 1);
                 descuento = 0.1f;
             }
             if(duracion > 30 && duracion < 180){
@@ -476,22 +477,29 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             for(int j = 0; j < 3; j++){
                 if(numeroIteracionesTotales != numeroClientes){
                     Cliente cliente = clientes.get(numeroIteracionesTotales);
-                    boxClientes boxCliente;
+                    boxClientes boxCliente = null;
                     if(cliente instanceof Particular){
-                        boxCliente = new boxClientes(((Particular)cliente).getNombre(), ((Particular)cliente).getDni());
+                        if(((Particular)cliente).getAlquiler() == null){
+                            boxCliente = new boxClientes(((Particular)cliente).getNombre(), ((Particular)cliente).getDni());
+                        }
                     }else{
                         boxCliente = new boxClientes(((Empresa)cliente).getNombre(), ((Empresa)cliente).getCif());
                     }
-                    boxCliente.setPanelPadre(this);
-                    boxCliente.setClienteRepresentado(cliente);
-                    boxCliente.setCentrarEnDialogo(seleccionCliente);
-                    boxCliente.getBtnSeleccionar().setVisible(true);
-                    boxCliente.getBtnModCli().setVisible(false);
-                    boxCliente.getBtnEliminar().setVisible(false);
-                    innerConstraints.gridx = j;
-                    innerConstraints.gridy = i;
-                    innerPanel.add(boxCliente, innerConstraints);
-                    numeroIteracionesTotales++;
+                    if(boxCliente != null){
+                        boxCliente.setPanelPadre(this);
+                        boxCliente.setClienteRepresentado(cliente);
+                        boxCliente.setCentrarEnDialogo(seleccionCliente);
+                        boxCliente.getBtnSeleccionar().setVisible(true);
+                        boxCliente.getBtnModCli().setVisible(false);
+                        boxCliente.getBtnEliminar().setVisible(false);
+                        innerConstraints.gridx = j;
+                        innerConstraints.gridy = i;
+                        innerPanel.add(boxCliente, innerConstraints);
+                        numeroIteracionesTotales++;
+                    }else{
+                        numeroIteracionesTotales++;
+                        j--;
+                    }
                 }else{
                     break;
                 }
@@ -545,16 +553,21 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             for(int j = 0; j < 3; j++){
                 if(numeroIteracionesTotales != numeroCoches){
                     Coche coche = coches.get(numeroIteracionesTotales);
-                    boxCoches boxCoches = new boxCoches(coche.getMatricula(), coche.getMarca(), coche.getModelo());
-                    boxCoches.setPanelPadre(this);
-                    boxCoches.setCocheRepresentado(coche);
-                    boxCoches.getBtnModCoc().setVisible(false);
-                    boxCoches.getBtnEliminar().setVisible(false);
-                    boxCoches.getBtnSeleccionar().setVisible(true);
-                    innerConstraints.gridx = j;
-                    innerConstraints.gridy = i;
-                    innerPanel.add(boxCoches, innerConstraints);
-                    numeroIteracionesTotales++;
+                    if(coche.getAlquiler() == null){
+                        boxCoches boxCoches = new boxCoches(coche.getMatricula(), coche.getMarca(), coche.getModelo());
+                        boxCoches.setPanelPadre(this);
+                        boxCoches.setCocheRepresentado(coche);
+                        boxCoches.getBtnModCoc().setVisible(false);
+                        boxCoches.getBtnEliminar().setVisible(false);
+                        boxCoches.getBtnSeleccionar().setVisible(true);
+                        innerConstraints.gridx = j;
+                        innerConstraints.gridy = i;
+                        innerPanel.add(boxCoches, innerConstraints);
+                        numeroIteracionesTotales++;
+                    }else{
+                        numeroIteracionesTotales++;
+                        j--;
+                    }
                 }else{
                     break;
                 }
@@ -709,7 +722,6 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     public void vaciarCampos() {
         entCliente.setText("");
         entCoche.setText("");
-        entFechaI.setText("");
         entFechaF.setText("");
     }
 

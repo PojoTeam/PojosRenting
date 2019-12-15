@@ -20,7 +20,7 @@
         </set>
         
         <!-- RELACION CON TABLA ALQUILER-->
-        <one-to-one class="pojos.Alquiler" name="alquiler"/>
+        <one-to-one class="pojos.Alquiler" name="alquiler" property-ref="coche"/>
        
         <!-- RELACION CON TABLA SEDE
         <many-to-one class="pojos.Sede" name="sede">

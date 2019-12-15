@@ -28,7 +28,7 @@
             <property column="FECHANAC" name="fechaNacimiento"/>
 
             <!-- RELACIÓN CON TABLA ALQUILERES -->
-            <one-to-one class="pojos.Alquiler" name="alquiler"/>
+            <one-to-one class="pojos.Alquiler" name="alquiler" property-ref="particular"/>
         </joined-subclass>
 
         <!-- SUBCLASE EMPRESA -->

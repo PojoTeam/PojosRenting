@@ -42,7 +42,7 @@ public class FrameInicio extends jFramePadre{
         panelAlquileres = new Alquileres();
         panelAlquileres.setAplicacion(this);
         botonActivado = panelAsButton1;
-        panelAsButton1.setBackground(new Color(100,100,100));
+        panelAsButton1.setBackground(new Color(160,160,160));
         new CambiarPanel(panelContenedor, panelInicio);
         
     }
@@ -73,7 +73,7 @@ public class FrameInicio extends jFramePadre{
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
 
-        jPanel1.setBackground(new java.awt.Color(70, 70, 70));
+        jPanel1.setBackground(new java.awt.Color(200, 200, 200));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jPanel1.setPreferredSize(new java.awt.Dimension(1234, 108));
 
@@ -88,10 +88,10 @@ public class FrameInicio extends jFramePadre{
             .addGap(0, 107, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(70, 70, 70));
+        jPanel2.setBackground(new java.awt.Color(200, 200, 200));
         jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
 
-        panelAsButton2.setBackground(new java.awt.Color(70, 70, 70));
+        panelAsButton2.setBackground(new java.awt.Color(200, 200, 200));
         panelAsButton2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
@@ -113,10 +113,10 @@ public class FrameInicio extends jFramePadre{
             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
 
-        panelAsButton3.setBackground(new java.awt.Color(70, 70, 70));
+        panelAsButton3.setBackground(new java.awt.Color(200, 200, 200));
         panelAsButton3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
-        jLabel3.setBackground(new java.awt.Color(70, 70, 70));
+        jLabel3.setBackground(new java.awt.Color(150, 150, 150));
         jLabel3.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(10, 10, 10));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -134,7 +134,7 @@ public class FrameInicio extends jFramePadre{
             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
 
-        panelAsButton4.setBackground(new java.awt.Color(70, 70, 70));
+        panelAsButton4.setBackground(new java.awt.Color(200, 200, 200));
         panelAsButton4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         jLabel4.setBackground(new java.awt.Color(70, 70, 70));
@@ -157,7 +157,7 @@ public class FrameInicio extends jFramePadre{
             .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
 
-        panelAsButton1.setBackground(new java.awt.Color(70, 70, 70));
+        panelAsButton1.setBackground(new java.awt.Color(200, 200, 200));
         panelAsButton1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
 
         jLabel1.setBackground(new java.awt.Color(70, 70, 70));
@@ -290,10 +290,10 @@ public class FrameInicio extends jFramePadre{
 
     @Override
     public void resetBackgrounds() {
-        panelAsButton1.setBackground(new Color(70,70,70));
-        panelAsButton2.setBackground(new Color(70,70,70));
-        panelAsButton3.setBackground(new Color(70,70,70));
-        panelAsButton4.setBackground(new Color(70,70,70)); //To change body of generated methods, choose Tools | Templates.
+        panelAsButton1.setBackground(new Color(200,200,200));
+        panelAsButton2.setBackground(new Color(200,200,200));
+        panelAsButton3.setBackground(new Color(200,200,200));
+        panelAsButton4.setBackground(new Color(200,200,200)); //To change body of generated methods, choose Tools | Templates.
     }
     
     

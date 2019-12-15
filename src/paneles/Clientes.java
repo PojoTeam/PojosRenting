@@ -233,6 +233,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
         setPreferredSize(new java.awt.Dimension(1061, 606));
 
         panelDatosClientes.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
+        panelDatosClientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonGroup1.add(rbParticular);
         rbParticular.setSelected(true);
@@ -242,6 +243,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
                 rbParticularActionPerformed(evt);
             }
         });
+        panelDatosClientes.add(rbParticular, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 17, -1, -1));
 
         buttonGroup1.add(rbEmpresa);
         rbEmpresa.setText("Empresa");
@@ -250,25 +252,33 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
                 rbEmpresaActionPerformed(evt);
             }
         });
+        panelDatosClientes.add(rbEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 17, -1, -1));
 
         lblNombre.setText("Nombre");
+        panelDatosClientes.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 74, -1, -1));
 
         entNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entNombreKeyPressed(evt);
             }
         });
+        panelDatosClientes.add(entNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 68, 143, -1));
 
         lblDni.setText("Dni/Cif");
+        panelDatosClientes.add(lblDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 172, -1, -1));
 
         lblTelefono.setText("Telefono");
+        panelDatosClientes.add(lblTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 221, -1, -1));
 
         lblEmail.setText("Email");
+        panelDatosClientes.add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 270, -1, -1));
 
         lblFechaNac.setText("Fecha nac.");
         lblFechaNac.setToolTipText("(dd-MM-yyyy)");
+        panelDatosClientes.add(lblFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 319, -1, -1));
 
         lblPuntos.setText("Puntos");
+        panelDatosClientes.add(lblPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 368, -1, -1));
 
         btnAlta.setText("ALTA");
         btnAlta.addActionListener(new java.awt.event.ActionListener() {
@@ -276,6 +286,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
                 btnAltaActionPerformed(evt);
             }
         });
+        panelDatosClientes.add(btnAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 411, 227, -1));
 
         jButton4.setText("BUSCAR");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -283,6 +294,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
                 jButton4ActionPerformed(evt);
             }
         });
+        panelDatosClientes.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 511, 227, -1));
 
         entDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,38 +306,48 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
                 entDniKeyPressed(evt);
             }
         });
+        panelDatosClientes.add(entDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 166, 143, -1));
 
         entTelf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entTelfKeyPressed(evt);
             }
         });
+        panelDatosClientes.add(entTelf, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 215, 143, -1));
 
         entMail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entMailKeyPressed(evt);
             }
         });
+        panelDatosClientes.add(entMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 264, 143, -1));
 
         entFecha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entFechaKeyPressed(evt);
             }
         });
+        panelDatosClientes.add(entFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 313, 143, -1));
 
         entPuntos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entPuntosKeyPressed(evt);
             }
         });
+        panelDatosClientes.add(entPuntos, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 362, 143, -1));
+        panelDatosClientes.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 52, 251, 10));
+        panelDatosClientes.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 495, 251, 10));
 
         lblApellidos.setText("Apellidos");
+        panelDatosClientes.add(lblApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 123, -1, -1));
 
         entApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entApellidosKeyPressed(evt);
             }
         });
+        panelDatosClientes.add(entApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 117, 143, -1));
+        panelDatosClientes.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 556, 251, 10));
 
         btnRecargar.setText("RECARGAR");
         btnRecargar.addActionListener(new java.awt.event.ActionListener() {
@@ -333,127 +355,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
                 btnRecargarActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout panelDatosClientesLayout = new javax.swing.GroupLayout(panelDatosClientes);
-        panelDatosClientes.setLayout(panelDatosClientesLayout);
-        panelDatosClientesLayout.setHorizontalGroup(
-            panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(rbParticular)
-                .addGap(18, 18, 18)
-                .addComponent(rbEmpresa))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblNombre)
-                .addGap(30, 30, 30)
-                .addComponent(entNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblApellidos)
-                .addGap(23, 23, 23)
-                .addComponent(entApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblDni)
-                .addGap(37, 37, 37)
-                .addComponent(entDni, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblTelefono)
-                .addGap(26, 26, 26)
-                .addComponent(entTelf, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblEmail)
-                .addGap(46, 46, 46)
-                .addComponent(entMail, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblFechaNac)
-                .addGap(14, 14, 14)
-                .addComponent(entFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(lblPuntos)
-                .addGap(39, 39, 39)
-                .addComponent(entPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(btnAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        panelDatosClientesLayout.setVerticalGroup(
-            panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rbParticular)
-                    .addComponent(rbEmpresa))
-                .addGap(12, 12, 12)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblNombre))
-                    .addComponent(entNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblApellidos))
-                    .addComponent(entApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblDni))
-                    .addComponent(entDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblTelefono))
-                    .addComponent(entTelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblEmail))
-                    .addComponent(entMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblFechaNac))
-                    .addComponent(entFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosClientesLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblPuntos))
-                    .addComponent(entPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnAlta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnRecargar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jButton4)
-                .addGap(12, 12, 12)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
-        );
+        panelDatosClientes.add(btnRecargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 456, 227, -1));
 
         window.setLayout(new java.awt.BorderLayout());
 
@@ -464,7 +366,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(panelDatosClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(window, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE))
+                .addComponent(window, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
