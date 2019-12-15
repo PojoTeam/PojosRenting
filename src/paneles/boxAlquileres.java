@@ -56,41 +56,33 @@ public class boxAlquileres extends javax.swing.JPanel {
         dialogoEliminar = new javax.swing.JDialog();
         jLabel1 = new javax.swing.JLabel();
         lblNombreEliminar = new javax.swing.JLabel();
-        lblDigNombre = new javax.swing.JLabel();
+        lblDigCodigo = new javax.swing.JLabel();
         lblTelfEliminar = new javax.swing.JLabel();
-        lblDigTelf = new javax.swing.JLabel();
+        lblDigCliente = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         btnDigAceptar = new javax.swing.JButton();
         btnDigCancelar = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         lblEdadEliminar = new javax.swing.JLabel();
-        lblDigEdad = new javax.swing.JLabel();
+        lblDigCoche = new javax.swing.JLabel();
         lblPuntosEliminar = new javax.swing.JLabel();
-        lblDigPuntos = new javax.swing.JLabel();
+        lblDigPrecio = new javax.swing.JLabel();
         lblDniEliminar = new javax.swing.JLabel();
-        lblDigDni = new javax.swing.JLabel();
+        lblDigFechaI = new javax.swing.JLabel();
         lblEmailEliminar = new javax.swing.JLabel();
-        lblDigEmail = new javax.swing.JLabel();
+        lblDigFechaF = new javax.swing.JLabel();
         dialogoModificar = new javax.swing.JDialog();
         jLabel6 = new javax.swing.JLabel();
         lblModNombre = new javax.swing.JLabel();
-        lblModApel = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         btnModAceptar = new javax.swing.JButton();
         btnDigCancelar1 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         lblModDni = new javax.swing.JLabel();
         lblModEmail = new javax.swing.JLabel();
-        entModNombre = new javax.swing.JTextField();
-        entModDni = new javax.swing.JTextField();
-        entModApel = new javax.swing.JTextField();
-        entModEmail = new javax.swing.JTextField();
-        entModTelf = new javax.swing.JTextField();
-        entModFechNac = new javax.swing.JTextField();
-        lblModTelefono = new javax.swing.JLabel();
-        lblModFechaNac = new javax.swing.JLabel();
-        entModPuntos = new javax.swing.JTextField();
-        lblModPuntos = new javax.swing.JLabel();
+        entModCodigo = new javax.swing.JTextField();
+        entModFechaI = new javax.swing.JTextField();
+        entModFechaF = new javax.swing.JTextField();
         dialogoDatos = new javax.swing.JDialog();
         jLabel7 = new javax.swing.JLabel();
         lblNombreData = new javax.swing.JLabel();
@@ -131,15 +123,15 @@ public class boxAlquileres extends javax.swing.JPanel {
         dialogoEliminar.setResizable(false);
         dialogoEliminar.setSize(new java.awt.Dimension(416, 289));
 
-        jLabel1.setText("DESEA ELIMINAR AL CLIENTE?");
+        jLabel1.setText("DESEA ELIMINAR ESTE ALQUILER?");
 
-        lblNombreEliminar.setText("Nombre");
+        lblNombreEliminar.setText("Codigo");
 
-        lblDigNombre.setText("jLabel3");
+        lblDigCodigo.setText("jLabel3");
 
-        lblTelfEliminar.setText("Telefono");
+        lblTelfEliminar.setText("Cliente");
 
-        lblDigTelf.setText("jLabel3");
+        lblDigCliente.setText("jLabel3");
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/exclamation-mark.png"))); // NOI18N
 
@@ -157,21 +149,21 @@ public class boxAlquileres extends javax.swing.JPanel {
             }
         });
 
-        lblEdadEliminar.setText("Edad");
+        lblEdadEliminar.setText("Coche");
 
-        lblDigEdad.setText("jLabel3");
+        lblDigCoche.setText("jLabel3");
 
-        lblPuntosEliminar.setText("Puntos");
+        lblPuntosEliminar.setText("Precio");
 
-        lblDigPuntos.setText("jLabel3");
+        lblDigPrecio.setText("jLabel3");
 
-        lblDniEliminar.setText("Dni/Cif");
+        lblDniEliminar.setText("Fecha Inicio");
 
-        lblDigDni.setText("jLabel3");
+        lblDigFechaI.setText("jLabel3");
 
-        lblEmailEliminar.setText("Email");
+        lblEmailEliminar.setText("Fecha Fin");
 
-        lblDigEmail.setText("jLabel3");
+        lblDigFechaF.setText("jLabel3");
 
         javax.swing.GroupLayout dialogoEliminarLayout = new javax.swing.GroupLayout(dialogoEliminar.getContentPane());
         dialogoEliminar.getContentPane().setLayout(dialogoEliminarLayout);
@@ -188,9 +180,9 @@ public class boxAlquileres extends javax.swing.JPanel {
                     .addComponent(lblEdadEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDigTelf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDigNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDigEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDigCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDigCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDigCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPuntosEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,9 +190,9 @@ public class boxAlquileres extends javax.swing.JPanel {
                     .addComponent(lblEmailEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDigPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDigDni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDigEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDigPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDigFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDigFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoEliminarLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -234,27 +226,27 @@ public class boxAlquileres extends javax.swing.JPanel {
                     .addGroup(dialogoEliminarLayout.createSequentialGroup()
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNombreEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigNombre))
+                            .addComponent(lblDigCodigo))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTelfEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigTelf))
+                            .addComponent(lblDigCliente))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEdadEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigEdad)))
+                            .addComponent(lblDigCoche)))
                     .addGroup(dialogoEliminarLayout.createSequentialGroup()
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDniEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigDni))
+                            .addComponent(lblDigFechaI))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmailEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigEmail))
+                            .addComponent(lblDigFechaF))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPuntosEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDigPuntos))))
+                            .addComponent(lblDigPrecio))))
                 .addGap(18, 18, 18)
                 .addGroup(dialogoEliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnDigAceptar)
@@ -270,9 +262,7 @@ public class boxAlquileres extends javax.swing.JPanel {
 
         jLabel6.setText("MODIFICACIONES");
 
-        lblModNombre.setText("Nombre");
-
-        lblModApel.setText("Apellidos");
+        lblModNombre.setText("Codigo");
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/resume(1).png"))); // NOI18N
 
@@ -290,15 +280,11 @@ public class boxAlquileres extends javax.swing.JPanel {
             }
         });
 
-        lblModDni.setText("Dni/Cif");
+        lblModDni.setText("Fecha Inicio");
 
-        lblModEmail.setText("Email");
+        lblModEmail.setText("Fecha fin");
 
-        lblModTelefono.setText("Telefono");
-
-        lblModFechaNac.setText("Fecha Nac");
-
-        lblModPuntos.setText("Puntos");
+        entModCodigo.setEditable(false);
 
         javax.swing.GroupLayout dialogoModificarLayout = new javax.swing.GroupLayout(dialogoModificar.getContentPane());
         dialogoModificar.getContentPane().setLayout(dialogoModificarLayout);
@@ -317,35 +303,21 @@ public class boxAlquileres extends javax.swing.JPanel {
                         .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnModAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(dialogoModificarLayout.createSequentialGroup()
-                                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(entModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(entModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(dialogoModificarLayout.createSequentialGroup()
-                                .addComponent(lblModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(entModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(dialogoModificarLayout.createSequentialGroup()
-                                .addComponent(lblModTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(entModTelf, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(entModCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(dialogoModificarLayout.createSequentialGroup()
                                 .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(lblModEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblModFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblModDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(entModEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(entModDni, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(entModFechNac, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(entModFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(entModFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnDigCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
         dialogoModificarLayout.setVerticalGroup(
             dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -362,30 +334,14 @@ public class boxAlquileres extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(entModNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entModCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblModDni, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(entModDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblModTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(entModTelf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblModEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(entModEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblModApel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(entModApel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblModFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(entModFechNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(entModFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(entModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                    .addComponent(lblModEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(entModFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModAceptar)
                     .addComponent(btnDigCancelar1))
@@ -664,6 +620,18 @@ public class boxAlquileres extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDatosActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        lblDigCodigo.setText(String.valueOf(alquilerRepresentado.getCodigo()));
+        lblDigCoche.setText(alquilerRepresentado.getCoche().getMatricula());
+        if(alquilerRepresentado.getParticular() != null) {
+            lblDigCliente.setText(alquilerRepresentado.getParticular().getDni());
+        }else {
+            lblDigCliente.setText(alquilerRepresentado.getEmpresa().getCif());
+        }
+        
+        lblDigFechaI.setText(sdf.format(alquilerRepresentado.getFechaInicio()));
+        lblDigFechaF.setText(sdf.format(alquilerRepresentado.getFechaFin()));
+        lblDigPrecio.setText(sdf.format(alquilerRepresentado.getPrecioTotal()));
         dialogoEliminar.setVisible(true);
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -683,11 +651,26 @@ public class boxAlquileres extends javax.swing.JPanel {
 
     private void btnModActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        entModCodigo.setText(String.valueOf(alquilerRepresentado.getCodigo()));
+        entModFechaI.setText(sdf.format(alquilerRepresentado.getFechaInicio()));
+        entModFechaF.setText(sdf.format(alquilerRepresentado.getFechaFin()));
         dialogoModificar.setVisible(true);
     }//GEN-LAST:event_btnModActionPerformed
 
     private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
-        
+        try{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            Date fechaI = sdf.parse(entModFechaI.getText());
+            Date fechaF = sdf.parse(entModFechaF.getText());
+            entModCodigo.setText(String.valueOf(alquilerRepresentado.getCodigo()));
+            alquilerRepresentado.setFechaInicio(fechaI);
+            alquilerRepresentado.setFechaFin(fechaF);
+            Modificar.alquileres(alquilerRepresentado);
+        }catch(ParseException pe){
+            System.out.println(pe);
+        }
+        panelPadre.listarCoches();
+        dialogoModificar.setVisible(false);
     }//GEN-LAST:event_btnModAceptarActionPerformed
 
     private void btnDigCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDigCancelar1ActionPerformed
@@ -782,13 +765,9 @@ public class boxAlquileres extends javax.swing.JPanel {
     private javax.swing.JDialog dialogoDatos;
     private javax.swing.JDialog dialogoEliminar;
     private javax.swing.JDialog dialogoModificar;
-    private javax.swing.JTextField entModApel;
-    private javax.swing.JTextField entModDni;
-    private javax.swing.JTextField entModEmail;
-    private javax.swing.JTextField entModFechNac;
-    private javax.swing.JTextField entModNombre;
-    private javax.swing.JTextField entModPuntos;
-    private javax.swing.JTextField entModTelf;
+    private javax.swing.JTextField entModCodigo;
+    private javax.swing.JTextField entModFechaF;
+    private javax.swing.JTextField entModFechaI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
@@ -808,12 +787,12 @@ public class boxAlquileres extends javax.swing.JPanel {
     private javax.swing.JLabel lblDataNombre;
     private javax.swing.JLabel lblDataPuntos;
     private javax.swing.JLabel lblDataTelf;
-    private javax.swing.JLabel lblDigDni;
-    private javax.swing.JLabel lblDigEdad;
-    private javax.swing.JLabel lblDigEmail;
-    private javax.swing.JLabel lblDigNombre;
-    private javax.swing.JLabel lblDigPuntos;
-    private javax.swing.JLabel lblDigTelf;
+    private javax.swing.JLabel lblDigCliente;
+    private javax.swing.JLabel lblDigCoche;
+    private javax.swing.JLabel lblDigCodigo;
+    private javax.swing.JLabel lblDigFechaF;
+    private javax.swing.JLabel lblDigFechaI;
+    private javax.swing.JLabel lblDigPrecio;
     private javax.swing.JLabel lblDniCif;
     private javax.swing.JLabel lblDniData;
     private javax.swing.JLabel lblDniEliminar;
@@ -824,13 +803,9 @@ public class boxAlquileres extends javax.swing.JPanel {
     private javax.swing.JLabel lblFechaData;
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblMatricula;
-    private javax.swing.JLabel lblModApel;
     private javax.swing.JLabel lblModDni;
     private javax.swing.JLabel lblModEmail;
-    private javax.swing.JLabel lblModFechaNac;
     private javax.swing.JLabel lblModNombre;
-    private javax.swing.JLabel lblModPuntos;
-    private javax.swing.JLabel lblModTelefono;
     private javax.swing.JLabel lblNombreData;
     private javax.swing.JLabel lblNombreEliminar;
     private javax.swing.JLabel lblPuntosData;

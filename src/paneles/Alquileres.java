@@ -45,6 +45,9 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
      */
     public Alquileres() {
         initComponents();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        Date now = new Date();
+        entFechaI.setText(sdf.format(now));
         listarAlquileres();
     }
 
