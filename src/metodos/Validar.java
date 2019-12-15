@@ -83,9 +83,13 @@ public class Validar {
 
     public static boolean estado(String entrada) {
         boolean error;
-        if (!entrada.matches("En taller") || !entrada.matches("Alquilado") || !entrada.matches("Disponible")) {
+        if (!entrada.matches("En taller") ) {
             error = true;
-        } else {
+        } else if(!entrada.matches("Alquilado")){
+            error = true;
+        } else if(!entrada.matches("Disponible")){
+            error = true;
+        }else {
             error = false;
         }
         return error;
@@ -123,7 +127,7 @@ public class Validar {
     }
     public static boolean precio(String entrada) {
         boolean error;
-        if (!entrada.matches("[0-9]*[.][0-9]{2}")) {
+        if (!entrada.matches("[0-9]*[.]?[0-9]{0,2}")) {
             error = true;
         } else {
             error = false;

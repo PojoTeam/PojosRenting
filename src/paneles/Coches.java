@@ -387,15 +387,15 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
             int d1 = Integer.parseInt(formatter.format(fechaPM));
             int d2 = Integer.parseInt(formatter.format(fechaHoy));
             int anhos = (d2-d1)/10000;
-            if(Validar.matricula(entMatricula.getText())){
+            if(Validar.matricula(entMatricula.getText()) == true){
                 entMatricula.setForeground(Color.red);
-            }else if (Validar.cadena(entModelo.getText())){
+            }else if (Validar.cadena(entModelo.getText()) == true){
                 entModelo.setForeground(Color.red);
-            }else if (Validar.cadena(entEstado.getText())){
+            }else if (Validar.cadena(entEstado.getText()) == true){
                 entEstado.setForeground(Color.red);
-            }else if (Validar.cadena(entMarca.getText())){
+            }else if (Validar.cadena(entMarca.getText()) == true){
                 entMarca.setForeground(Color.red);
-            }else if (Validar.precio(entPrecioDia.getText())){
+            }else if (Validar.precio(entPrecioDia.getText()) == true){
                 entPrecioDia.setForeground(Color.red);
             }else{
                 Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), anhos, fechaPM, Float.parseFloat(entPrecioDia.getText()));
