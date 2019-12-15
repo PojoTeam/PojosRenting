@@ -68,8 +68,6 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
         lblTelefono = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         btnAlta = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         entEstado = new javax.swing.JTextField();
         entMarca = new javax.swing.JTextField();
@@ -79,6 +77,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
         entModelo = new javax.swing.JTextField();
         entPrecioDia = new javax.swing.JTextField();
         lblPrecioDia = new javax.swing.JLabel();
+        btnAlta1 = new javax.swing.JButton();
         window = new javax.swing.JPanel();
 
         dialogoBuscar.setTitle("ALERTA");
@@ -231,15 +230,6 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
             }
         });
 
-        jButton2.setText("BAJA");
-
-        btnModificar.setText("MODIFICAR");
-        btnModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModificarActionPerformed(evt);
-            }
-        });
-
         btnBuscar.setText("BUSCAR");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,17 +241,22 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
 
         lblPrecioDia.setText("Precio/Dia");
 
+        btnAlta1.setText("RECARGAR");
+        btnAlta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlta1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelDatosClientesLayout = new javax.swing.GroupLayout(panelDatosClientes);
         panelDatosClientes.setLayout(panelDatosClientesLayout);
         panelDatosClientesLayout.setHorizontalGroup(
             panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2)
             .addGroup(panelDatosClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAlta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelDatosClientesLayout.createSequentialGroup()
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTelefono)
@@ -280,9 +275,10 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
                         .addGroup(panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblNombre)
                             .addComponent(lblNombre1))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnAlta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addComponent(jSeparator2)
         );
         panelDatosClientesLayout.setVerticalGroup(
             panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -313,15 +309,13 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
                     .addComponent(lblPrecioDia))
                 .addGap(38, 38, 38)
                 .addComponent(btnAlta)
-                .addGap(26, 26, 26)
-                .addComponent(jButton2)
-                .addGap(26, 26, 26)
-                .addComponent(btnModificar)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
+                .addComponent(btnAlta1)
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBuscar)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         window.setLayout(new java.awt.BorderLayout());
@@ -333,7 +327,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelDatosClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(window, javax.swing.GroupLayout.DEFAULT_SIZE, 809, Short.MAX_VALUE))
+                .addComponent(window, javax.swing.GroupLayout.DEFAULT_SIZE, 811, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -365,27 +359,6 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
         listarCoches();
     }//GEN-LAST:event_btnAltaActionPerformed
 
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        try{
-            if(cocheEnSeleccion != null){
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                Date fechaPM = sdf.parse(entFechaPMatricula.getText());
-                DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-                Date fechaHoy = new Date();
-                int d1 = Integer.parseInt(formatter.format(fechaPM));
-                int d2 = Integer.parseInt(formatter.format(fechaHoy));
-                int años = (d2-d1)/10000;
-                cocheEnSeleccion.setMatricula(entMatricula.getText());
-                Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), años, fechaPM, Float.parseFloat(entPrecioDia.getText()));
-                Modificar.coches(coche);
-                vaciarCampos();
-            }
-        }catch(ParseException pe){
-            System.out.println(pe);
-            vaciarCampos();
-        }
-    }//GEN-LAST:event_btnModificarActionPerformed
-
     private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
         List<Coche> coches;
         coches = Buscar.coches(entBuscarMatricula.getText(), entBuscarModelo.getText(), entBuscarEstado.getText(), entBuscarMarca.getText(), entBuscarFecha.getText(), entBuscarAnhos.getText());
@@ -396,6 +369,10 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
     private void btnBuscarCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCancelar1ActionPerformed
         dialogoBuscar.setVisible(false);
     }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
+
+    private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlta1ActionPerformed
 
     public void mostrarDatosCocheSeleccionado(){  
         this.entMatricula.setText(cocheEnSeleccion.getMatricula());
@@ -543,10 +520,10 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
+    private javax.swing.JButton btnAlta1;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarAceptar;
     private javax.swing.JButton btnBuscarCancelar1;
-    private javax.swing.JButton btnModificar;
     private javax.swing.JDialog dialogoBuscar;
     private javax.swing.JTextField entBuscarAnhos;
     private javax.swing.JTextField entBuscarEstado;
@@ -561,7 +538,6 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
     private javax.swing.JTextField entMatricula;
     private javax.swing.JTextField entModelo;
     private javax.swing.JTextField entPrecioDia;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator2;

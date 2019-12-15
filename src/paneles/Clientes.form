@@ -292,100 +292,147 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnAlta" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDni" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblFechaNac" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblPuntos" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="entNombre" max="32767" attributes="0"/>
-                              <Component id="entDni" max="32767" attributes="0"/>
-                              <Component id="entTelf" max="32767" attributes="0"/>
-                              <Component id="entMail" max="32767" attributes="0"/>
-                              <Component id="entFecha" max="32767" attributes="0"/>
-                              <Component id="entPuntos" max="32767" attributes="0"/>
-                              <Component id="entApellidos" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblApellidos" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
                   <Component id="rbParticular" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                   <Component id="rbEmpresa" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
               </Group>
-              <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
-              <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
-              <Component id="jSeparator3" alignment="0" max="32767" attributes="0"/>
+              <Component id="jSeparator1" min="-2" pref="251" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
+                  <Component id="entNombre" min="-2" pref="143" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="lblApellidos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="23" pref="23" max="-2" attributes="0"/>
+                  <Component id="entApellidos" min="-2" pref="143" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="lblDni" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="37" pref="37" max="-2" attributes="0"/>
+                  <Component id="entDni" min="-2" pref="143" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="lblTelefono" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+                  <Component id="entTelf" min="-2" pref="143" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
+                  <Component id="entMail" min="-2" pref="143" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="lblFechaNac" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                  <Component id="entFecha" min="-2" pref="143" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="lblPuntos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="39" pref="39" max="-2" attributes="0"/>
+                  <Component id="entPuntos" min="-2" pref="143" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="btnAlta" min="-2" pref="227" max="-2" attributes="0"/>
+              </Group>
+              <Component id="jSeparator2" min="-2" pref="251" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="jButton4" min="-2" pref="227" max="-2" attributes="0"/>
+              </Group>
+              <Component id="jSeparator3" min="-2" pref="251" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
+                  <Component id="btnAlta1" min="-2" pref="227" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="rbEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="rbParticular" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="17" pref="17" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="rbParticular" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbEmpresa" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="entNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="entNombre" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="entApellidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblApellidos" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="entApellidos" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entDni" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblDni" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblDni" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="entDni" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entTelf" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblTelefono" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="entTelf" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entMail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="entMail" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entFecha" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblFechaNac" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblFechaNac" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="entFecha" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="entPuntos" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPuntos" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                          <Component id="lblPuntos" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="entPuntos" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                   <Component id="btnAlta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnAlta1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -506,6 +553,14 @@
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator3">
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAlta1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="RECARGAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlta1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

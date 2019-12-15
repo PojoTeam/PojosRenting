@@ -84,6 +84,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         btnSeleccionarCliente = new javax.swing.JButton();
         btnSeleccionarCoche = new javax.swing.JButton();
         entCliente = new javax.swing.JTextField();
+        btnAlta1 = new javax.swing.JButton();
         window = new javax.swing.JPanel();
 
         seleccionCoche.setSize(new java.awt.Dimension(809, 606));
@@ -248,6 +249,13 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
 
         entCliente.setEditable(false);
 
+        btnAlta1.setText("RECARGAR");
+        btnAlta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlta1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelDatosClientesLayout = new javax.swing.GroupLayout(panelDatosClientes);
         panelDatosClientes.setLayout(panelDatosClientesLayout);
         panelDatosClientesLayout.setHorizontalGroup(
@@ -272,7 +280,8 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                                     .addComponent(entFechaF, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(entCliente)))
                             .addComponent(btnBuscarShow, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnAlta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelDatosClientesLayout.setVerticalGroup(
@@ -297,10 +306,12 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                 .addGap(30, 30, 30)
                 .addComponent(btnAlta)
                 .addGap(18, 18, 18)
+                .addComponent(btnAlta1)
+                .addGap(28, 28, 28)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnBuscarShow)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
 
         window.setLayout(new java.awt.BorderLayout());
@@ -399,6 +410,10 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     private void btnBuscarCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCancelar1ActionPerformed
         dialogoBuscar.setVisible(false);
     }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
+
+    private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAlta1ActionPerformed
     
     @Override
     public void listarClientes(){ //lista los clientes
@@ -729,6 +744,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
+    private javax.swing.JButton btnAlta1;
     private javax.swing.JButton btnBuscarAceptar;
     private javax.swing.JButton btnBuscarCancelar1;
     private javax.swing.JButton btnBuscarShow;
