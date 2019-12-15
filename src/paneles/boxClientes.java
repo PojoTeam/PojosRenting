@@ -1050,27 +1050,7 @@ public class boxClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDatosEmpresaAceptarActionPerformed
 
     private void btnVerAlquilerParticularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlquilerParticularActionPerformed
-        if(panelMain != null){
-            panelMain.removeAll();
-            panelMain.revalidate();
-            panelMain.repaint();
-            panelAlquilerBox.remove(panelMain);
-            panelAlquilerBox.revalidate();
-            panelAlquilerBox.repaint();
-        }
-        panelMain = new JPanel();
-        GridBagLayout innerLayout = new GridBagLayout();
-        panelMain.setLayout(innerLayout);
-        panelAlquilerBox.add(panelMain);
-        panelAlquiler.setVisible(true);
-        dialogoDatos.setSize(747, 350);
-        List<Alquiler> alquileres = Buscar.alquileres("", "", "", null, ((Particular)clienteRepresentado), null);
-        if(!alquileres.isEmpty()){
-            Alquiler alquiler = alquileres.get(0);
-            boxAlquileres boxAlquileres = new boxAlquileres(((Particular)clienteRepresentado).getDni(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
-            boxAlquileres.setAlquilerRepresentado(alquiler);
-            panelMain.add(boxAlquileres);
-        }
+        listarSusAlquileres();
     }//GEN-LAST:event_btnVerAlquilerParticularActionPerformed
 
     private void btnHideAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHideAlquilerActionPerformed
@@ -1084,34 +1064,7 @@ public class boxClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnHideAlquileresActionPerformed
 
     private void btnVerAlquileresEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlquileresEmpresasActionPerformed
-        if(panelMainEmpresas != null){
-            panelMainEmpresas.removeAll();
-            panelMainEmpresas.revalidate();
-            panelMainEmpresas.repaint();
-            panelAlquileresBox.remove(panelMainEmpresas);
-            panelAlquileresBox.revalidate();
-            panelAlquileresBox.repaint();
-        }
-        panelMainEmpresas = new JPanel();
-        GridBagLayout innerLayout = new GridBagLayout();
-        panelMainEmpresas.setLayout(innerLayout);
-        //panelAlquileresBox.add(panelMainEmpresas);
-        panelAlquileres.setVisible(true);
-        dialogoDatosEmpresa.setSize(700, 375);
-        List<Alquiler> alquileres = Buscar.alquileres("", "", "", null, null, ((Empresa)clienteRepresentado));
-        if(!alquileres.isEmpty()){
-            int i = 0;
-            for(Alquiler alquiler : alquileres){
-                boxAlquileres boxAlquileres = new boxAlquileres(((Empresa)clienteRepresentado).getCif(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
-                boxAlquileres.setAlquilerRepresentado(alquiler);
-                panelMainEmpresas.add(boxAlquileres);
-                i++;
-            }
-        }
-        
-        JScrollPane scrollPanel = new JScrollPane(panelMainEmpresas);
-        scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
-        panelAlquileresBox.add(scrollPanel, BorderLayout.CENTER);
+        listarSusAlquileres();
     }//GEN-LAST:event_btnVerAlquileresEmpresasActionPerformed
 
     public IClientesAlquileres getPanelPadre() {
@@ -1184,6 +1137,62 @@ public class boxClientes extends javax.swing.JPanel {
         dialogoEliminar.setLocationRelativeTo(CentrarEnDialogo);
         dialogoModificar.setLocationRelativeTo(CentrarEnDialogo);
         dialogoDatosEmpresa.setLocationRelativeTo(CentrarEnDialogo);
+    }
+    
+    public void listarSusAlquileres() {
+        if(clienteRepresentado instanceof Particular){
+            if(panelMain != null){
+                panelMain.removeAll();
+                panelMain.revalidate();
+                panelMain.repaint();
+                panelAlquilerBox.remove(panelMain);
+                panelAlquilerBox.revalidate();
+                panelAlquilerBox.repaint();
+            }
+            panelMain = new JPanel();
+            GridBagLayout innerLayout = new GridBagLayout();
+            panelMain.setLayout(innerLayout);
+            panelAlquilerBox.add(panelMain);
+            panelAlquiler.setVisible(true);
+            dialogoDatos.setSize(747, 350);
+            List<Alquiler> alquileres = Buscar.alquileres("", "", "", null, ((Particular)clienteRepresentado), null);
+            if(!alquileres.isEmpty()){
+                Alquiler alquiler = alquileres.get(0);
+                boxAlquileres boxAlquileres = new boxAlquileres(((Particular)clienteRepresentado).getDni(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
+                boxAlquileres.setAlquilerRepresentado(alquiler);
+                boxAlquileres.setPanelPadreEnClientes(this);
+                panelMain.add(boxAlquileres);
+            }
+        }else{
+            if(panelMainEmpresas != null){
+                panelMainEmpresas.removeAll();
+                panelMainEmpresas.revalidate();
+                panelMainEmpresas.repaint();
+                panelAlquileresBox.remove(panelMainEmpresas);
+                panelAlquileresBox.revalidate();
+                panelAlquileresBox.repaint();
+            }
+            panelMainEmpresas = new JPanel();
+            GridBagLayout innerLayout = new GridBagLayout();
+            panelMainEmpresas.setLayout(innerLayout);
+            panelAlquileres.setVisible(true);
+            dialogoDatosEmpresa.setSize(700, 375);
+            List<Alquiler> alquileres = Buscar.alquileres("", "", "", null, null, ((Empresa)clienteRepresentado));
+            if(!alquileres.isEmpty()){
+                int i = 0;
+                for(Alquiler alquiler : alquileres){
+                    boxAlquileres boxAlquileres = new boxAlquileres(((Empresa)clienteRepresentado).getCif(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
+                    boxAlquileres.setAlquilerRepresentado(alquiler);
+                    boxAlquileres.setPanelPadreEnClientes(this);
+                    panelMainEmpresas.add(boxAlquileres);
+                    i++;
+                }
+            }
+
+            JScrollPane scrollPanel = new JScrollPane(panelMainEmpresas);
+            scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
+            panelAlquileresBox.add(scrollPanel, BorderLayout.CENTER);
+        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1282,4 +1291,6 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JPanel panelAlquileres;
     private javax.swing.JPanel panelAlquileresBox;
     // End of variables declaration//GEN-END:variables
+
+    
 }

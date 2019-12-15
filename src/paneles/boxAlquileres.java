@@ -8,6 +8,7 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import metodos.Modificar;
 import org.hibernate.Session;
 import pojos.Alquiler;
@@ -21,7 +22,8 @@ public class boxAlquileres extends javax.swing.JPanel {
      * Creates new form boxClientes
      */
     
-    private Alquileres panelPadre;
+    private Alquileres panelPadre = null;
+    private boxClientes panelPadreEnClientes = null;
     private Alquiler alquilerRepresentado;
     private JFrame aplicacion;
     private JDialog CentrarEnDialogo;
@@ -626,7 +628,11 @@ public class boxAlquileres extends javax.swing.JPanel {
         sesion.delete(alquilerRepresentado);
         sesion.getTransaction().commit();
         sesion.close();
-        panelPadre.listarAlquileres();
+        if(panelPadre != null){
+            panelPadre.listarAlquileres();
+        }else{
+            panelPadreEnClientes.listarSusAlquileres();
+        }
         dialogoEliminar.setVisible(false);
     }//GEN-LAST:event_btnDigAceptarActionPerformed
 
@@ -734,6 +740,14 @@ public class boxAlquileres extends javax.swing.JPanel {
 
     public void setAlquilerRepresentado(Alquiler alquilerRepresentado) {
         this.alquilerRepresentado = alquilerRepresentado;
+    }
+
+    public boxClientes getPanelPadreEnClientes() {
+        return panelPadreEnClientes;
+    }
+
+    public void setPanelPadreEnClientes(boxClientes panelPadreEnClientes) {
+        this.panelPadreEnClientes = panelPadreEnClientes;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
