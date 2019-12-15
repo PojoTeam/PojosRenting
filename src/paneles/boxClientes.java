@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paneles;
 
 import hibernate.NewHibernateUtil;
@@ -10,20 +5,18 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import metodos.Buscar;
 import metodos.Modificar;
 import org.hibernate.Session;
+import pojos.Alquiler;
 import pojos.Cliente;
 import pojos.Empresa;
 import pojos.Particular;
 
-
-/**
- *
- * @author carlos
- */
 public class boxClientes extends javax.swing.JPanel {
 
     /**
@@ -40,6 +33,7 @@ public class boxClientes extends javax.swing.JPanel {
         lblNombre.setText(nombre);
         lblDni.setText(dni);
         btnSeleccionar.setVisible(false);
+        panelAlquiler.setVisible(false);
     }
 
     /**
@@ -110,6 +104,25 @@ public class boxClientes extends javax.swing.JPanel {
         lblDataFecha = new javax.swing.JLabel();
         lblApelData = new javax.swing.JLabel();
         lblDataApel = new javax.swing.JLabel();
+        panelAlquiler = new javax.swing.JPanel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        panelAlquilerBox = new javax.swing.JPanel();
+        btnHideAlquiler = new javax.swing.JButton();
+        btnVerAlquilerParticular = new javax.swing.JButton();
+        dialogoDatosEmpresa = new javax.swing.JDialog();
+        jLabel8 = new javax.swing.JLabel();
+        lblNombreData1 = new javax.swing.JLabel();
+        lblDataNombreEmpresa = new javax.swing.JLabel();
+        lblTelfData1 = new javax.swing.JLabel();
+        lblDataTelfEmpresa = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        btnDatosEmpresaAceptar = new javax.swing.JButton();
+        jSeparator4 = new javax.swing.JSeparator();
+        lblDniData1 = new javax.swing.JLabel();
+        lblDataCif = new javax.swing.JLabel();
+        lblEmailData1 = new javax.swing.JLabel();
+        lblDataEmailEmpresa = new javax.swing.JLabel();
         boxCliente = new javax.swing.JPanel();
         lblNomCli = new javax.swing.JLabel();
         lblDniCli = new javax.swing.JLabel();
@@ -437,72 +450,124 @@ public class boxClientes extends javax.swing.JPanel {
 
         lblDataApel.setText("jLabel3");
 
+        panelAlquiler.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(0, 0, 0)));
+
+        jLabel2.setText("ALQUILER");
+
+        panelAlquilerBox.setLayout(new javax.swing.BoxLayout(panelAlquilerBox, javax.swing.BoxLayout.LINE_AXIS));
+
+        btnHideAlquiler.setText("<<<");
+        btnHideAlquiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHideAlquilerActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelAlquilerLayout = new javax.swing.GroupLayout(panelAlquiler);
+        panelAlquiler.setLayout(panelAlquilerLayout);
+        panelAlquilerLayout.setHorizontalGroup(
+            panelAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlquilerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnHideAlquiler)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(134, 134, 134))
+            .addComponent(jSeparator5)
+            .addComponent(panelAlquilerBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelAlquilerLayout.setVerticalGroup(
+            panelAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlquilerLayout.createSequentialGroup()
+                .addGroup(panelAlquilerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAlquilerLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlquilerLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnHideAlquiler)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panelAlquilerBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        btnVerAlquilerParticular.setText("Ver Alquiler >>>");
+        btnVerAlquilerParticular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerAlquilerParticularActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout dialogoDatosLayout = new javax.swing.GroupLayout(dialogoDatos.getContentPane());
         dialogoDatos.getContentPane().setLayout(dialogoDatosLayout);
         dialogoDatosLayout.setHorizontalGroup(
             dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(dialogoDatosLayout.createSequentialGroup()
                 .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dialogoDatosLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(dialogoDatosLayout.createSequentialGroup()
-                                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNombreData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEdadData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDataNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(dialogoDatosLayout.createSequentialGroup()
-                                .addComponent(lblApelData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDataApel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(dialogoDatosLayout.createSequentialGroup()
-                                .addComponent(lblTelfData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDataTelf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dialogoDatosLayout.createSequentialGroup()
-                                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPuntosData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDniData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEmailData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDataPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataDni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(dialogoDatosLayout.createSequentialGroup()
-                                .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDataFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jSeparator3)
+                        .addGroup(dialogoDatosLayout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                    .addComponent(btnDatosAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(btnVerAlquilerParticular, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                    .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                            .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblNombreData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblEdadData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblDataNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblDataEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                            .addComponent(lblApelData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lblDataApel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                            .addComponent(lblTelfData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lblDataTelf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                            .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblPuntosData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblDniData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblEmailData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblDataPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblDataDni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(lblDataEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(dialogoDatosLayout.createSequentialGroup()
+                                            .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(lblDataFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(dialogoDatosLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(jLabel18)
                         .addGap(32, 32, 32)
-                        .addComponent(jLabel7))
-                    .addGroup(dialogoDatosLayout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(btnDatosAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel7)))
+                .addGap(0, 0, 0)
+                .addComponent(panelAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dialogoDatosLayout.setVerticalGroup(
             dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dialogoDatosLayout.createSequentialGroup()
                 .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28))
                     .addGroup(dialogoDatosLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)))
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -537,8 +602,116 @@ public class boxClientes extends javax.swing.JPanel {
                         .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblDataFecha)))
                 .addGap(18, 18, 18)
-                .addComponent(btnDatosAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDatosAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVerAlquilerParticular))
+                .addContainerGap())
+            .addComponent(panelAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        dialogoDatosEmpresa.setTitle("ALERTA");
+        dialogoDatosEmpresa.setMinimumSize(new java.awt.Dimension(416, 289));
+        dialogoDatosEmpresa.setModal(true);
+        dialogoDatosEmpresa.setResizable(false);
+        dialogoDatosEmpresa.setSize(new java.awt.Dimension(423, 250));
+
+        jLabel8.setText("DATOS DE LA EMPRESA");
+
+        lblNombreData1.setText("Nombre");
+
+        lblDataNombreEmpresa.setText("jLabel3");
+
+        lblTelfData1.setText("Telefono");
+
+        lblDataTelfEmpresa.setText("jLabel3");
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/contact-form.png"))); // NOI18N
+
+        btnDatosEmpresaAceptar.setText("Aceptar");
+        btnDatosEmpresaAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDatosEmpresaAceptarActionPerformed(evt);
+            }
+        });
+
+        lblDniData1.setText("Dni/Cif");
+
+        lblDataCif.setText("jLabel3");
+
+        lblEmailData1.setText("Email");
+
+        lblDataEmailEmpresa.setText("jLabel3");
+
+        javax.swing.GroupLayout dialogoDatosEmpresaLayout = new javax.swing.GroupLayout(dialogoDatosEmpresa.getContentPane());
+        dialogoDatosEmpresa.getContentPane().setLayout(dialogoDatosEmpresaLayout);
+        dialogoDatosEmpresaLayout.setHorizontalGroup(
+            dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosEmpresaLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                                .addComponent(lblNombreData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDataNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                                .addComponent(lblTelfData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDataTelfEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDniData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmailData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDataCif, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataEmailEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jLabel19)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnDatosEmpresaAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dialogoDatosEmpresaLayout.setVerticalGroup(
+            dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosEmpresaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)))
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNombreData1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblDataNombreEmpresa))
+                    .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                        .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDniData1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataCif))
+                        .addGap(0, 0, 0)
+                        .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEmailData1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataEmailEmpresa)
+                            .addComponent(lblTelfData1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataTelfEmpresa))))
+                .addGap(18, 18, 18)
+                .addComponent(btnDatosEmpresaAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setBorder(new javax.swing.border.MatteBorder(null));
@@ -652,14 +825,6 @@ public class boxClientes extends javax.swing.JPanel {
     private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         if(clienteRepresentado instanceof Particular){
-            this.lblDataApel.setVisible(true);
-            this.lblApelData.setVisible(true);
-            this.lblDataFecha.setVisible(true);
-            this.lblFechaData.setVisible(true);
-            this.lblDataPuntos.setVisible(true);
-            this.lblPuntosData.setVisible(true);
-            this.lblDataEdad.setVisible(true);
-            this.lblEdadData.setVisible(true);
             this.lblDataDni.setText(((Particular)clienteRepresentado).getDni());
             this.lblDataEmail.setText(((Particular)clienteRepresentado).getEmail());
             this.lblDataNombre.setText(((Particular)clienteRepresentado).getNombre());
@@ -672,21 +837,15 @@ public class boxClientes extends javax.swing.JPanel {
             this.lblDataFecha.setText(fechaString);
             int puntos = ((Particular)clienteRepresentado).getPuntos();
             this.lblDataPuntos.setText(String.valueOf(puntos));
+            dialogoDatos.setVisible(true);
         }else{
-            this.lblDataApel.setVisible(false);
-            this.lblApelData.setVisible(false);
-            this.lblDataFecha.setVisible(false);
-            this.lblFechaData.setVisible(false);
-            this.lblDataPuntos.setVisible(false);
-            this.lblPuntosData.setVisible(false);
-            this.lblDataEdad.setVisible(false);
-            this.lblEdadData.setVisible(false);
-            this.lblDataDni.setText(((Empresa)clienteRepresentado).getCif());
-            this.lblDataEmail.setText(((Empresa)clienteRepresentado).getEmail());
-            this.lblDataTelf.setText(((Empresa)clienteRepresentado).getTelefono());
-            this.lblDataNombre.setText(((Empresa)clienteRepresentado).getNombre());
-        }
-        dialogoDatos.setVisible(true);
+            this.lblDataCif.setText(((Empresa)clienteRepresentado).getCif());
+            this.lblDataEmailEmpresa.setText(((Empresa)clienteRepresentado).getEmail());
+            this.lblDataTelfEmpresa.setText(((Empresa)clienteRepresentado).getTelefono());
+            this.lblDataNombreEmpresa.setText(((Empresa)clienteRepresentado).getNombre());
+            this.lblDataNombreEmpresa.setToolTipText(((Empresa)clienteRepresentado).getNombre());
+            dialogoDatosEmpresa.setVisible(true);
+        }  
     }//GEN-LAST:event_btnDatosActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -818,6 +977,27 @@ public class boxClientes extends javax.swing.JPanel {
         ((Alquileres)panelPadre).getEntCliente().setEnabled(false);
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
+    private void btnDatosEmpresaAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosEmpresaAceptarActionPerformed
+        dialogoDatosEmpresa.setVisible(false);
+    }//GEN-LAST:event_btnDatosEmpresaAceptarActionPerformed
+
+    private void btnVerAlquilerParticularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlquilerParticularActionPerformed
+        panelAlquiler.setVisible(true);
+        dialogoDatos.setSize(747, 339);
+        List<Alquiler> alquileres = Buscar.alquileres("", "", "", "", ((Particular)clienteRepresentado), null);
+        if(!alquileres.isEmpty()){
+            Alquiler alquiler = alquileres.get(0);
+            boxAlquileres boxAlquileres = new boxAlquileres(((Particular)clienteRepresentado).getDni(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
+            boxAlquileres.setAlquilerRepresentado(alquiler);
+            panelAlquilerBox.add(boxAlquileres);
+        }
+    }//GEN-LAST:event_btnVerAlquilerParticularActionPerformed
+
+    private void btnHideAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHideAlquilerActionPerformed
+        panelAlquiler.setVisible(false);
+        dialogoDatos.setSize(416, 339);
+    }//GEN-LAST:event_btnHideAlquilerActionPerformed
+
     public IClientesAlquileres getPanelPadre() {
         return panelPadre;
     }
@@ -843,6 +1023,7 @@ public class boxClientes extends javax.swing.JPanel {
         dialogoDatos.setLocationRelativeTo(aplicacion);
         dialogoEliminar.setLocationRelativeTo(aplicacion);
         dialogoModificar.setLocationRelativeTo(aplicacion);
+        dialogoDatosEmpresa.setLocationRelativeTo(aplicacion);
     }
 
     public JButton getBtnSeleccionar() {
@@ -886,20 +1067,25 @@ public class boxClientes extends javax.swing.JPanel {
         dialogoDatos.setLocationRelativeTo(CentrarEnDialogo);
         dialogoEliminar.setLocationRelativeTo(CentrarEnDialogo);
         dialogoModificar.setLocationRelativeTo(CentrarEnDialogo);
+        dialogoDatosEmpresa.setLocationRelativeTo(CentrarEnDialogo);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel boxCliente;
     private javax.swing.JButton btnDatos;
     private javax.swing.JButton btnDatosAceptar;
+    private javax.swing.JButton btnDatosEmpresaAceptar;
     private javax.swing.JButton btnDigAceptar;
     private javax.swing.JButton btnDigCancelar;
     private javax.swing.JButton btnDigCancelar1;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnHideAlquiler;
     private javax.swing.JButton btnModAceptar;
     private javax.swing.JButton btnModCli;
     private javax.swing.JButton btnSeleccionar;
+    private javax.swing.JButton btnVerAlquilerParticular;
     private javax.swing.JDialog dialogoDatos;
+    private javax.swing.JDialog dialogoDatosEmpresa;
     private javax.swing.JDialog dialogoEliminar;
     private javax.swing.JDialog dialogoModificar;
     private javax.swing.JTextField entModApel;
@@ -913,20 +1099,29 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel lblApelData;
     private javax.swing.JLabel lblDataApel;
+    private javax.swing.JLabel lblDataCif;
     private javax.swing.JLabel lblDataDni;
     private javax.swing.JLabel lblDataEdad;
     private javax.swing.JLabel lblDataEmail;
+    private javax.swing.JLabel lblDataEmailEmpresa;
     private javax.swing.JLabel lblDataFecha;
     private javax.swing.JLabel lblDataNombre;
+    private javax.swing.JLabel lblDataNombreEmpresa;
     private javax.swing.JLabel lblDataPuntos;
     private javax.swing.JLabel lblDataTelf;
+    private javax.swing.JLabel lblDataTelfEmpresa;
     private javax.swing.JLabel lblDigDni;
     private javax.swing.JLabel lblDigEdad;
     private javax.swing.JLabel lblDigEmail;
@@ -936,10 +1131,12 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JLabel lblDni;
     private javax.swing.JLabel lblDniCli;
     private javax.swing.JLabel lblDniData;
+    private javax.swing.JLabel lblDniData1;
     private javax.swing.JLabel lblDniEliminar;
     private javax.swing.JLabel lblEdadData;
     private javax.swing.JLabel lblEdadEliminar;
     private javax.swing.JLabel lblEmailData;
+    private javax.swing.JLabel lblEmailData1;
     private javax.swing.JLabel lblEmailEliminar;
     private javax.swing.JLabel lblFechaData;
     private javax.swing.JLabel lblImg;
@@ -953,10 +1150,14 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JLabel lblNomCli;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreData;
+    private javax.swing.JLabel lblNombreData1;
     private javax.swing.JLabel lblNombreEliminar;
     private javax.swing.JLabel lblPuntosData;
     private javax.swing.JLabel lblPuntosEliminar;
     private javax.swing.JLabel lblTelfData;
+    private javax.swing.JLabel lblTelfData1;
     private javax.swing.JLabel lblTelfEliminar;
+    private javax.swing.JPanel panelAlquiler;
+    private javax.swing.JPanel panelAlquilerBox;
     // End of variables declaration//GEN-END:variables
 }

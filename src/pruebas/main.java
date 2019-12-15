@@ -32,10 +32,10 @@ public class main {
         }
         NewHibernateUtil.getSession();
         Session sesion = NewHibernateUtil.getSession();
-        List<Alquiler> alquileres = Buscar.alquileres("","","","1","");
-        for(Alquiler alq : alquileres) { 
-            System.out.println(alq.getCodigo());
-        }
+        //List<Alquiler> alquileres = Buscar.alquileres("","","","1","");
+        //for(Alquiler alq : alquileres) { 
+        //    System.out.println(alq.getCodigo());
+        //}
         System.out.println("hola");
     }
 }

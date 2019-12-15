@@ -8,10 +8,6 @@ import pojos.Coche;
 import pojos.Empresa;
 import pojos.Particular;
 
-/**
- *
- * @author carlos
- */
 public class Modificar {
     
     public static void particulares(Particular particular) {

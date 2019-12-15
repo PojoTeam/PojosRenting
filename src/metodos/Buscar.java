@@ -17,10 +17,6 @@ import pojos.Coche;
 import pojos.Empresa;
 import pojos.Particular;
 
-/**
- *
- * @author pablo
- */
 public class Buscar {
 
     public static List<Cliente> particulares(String nombre, String dni, String telefono, String email, String puntos, String fechaNacimiento, String edad) {
@@ -147,11 +143,11 @@ public class Buscar {
         return coches;
     }
     
-    public static List<Alquiler> alquileres(String precioTotal, String fechaInicio, String fechaFin, String coche, String cliente) {
+    public static List<Alquiler> alquileres(String precioTotal, String fechaInicio, String fechaFin, String coche, Particular particular, Empresa empresa) {
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
         List<Alquiler> alquileres;
-        if (precioTotal.equalsIgnoreCase("") && fechaInicio.equalsIgnoreCase("") && fechaFin.equalsIgnoreCase("") && coche.equalsIgnoreCase("")&& cliente.equalsIgnoreCase("")) {
+        if (precioTotal.equalsIgnoreCase("") && fechaInicio.equalsIgnoreCase("") && fechaFin.equalsIgnoreCase("") && coche.equalsIgnoreCase("") && particular == null && empresa == null) {
             //todos los campos estan vacios, por lo que no hay nada a buscar.
             sesion.close();
             return null;
@@ -173,8 +169,12 @@ public class Buscar {
                 Criterion nameCriteria = Restrictions.eq("coche", coche);
                 filtros.add(nameCriteria);
             }
-            if(!cliente.equalsIgnoreCase("")){
-                Criterion nameCriteria = Restrictions.eq("cliente", cliente);
+            if(particular != null){
+                Criterion nameCriteria = Restrictions.eq("particular", particular);
+                filtros.add(nameCriteria);
+            }
+            if(empresa != null){
+                Criterion nameCriteria = Restrictions.eq("empresa", empresa);
                 filtros.add(nameCriteria);
             }
             alquileres = filtros.list();

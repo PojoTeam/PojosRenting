@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paneles;
 
 import hibernate.NewHibernateUtil;
@@ -15,11 +10,6 @@ import metodos.Modificar;
 import org.hibernate.Session;
 import pojos.Coche;
 
-
-/**
- *
- * @author carlos
- */
 public class boxCoches extends javax.swing.JPanel {
 
     /**
