@@ -23,7 +23,7 @@ public class Validar {
 
     public static boolean cif(String cif) {
         boolean error;
-        if (!cif.matches("[0-9]{8}[A-Z]") || !cif.matches("[A-Z][0-9]{9}")) {
+        if (!cif.matches("[0-9]{8}[A-Z]") && !cif.matches("[A-Z][0-9]{9}")) {
             error = true;
         } else {
             error = false;
