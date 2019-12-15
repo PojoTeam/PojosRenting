@@ -76,24 +76,22 @@ public class boxAlquileres extends javax.swing.JPanel {
         dialogoDatos = new javax.swing.JDialog();
         jLabel7 = new javax.swing.JLabel();
         lblNombreData = new javax.swing.JLabel();
-        lblDataNombre = new javax.swing.JLabel();
+        lblDataCodigo = new javax.swing.JLabel();
         lblTelfData = new javax.swing.JLabel();
-        lblDataTelf = new javax.swing.JLabel();
+        lblDataPrecio = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         btnDatosAceptar = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         lblEdadData = new javax.swing.JLabel();
-        lblDataEdad = new javax.swing.JLabel();
+        lblDataCoche = new javax.swing.JLabel();
         lblPuntosData = new javax.swing.JLabel();
-        lblDataPuntos = new javax.swing.JLabel();
+        lblDataFechaF = new javax.swing.JLabel();
         lblDniData = new javax.swing.JLabel();
-        lblDataDni = new javax.swing.JLabel();
+        lblDataDescuento = new javax.swing.JLabel();
         lblEmailData = new javax.swing.JLabel();
-        lblDataEmail = new javax.swing.JLabel();
-        lblFechaData = new javax.swing.JLabel();
-        lblDataFecha = new javax.swing.JLabel();
+        lblDataFechaI = new javax.swing.JLabel();
         lblApelData = new javax.swing.JLabel();
-        lblDataApel = new javax.swing.JLabel();
+        lblDataCliente = new javax.swing.JLabel();
         boxCliente = new javax.swing.JPanel();
         lblVerCliente = new javax.swing.JLabel();
         lblVerCoche = new javax.swing.JLabel();
@@ -346,13 +344,13 @@ public class boxAlquileres extends javax.swing.JPanel {
 
         jLabel7.setText("DATOS DEL CLIENTE");
 
-        lblNombreData.setText("Nombre");
+        lblNombreData.setText("Codigo");
 
-        lblDataNombre.setText("jLabel3");
+        lblDataCodigo.setText("jLabel3");
 
-        lblTelfData.setText("Telefono");
+        lblTelfData.setText("Precio");
 
-        lblDataTelf.setText("jLabel3");
+        lblDataPrecio.setText("jLabel3");
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/contact-form.png"))); // NOI18N
 
@@ -363,29 +361,25 @@ public class boxAlquileres extends javax.swing.JPanel {
             }
         });
 
-        lblEdadData.setText("Edad");
+        lblEdadData.setText("Coche");
 
-        lblDataEdad.setText("jLabel3");
+        lblDataCoche.setText("jLabel3");
 
-        lblPuntosData.setText("Puntos");
+        lblPuntosData.setText("Fecha fin");
 
-        lblDataPuntos.setText("jLabel3");
+        lblDataFechaF.setText("jLabel3");
 
-        lblDniData.setText("Dni/Cif");
+        lblDniData.setText("Descuento");
 
-        lblDataDni.setText("jLabel3");
+        lblDataDescuento.setText("jLabel3");
 
-        lblEmailData.setText("Email");
+        lblEmailData.setText("Fecha inicio");
 
-        lblDataEmail.setText("jLabel3");
+        lblDataFechaI.setText("jLabel3");
 
-        lblFechaData.setText("FechaNac");
+        lblApelData.setText("Cliente");
 
-        lblDataFecha.setText("jLabel3");
-
-        lblApelData.setText("Apellidos");
-
-        lblDataApel.setText("jLabel3");
+        lblDataCliente.setText("jLabel3");
 
         javax.swing.GroupLayout dialogoDatosLayout = new javax.swing.GroupLayout(dialogoDatos.getContentPane());
         dialogoDatos.getContentPane().setLayout(dialogoDatosLayout);
@@ -405,32 +399,26 @@ public class boxAlquileres extends javax.swing.JPanel {
                                     .addComponent(lblEdadData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDataNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lblDataCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDataCoche, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(dialogoDatosLayout.createSequentialGroup()
                                 .addComponent(lblApelData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDataApel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblDataCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(dialogoDatosLayout.createSequentialGroup()
                                 .addComponent(lblTelfData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDataTelf, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblDataPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(dialogoDatosLayout.createSequentialGroup()
-                                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPuntosData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDniData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblEmailData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDataPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataDni, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDataEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(dialogoDatosLayout.createSequentialGroup()
-                                .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDataFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblPuntosData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDniData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmailData, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDataFechaF, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDataFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(dialogoDatosLayout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(jLabel18)
@@ -459,33 +447,29 @@ public class boxAlquileres extends javax.swing.JPanel {
                     .addGroup(dialogoDatosLayout.createSequentialGroup()
                         .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNombreData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDataNombre))
+                            .addComponent(lblDataCodigo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEdadData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDataEdad)))
+                            .addComponent(lblDataCoche)))
                     .addGroup(dialogoDatosLayout.createSequentialGroup()
                         .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDniData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDataDni))
+                            .addComponent(lblDataDescuento))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmailData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDataEmail)
+                            .addComponent(lblDataFechaI)
                             .addComponent(lblApelData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDataApel))
+                            .addComponent(lblDataCliente))
                         .addGap(0, 0, 0)
                         .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPuntosData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDataPuntos))))
+                            .addComponent(lblDataFechaF))))
                 .addGap(0, 0, 0)
-                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblTelfData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblDataTelf))
-                    .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblFechaData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblDataFecha)))
+                .addGroup(dialogoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelfData, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDataPrecio))
                 .addGap(18, 18, 18)
                 .addComponent(btnDatosAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(73, Short.MAX_VALUE))
@@ -606,6 +590,17 @@ public class boxAlquileres extends javax.swing.JPanel {
 
     private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        lblDataCodigo.setText(String.valueOf(alquilerRepresentado.getCodigo()));
+        if(alquilerRepresentado.getParticular() != null) {
+            lblDataCliente.setText(alquilerRepresentado.getParticular().getDni());
+        }else {
+            lblDataCliente.setText(alquilerRepresentado.getEmpresa().getCif());
+        }
+        lblDataCoche.setText(alquilerRepresentado.getCoche().getMatricula());
+        lblDataPrecio.setText(String.valueOf(alquilerRepresentado.getPrecioTotal()));
+        lblDataDescuento.setText(String.valueOf(alquilerRepresentado.getDescuento()));
+        lblDataFechaI.setText(sdf.format(alquilerRepresentado.getFechaInicio()));
+        lblDataFechaF.setText(sdf.format(alquilerRepresentado.getFechaFin()));
         dialogoDatos.setVisible(true);
     }//GEN-LAST:event_btnDatosActionPerformed
 
@@ -769,14 +764,13 @@ public class boxAlquileres extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lblApelData;
     private javax.swing.JLabel lblCodigo;
-    private javax.swing.JLabel lblDataApel;
-    private javax.swing.JLabel lblDataDni;
-    private javax.swing.JLabel lblDataEdad;
-    private javax.swing.JLabel lblDataEmail;
-    private javax.swing.JLabel lblDataFecha;
-    private javax.swing.JLabel lblDataNombre;
-    private javax.swing.JLabel lblDataPuntos;
-    private javax.swing.JLabel lblDataTelf;
+    private javax.swing.JLabel lblDataCliente;
+    private javax.swing.JLabel lblDataCoche;
+    private javax.swing.JLabel lblDataCodigo;
+    private javax.swing.JLabel lblDataDescuento;
+    private javax.swing.JLabel lblDataFechaF;
+    private javax.swing.JLabel lblDataFechaI;
+    private javax.swing.JLabel lblDataPrecio;
     private javax.swing.JLabel lblDigCliente;
     private javax.swing.JLabel lblDigCoche;
     private javax.swing.JLabel lblDigCodigo;
@@ -790,7 +784,6 @@ public class boxAlquileres extends javax.swing.JPanel {
     private javax.swing.JLabel lblEdadEliminar;
     private javax.swing.JLabel lblEmailData;
     private javax.swing.JLabel lblEmailEliminar;
-    private javax.swing.JLabel lblFechaData;
     private javax.swing.JLabel lblImg;
     private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblModDni;

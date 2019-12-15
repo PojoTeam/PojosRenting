@@ -231,6 +231,18 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             }
         });
 
+        entFechaI.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entFechaIKeyPressed(evt);
+            }
+        });
+
+        entFechaF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entFechaFKeyPressed(evt);
+            }
+        });
+
         entCoche.setEditable(false);
 
         btnSeleccionarCliente.setText("Selec Cliente");
@@ -410,6 +422,20 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     private void btnBuscarCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCancelar1ActionPerformed
         dialogoBuscar.setVisible(false);
     }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
+
+    private void entFechaIKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entFechaIKeyPressed
+        String cadena = entFechaI.getText();
+        int maxLength = (cadena.length() < 9)?cadena.length():9;
+        cadena = cadena.substring(0, maxLength);
+        entFechaI.setText(cadena);
+    }//GEN-LAST:event_entFechaIKeyPressed
+
+    private void entFechaFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entFechaFKeyPressed
+        String cadena = entFechaF.getText();
+        int maxLength = (cadena.length() < 9)?cadena.length():9;
+        cadena = cadena.substring(0, maxLength);
+        entFechaF.setText(cadena);
+    }//GEN-LAST:event_entFechaFKeyPressed
 
     private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
         // TODO add your handling code here:

@@ -1,6 +1,7 @@
 package paneles;
 import hibernate.NewHibernateUtil;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.text.DateFormat;
@@ -13,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import metodos.Altas;
 import metodos.Buscar;
+import metodos.Validar;
 import org.hibernate.Session;
 import pojos.Cliente;
 import pojos.Empresa;
@@ -282,6 +284,11 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
             }
         });
 
+        entDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entDniActionPerformed(evt);
+            }
+        });
         entDni.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entDniKeyPressed(evt);
@@ -506,15 +513,38 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
                 int d1 = Integer.parseInt(formatter.format(fechaNac));
                 int d2 = Integer.parseInt(formatter.format(fechaHoy));
                 int edad = (d2-d1)/10000;
-                Particular particular = new Particular(entNombre.getText(), entApellidos.getText(), entDni.getText(), fechaNac, puntos, edad, entMail.getText(), entTelf.getText());
-                Altas.particulares(particular);
-                vaciarCampos();
+                if(Validar.dni(entDni.getText()) == true){
+                    entDni.setForeground(Color.red);
+                }else if(Validar.email(entMail.getText()) == true){
+                    entMail.setForeground(Color.red);
+                }else if(Validar.nombre(entNombre.getText()) == true){
+                    entNombre.setForeground(Color.red);
+                }else if(Validar.apellidos(entApellidos.getText()) == true){
+                    entApellidos.setForeground(Color.red);
+                }else if(Validar.telefono(entTelf.getText()) == true){
+                    entTelf.setForeground(Color.red);
+                }else if(Validar.puntos(entPuntos.getText()) == true){
+                    entPuntos.setForeground(Color.red);
+                }else {
+                    Particular particular = new Particular(entNombre.getText(), entApellidos.getText(), entDni.getText(), fechaNac, puntos, edad, entMail.getText(), entTelf.getText());
+                    Altas.particulares(particular);
+                    vaciarCampos();
+                }
                 
             }else {
-                Empresa empresa = new Empresa(entDni.getText(), entNombre.getText(), entMail.getText(), entTelf.getText());
-                Altas.empresas(empresa);
-                vaciarCampos();
-                
+                if(Validar.cif(entDni.getText()) == true){
+                    entDni.setForeground(Color.red);
+                }else if(Validar.email(entMail.getText()) == true){
+                    entMail.setForeground(Color.red);
+                }else if(Validar.nombreEmp(entNombre.getText()) == true){
+                    entNombre.setForeground(Color.red);
+                }else if(Validar.telefono(entTelf.getText()) == true){
+                    entTelf.setForeground(Color.red);
+                }else {
+                    Empresa empresa = new Empresa(entDni.getText(), entNombre.getText(), entMail.getText(), entTelf.getText());
+                    Altas.empresas(empresa);
+                    vaciarCampos();
+                }
             }
         }catch(ParseException e){
             e.printStackTrace();
@@ -527,7 +557,6 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
         int maxLength = (cadena.length() < 8)?cadena.length():8;
         cadena = cadena.substring(0, maxLength);
         entDni.setText(cadena);
-        
     }//GEN-LAST:event_entDniKeyPressed
 
     private void entNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entNombreKeyPressed
@@ -586,6 +615,10 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
     private void btnBuscarCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCancelar1ActionPerformed
         dialogoBuscar.setVisible(false);
     }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
+
+    private void entDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entDniActionPerformed
 
     private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
         // TODO add your handling code here:
