@@ -384,7 +384,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             }else if(duracion >= 720){
                 descuento = descuento + (0.4f);
             }
-            precioTotal = cocheSel.getPrecioDia() * duracion * (descuento + 1);
+            precioTotal = cocheSel.getPrecioDia() * duracion * (1 - descuento);
             Alquiler alquiler = null;
             if(clienteSel instanceof Particular) {
                 alquiler = new Alquiler(fechaI, fechaF, cocheSel, precioTotal, descuento);
@@ -442,7 +442,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     }//GEN-LAST:event_entFechaFKeyPressed
 
     private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
-        // TODO add your handling code here:
+        listarAlquileres();
     }//GEN-LAST:event_btnAlta1ActionPerformed
     
     @Override

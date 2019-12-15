@@ -251,7 +251,7 @@ public class FrameInicio extends jFramePadre{
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("GTK+".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -281,10 +281,13 @@ public class FrameInicio extends jFramePadre{
             new CambiarPanel(panelContenedor, panelInicio);
         }else if(botonActivado == panelAsButton2){
             new CambiarPanel(panelContenedor, panelClientes);
+            panelClientes.listarClientes();
         }else if(botonActivado == panelAsButton3){
             new CambiarPanel(panelContenedor, panelAlquileres);
+            panelAlquileres.listarAlquileres();
         }else{
             new CambiarPanel(panelContenedor, panelCoches);
+            panelCoches.listarCoches();
         }
     }
 

@@ -27,7 +27,7 @@ public class boxAlquileres extends javax.swing.JPanel {
     private Alquiler alquilerRepresentado;
     private JFrame aplicacion;
     private JDialog CentrarEnDialogo;
-    
+
     public boxAlquileres(String dni, String matricula, int codigo) {
         initComponents();
         lblDniCif.setText(dni);
@@ -593,9 +593,9 @@ public class boxAlquileres extends javax.swing.JPanel {
     private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         lblDataCodigo.setText(String.valueOf(alquilerRepresentado.getCodigo()));
-        if(alquilerRepresentado.getParticular() != null) {
+        if (alquilerRepresentado.getParticular() != null) {
             lblDataCliente.setText(alquilerRepresentado.getParticular().getDni());
-        }else {
+        } else {
             lblDataCliente.setText(alquilerRepresentado.getEmpresa().getCif());
         }
         lblDataCoche.setText(alquilerRepresentado.getCoche().getMatricula());
@@ -610,12 +610,12 @@ public class boxAlquileres extends javax.swing.JPanel {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
         lblDigCodigo.setText(String.valueOf(alquilerRepresentado.getCodigo()));
         lblDigCoche.setText(alquilerRepresentado.getCoche().getMatricula());
-        if(alquilerRepresentado.getParticular() != null) {
+        if (alquilerRepresentado.getParticular() != null) {
             lblDigCliente.setText(alquilerRepresentado.getParticular().getDni());
-        }else {
+        } else {
             lblDigCliente.setText(alquilerRepresentado.getEmpresa().getCif());
         }
-        
+
         lblDigFechaI.setText(sdf.format(alquilerRepresentado.getFechaInicio()));
         lblDigFechaF.setText(sdf.format(alquilerRepresentado.getFechaFin()));
         lblDigPrecio.setText(String.valueOf(alquilerRepresentado.getPrecioTotal()));
@@ -649,15 +649,39 @@ public class boxAlquileres extends javax.swing.JPanel {
     }//GEN-LAST:event_btnModActionPerformed
 
     private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
-        try{
+        try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             Date fechaI = sdf.parse(entModFechaI.getText());
             Date fechaF = sdf.parse(entModFechaF.getText());
+            float precioTotal,
+                    descuento = 0;
+            int duracion = (int) ((fechaF.getTime() - fechaI.getTime()) / 86400000);
             entModCodigo.setText(String.valueOf(alquilerRepresentado.getCodigo()));
             alquilerRepresentado.setFechaInicio(fechaI);
             alquilerRepresentado.setFechaFin(fechaF);
+            if (alquilerRepresentado.getParticular() != null) {
+                if (alquilerRepresentado.getParticular().getPuntos() == 15) {
+                    descuento = 0.1f;
+                }
+            } else{
+                alquilerRepresentado.getEmpresa().setnAlquileres(alquilerRepresentado.getEmpresa().getnAlquileres() + 1);
+            }if (alquilerRepresentado.getEmpresa().getnAlquileres() > 100) {
+                descuento = 0.1f;
+            }
+            if(duracion > 30 && duracion < 180){
+                descuento = descuento + (0.1f);
+            }else if(duracion >= 180 && duracion < 360){
+                descuento = descuento + (0.2f);
+            }else if(duracion >= 360 && duracion < 720){
+                descuento = descuento + (0.3f);
+            }else if(duracion >= 720){
+                descuento = descuento + (0.4f);
+            }
+            float precioDia = alquilerRepresentado.getCoche().getPrecioDia();
+            precioTotal =  precioDia * duracion * (1 - descuento);
+            alquilerRepresentado.setPrecioTotal(precioTotal);
             Modificar.alquileres(alquilerRepresentado);
-        }catch(ParseException pe){
+        } catch (ParseException pe) {
             System.out.println(pe);
         }
         panelPadre.listarCoches();

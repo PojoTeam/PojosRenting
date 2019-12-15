@@ -17,6 +17,6 @@
         </many-to-one>
                     
         <!--RELACION CON TABLA COCHES -->
-        <many-to-one class="pojos.Coche" name="coche" column="MATRICULA"/>
+        <many-to-one class="pojos.Coche" name="coche" column="MATRICULA" lazy="false"/>
     </class>
 </hibernate-mapping>
