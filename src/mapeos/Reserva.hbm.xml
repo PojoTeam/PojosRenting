@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!--<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
@@ -6,16 +6,17 @@
         <id column="CODIGO" name="codigo"/>
         <property column="FECHA_INICIO" name="fechaInicio"/>
         <property column="FECHA_FIN" name="fechaFin"/>
-        
-        <!-- RELACION CON TABLA CLIENTE -->
+        -->
+        <!-- RELACION CON TABLA CLIENTE --><!--
         <many-to-one class="pojos.Cliente" name="cliente">
             <column name="ID_CLIENTE" not-null="true"/>
         </many-to-one>
-        
-        <!-- RELACION CON TABLA COCHE -->
+        -->
+        <!-- RELACION CON TABLA COCHE --><!--
         <many-to-one class="pojos.Coche" name="coche">
             <column name="MATRICULA" not-null="true"/>
         </many-to-one>
         
     </class>
 </hibernate-mapping>
+-->
