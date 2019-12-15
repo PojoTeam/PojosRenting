@@ -360,6 +360,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="entMatricula">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="entMatriculaKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblDni">
           <Properties>
@@ -406,10 +409,19 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="entEstado">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="entEstadoKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="entMarca">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="entMarcaKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="entFechaPMatricula">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="entFechaPMatriculaKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator2">
         </Component>
@@ -419,8 +431,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="entModelo">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="entModeloKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="entPrecioDia">
+          <Events>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="entPrecioDiaKeyPressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPrecioDia">
           <Properties>

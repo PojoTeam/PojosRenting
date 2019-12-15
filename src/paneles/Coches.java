@@ -2,6 +2,7 @@ package paneles;
 
 import hibernate.NewHibernateUtil;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.text.DateFormat;
@@ -15,6 +16,7 @@ import javax.swing.JScrollPane;
 import metodos.Altas;
 import metodos.Buscar;
 import metodos.Modificar;
+import metodos.Validar;
 import org.hibernate.Session;
 import pojos.Coche;
 
@@ -218,6 +220,12 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
 
         lblNombre.setText("Matricula");
 
+        entMatricula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entMatriculaKeyPressed(evt);
+            }
+        });
+
         lblDni.setText("Estado");
 
         lblTelefono.setText("Marca");
@@ -247,7 +255,37 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
             }
         });
 
+        entEstado.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entEstadoKeyPressed(evt);
+            }
+        });
+
+        entMarca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entMarcaKeyPressed(evt);
+            }
+        });
+
+        entFechaPMatricula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entFechaPMatriculaKeyPressed(evt);
+            }
+        });
+
         lblNombre1.setText("Modelo");
+
+        entModelo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entModeloKeyPressed(evt);
+            }
+        });
+
+        entPrecioDia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                entPrecioDiaKeyPressed(evt);
+            }
+        });
 
         lblPrecioDia.setText("Precio/Dia");
 
@@ -355,9 +393,21 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
             int d1 = Integer.parseInt(formatter.format(fechaPM));
             int d2 = Integer.parseInt(formatter.format(fechaHoy));
             int anhos = (d2-d1)/10000;
-            Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), anhos, fechaPM, Float.parseFloat(entPrecioDia.getText()));
-            Altas.coches(coche);
-            vaciarCampos();
+            if(Validar.matricula(entMatricula.getText())){
+                entMatricula.setForeground(Color.red);
+            }else if (Validar.cadena(entModelo.getText())){
+                entModelo.setForeground(Color.red);
+            }else if (Validar.cadena(entEstado.getText())){
+                entEstado.setForeground(Color.red);
+            }else if (Validar.cadena(entMarca.getText())){
+                entMarca.setForeground(Color.red);
+            }else if (Validar.precio(entPrecioDia.getText())){
+                entPrecioDia.setForeground(Color.red);
+            }else{
+                Coche coche = new Coche(entMatricula.getText(), entModelo.getText(), entMarca.getText(), entEstado.getText(), anhos, fechaPM, Float.parseFloat(entPrecioDia.getText()));
+                Altas.coches(coche);
+                vaciarCampos();
+            }
         }catch(ParseException pe){
             System.out.println(pe);
             vaciarCampos();
@@ -396,6 +446,48 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
     private void btnBuscarCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCancelar1ActionPerformed
         dialogoBuscar.setVisible(false);
     }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
+
+    private void entMatriculaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entMatriculaKeyPressed
+        String cadena = entMatricula.getText();
+        int maxLength = (cadena.length() < 6)?cadena.length():6;
+        cadena = cadena.substring(0, maxLength);
+        entMatricula.setText(cadena);
+    }//GEN-LAST:event_entMatriculaKeyPressed
+
+    private void entModeloKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entModeloKeyPressed
+        String cadena = entModelo.getText();
+        int maxLength = (cadena.length() < 29)?cadena.length():29;
+        cadena = cadena.substring(0, maxLength);
+        entModelo.setText(cadena);
+    }//GEN-LAST:event_entModeloKeyPressed
+
+    private void entEstadoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entEstadoKeyPressed
+        String cadena = entEstado.getText();
+        int maxLength = (cadena.length() < 29)?cadena.length():29;
+        cadena = cadena.substring(0, maxLength);
+        entEstado.setText(cadena);
+    }//GEN-LAST:event_entEstadoKeyPressed
+
+    private void entMarcaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entMarcaKeyPressed
+        String cadena = entMarca.getText();
+        int maxLength = (cadena.length() < 29)?cadena.length():29;
+        cadena = cadena.substring(0, maxLength);
+        entMarca.setText(cadena);
+    }//GEN-LAST:event_entMarcaKeyPressed
+
+    private void entFechaPMatriculaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entFechaPMatriculaKeyPressed
+        String cadena = entFechaPMatricula.getText();
+        int maxLength = (cadena.length() < 9)?cadena.length():9;
+        cadena = cadena.substring(0, maxLength);
+        entFechaPMatricula.setText(cadena);
+    }//GEN-LAST:event_entFechaPMatriculaKeyPressed
+
+    private void entPrecioDiaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entPrecioDiaKeyPressed
+        String cadena = entPrecioDia.getText();
+        int maxLength = (cadena.length() < 9)?cadena.length():9;
+        cadena = cadena.substring(0, maxLength);
+        entPrecioDia.setText(cadena);
+    }//GEN-LAST:event_entPrecioDiaKeyPressed
 
     public void mostrarDatosCocheSeleccionado(){  
         this.entMatricula.setText(cocheEnSeleccion.getMatricula());
