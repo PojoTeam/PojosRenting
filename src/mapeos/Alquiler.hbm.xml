@@ -9,10 +9,10 @@
         <property column="DESCUENTO" name="descuento"/>
         
         <!--RELACION CON TABLA PARTICULARES -->
-        <many-to-one class="pojos.Particular" name="particular" column="ID_PARTICULAR"/>
+        <many-to-one class="pojos.Particular" name="particular" column="ID_PARTICULAR" lazy="false"/>
         
         <!--RELACION CON TABLA EMPRESAS -->
-        <many-to-one class="pojos.Empresa" name="empresa">
+        <many-to-one class="pojos.Empresa" name="empresa" lazy="false">
             <column name="ID_EMPRESA" not-null="false"/>
         </many-to-one>
                     

@@ -1,6 +1,9 @@
 package paneles;
 
 import hibernate.NewHibernateUtil;
+import java.awt.BorderLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +12,7 @@ import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import metodos.Buscar;
 import metodos.Modificar;
 import org.hibernate.Session;
@@ -22,7 +26,7 @@ public class boxClientes extends javax.swing.JPanel {
     /**
      * Creates new form boxClientes
      */
-    
+    private JPanel panelMain;
     private IClientesAlquileres panelPadre;
     private Cliente clienteRepresentado;
     private JFrame aplicacion;
@@ -123,6 +127,11 @@ public class boxClientes extends javax.swing.JPanel {
         lblDataCif = new javax.swing.JLabel();
         lblEmailData1 = new javax.swing.JLabel();
         lblDataEmailEmpresa = new javax.swing.JLabel();
+        panelAlquiler1 = new javax.swing.JPanel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        panelAlquilerBox1 = new javax.swing.JPanel();
+        btnHideAlquiler1 = new javax.swing.JButton();
         boxCliente = new javax.swing.JPanel();
         lblNomCli = new javax.swing.JLabel();
         lblDniCli = new javax.swing.JLabel();
@@ -454,7 +463,7 @@ public class boxClientes extends javax.swing.JPanel {
 
         jLabel2.setText("ALQUILER");
 
-        panelAlquilerBox.setLayout(new javax.swing.BoxLayout(panelAlquilerBox, javax.swing.BoxLayout.LINE_AXIS));
+        panelAlquilerBox.setLayout(new java.awt.BorderLayout());
 
         btnHideAlquiler.setText("<<<");
         btnHideAlquiler.addActionListener(new java.awt.event.ActionListener() {
@@ -642,57 +651,93 @@ public class boxClientes extends javax.swing.JPanel {
 
         lblDataEmailEmpresa.setText("jLabel3");
 
+        panelAlquiler1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 1, 0, 0, new java.awt.Color(0, 0, 0)));
+
+        jLabel3.setText("ALQUILERES");
+
+        panelAlquilerBox1.setLayout(new java.awt.BorderLayout());
+
+        btnHideAlquiler1.setText("<<<");
+        btnHideAlquiler1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHideAlquiler1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelAlquiler1Layout = new javax.swing.GroupLayout(panelAlquiler1);
+        panelAlquiler1.setLayout(panelAlquiler1Layout);
+        panelAlquiler1Layout.setHorizontalGroup(
+            panelAlquiler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlquiler1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnHideAlquiler1)
+                .addGap(80, 80, 80)
+                .addComponent(jLabel3)
+                .addContainerGap(128, Short.MAX_VALUE))
+            .addComponent(jSeparator6)
+            .addComponent(panelAlquilerBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelAlquiler1Layout.setVerticalGroup(
+            panelAlquiler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlquiler1Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(panelAlquiler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnHideAlquiler1)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panelAlquilerBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout dialogoDatosEmpresaLayout = new javax.swing.GroupLayout(dialogoDatosEmpresa.getContentPane());
         dialogoDatosEmpresa.getContentPane().setLayout(dialogoDatosEmpresaLayout);
         dialogoDatosEmpresaLayout.setHorizontalGroup(
             dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosEmpresaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
                 .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                                    .addComponent(lblNombreData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblDataNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                                    .addComponent(lblTelfData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblDataTelfEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblDniData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblEmailData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblDataCif, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblDataEmailEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                            .addGap(74, 74, 74)
+                            .addComponent(jLabel19)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel8))
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
-                                .addComponent(lblNombreData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDataNombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
-                                .addComponent(lblTelfData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblDataTelfEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDniData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmailData1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDataCif, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDataEmailEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel19)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel8)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
-                .addGap(70, 70, 70)
-                .addComponent(btnDatosEmpresaAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(btnDatosEmpresaAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addComponent(panelAlquiler1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dialogoDatosEmpresaLayout.setVerticalGroup(
             dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(dialogoDatosEmpresaLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogoDatosEmpresaLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)))
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(29, 29, 29)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dialogoDatosEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -709,9 +754,10 @@ public class boxClientes extends javax.swing.JPanel {
                             .addComponent(lblDataEmailEmpresa)
                             .addComponent(lblTelfData1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDataTelfEmpresa))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btnDatosEmpresaAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
+            .addComponent(panelAlquiler1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setBorder(new javax.swing.border.MatteBorder(null));
@@ -982,14 +1028,26 @@ public class boxClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDatosEmpresaAceptarActionPerformed
 
     private void btnVerAlquilerParticularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlquilerParticularActionPerformed
+        if(panelMain != null){
+            panelMain.removeAll();
+            panelMain.revalidate();
+            panelMain.repaint();
+            panelAlquilerBox.remove(panelMain);
+            panelAlquilerBox.revalidate();
+            panelAlquilerBox.repaint();
+        }
+        panelMain = new JPanel();
+        GridBagLayout innerLayout = new GridBagLayout();
+        panelMain.setLayout(innerLayout);
+        panelAlquilerBox.add(panelMain);
         panelAlquiler.setVisible(true);
         dialogoDatos.setSize(747, 339);
-        List<Alquiler> alquileres = Buscar.alquileres("", "", "", "", ((Particular)clienteRepresentado), null);
+        List<Alquiler> alquileres = Buscar.alquileres("", "", "", null, ((Particular)clienteRepresentado), null);
         if(!alquileres.isEmpty()){
             Alquiler alquiler = alquileres.get(0);
             boxAlquileres boxAlquileres = new boxAlquileres(((Particular)clienteRepresentado).getDni(), alquiler.getCoche().getMatricula(), alquiler.getCodigo());
             boxAlquileres.setAlquilerRepresentado(alquiler);
-            panelAlquilerBox.add(boxAlquileres);
+            panelMain.add(boxAlquileres);
         }
     }//GEN-LAST:event_btnVerAlquilerParticularActionPerformed
 
@@ -997,6 +1055,10 @@ public class boxClientes extends javax.swing.JPanel {
         panelAlquiler.setVisible(false);
         dialogoDatos.setSize(416, 339);
     }//GEN-LAST:event_btnHideAlquilerActionPerformed
+
+    private void btnHideAlquiler1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHideAlquiler1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHideAlquiler1ActionPerformed
 
     public IClientesAlquileres getPanelPadre() {
         return panelPadre;
@@ -1080,6 +1142,7 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JButton btnDigCancelar1;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnHideAlquiler;
+    private javax.swing.JButton btnHideAlquiler1;
     private javax.swing.JButton btnModAceptar;
     private javax.swing.JButton btnModCli;
     private javax.swing.JButton btnSeleccionar;
@@ -1101,6 +1164,7 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1109,6 +1173,7 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel lblApelData;
     private javax.swing.JLabel lblDataApel;
     private javax.swing.JLabel lblDataCif;
@@ -1158,6 +1223,8 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JLabel lblTelfData1;
     private javax.swing.JLabel lblTelfEliminar;
     private javax.swing.JPanel panelAlquiler;
+    private javax.swing.JPanel panelAlquiler1;
     private javax.swing.JPanel panelAlquilerBox;
+    private javax.swing.JPanel panelAlquilerBox1;
     // End of variables declaration//GEN-END:variables
 }

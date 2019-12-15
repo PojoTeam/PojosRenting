@@ -76,7 +76,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         lblDni = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         btnAlta = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnBuscarShow = new javax.swing.JButton();
         entFechaI = new javax.swing.JTextField();
         entFechaF = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
@@ -167,7 +167,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                                     .addComponent(entBuscarFechaI, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
                                     .addComponent(entBuscarPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)))
                             .addComponent(btnBuscarCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dialogoBuscarLayout.setVerticalGroup(
             dialogoBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,10 +223,10 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             }
         });
 
-        jButton4.setText("BUSCAR");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarShow.setText("BUSCAR");
+        btnBuscarShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnBuscarShowActionPerformed(evt);
             }
         });
 
@@ -271,7 +271,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                                     .addComponent(entFechaI, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(entFechaF, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(entCliente)))
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnBuscarShow, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -299,7 +299,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(btnBuscarShow)
                 .addContainerGap(316, Short.MAX_VALUE))
         );
 
@@ -322,9 +322,9 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnBuscarShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarShowActionPerformed
+        dialogoBuscar.setVisible(true);
+    }//GEN-LAST:event_btnBuscarShowActionPerformed
 
     private void btnSeleccionarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarClienteActionPerformed
         listarClientes(); //Listo los clientes en el dialogo
@@ -376,9 +376,22 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
-        
-        List<Alquiler> alquileres;
-        alquileres = Buscar.alquileres(entBuscarPrecio.getText(), entBuscarFechaI.getText() , entBuscarFechaF.getText(), entBuscarDni.getText(), entBuscarMatricula.getText());
+        List<Coche> coches = Buscar.coches(entBuscarMatricula.getText(), "", "", "", "", "");
+        Coche coche = null;
+        if(coches != null){ 
+           coche = coches.get(0); 
+        }
+        List<Cliente> particulares = Buscar.particulares("", entBuscarDni.getText(), "", "", "", "", "");
+        Particular particular = null;
+        if(particulares != null && particulares.size() > 0){
+            particular = ((Particular)particulares.get(0));
+        }
+        List<Cliente> empresas = Buscar.empresas("", entBuscarDni.getText(), "", "");
+        Empresa empresa = null;
+        if(empresas != null && empresas.size() > 0){
+            empresa = ((Empresa)empresas.get(0));
+        }
+        List<Alquiler> alquileres = Buscar.alquileres(this.entBuscarPrecio.getText(),this.entBuscarFechaI.getText() ,this.entBuscarFechaF.getText() , coche, particular, empresa);
         listarAlquileres(alquileres);
         this.dialogoBuscar.setVisible(false);
     }//GEN-LAST:event_btnBuscarAceptarActionPerformed
@@ -718,6 +731,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     private javax.swing.JButton btnAlta;
     private javax.swing.JButton btnBuscarAceptar;
     private javax.swing.JButton btnBuscarCancelar1;
+    private javax.swing.JButton btnBuscarShow;
     private javax.swing.JButton btnSeleccionarCliente;
     private javax.swing.JButton btnSeleccionarCoche;
     private javax.swing.JDialog dialogoBuscar;
@@ -731,7 +745,6 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     private javax.swing.JTextField entCoche;
     private javax.swing.JTextField entFechaF;
     private javax.swing.JTextField entFechaI;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JSeparator jSeparator2;

@@ -70,7 +70,7 @@ public class Buscar {
     public static List<Cliente> empresas(String nombre, String cif, String telefono, String email) {
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        List<Cliente> clientes;
+        List<Cliente> empresas;
         if (nombre.equalsIgnoreCase("") && cif.equalsIgnoreCase("") && telefono.equalsIgnoreCase("") && email.equalsIgnoreCase("")) {
             //todos los campos estan vacios, por lo que no hay nada a buscar.
             sesion.close();
@@ -82,7 +82,7 @@ public class Buscar {
                 filtros.add(nameCriteria);
             }
             if (!cif.equalsIgnoreCase("")) {
-                Criterion nameCriteria = Restrictions.eq("dni", cif);
+                Criterion nameCriteria = Restrictions.eq("cif", cif);
                 filtros.add(nameCriteria);
             }
             if (!telefono.equalsIgnoreCase("")) {
@@ -93,12 +93,12 @@ public class Buscar {
                 Criterion nameCriteria = Restrictions.eq("email", email);
                 filtros.add(nameCriteria);
             }
-            clientes = filtros.list();
+            empresas = filtros.list();
         }
         sesion.getTransaction()
                 .commit();
         sesion.close();
-        return clientes;
+        return empresas;
     }
 
     public static List<Coche> coches(String matricula, String modelo, String estado, String marca, String fechaPM, String anhos) {
@@ -143,11 +143,11 @@ public class Buscar {
         return coches;
     }
     
-    public static List<Alquiler> alquileres(String precioTotal, String fechaInicio, String fechaFin, String coche, Particular particular, Empresa empresa) {
+    public static List<Alquiler> alquileres(String precioTotal, String fechaInicio, String fechaFin, Coche coche, Particular particular, Empresa empresa) {
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
         List<Alquiler> alquileres;
-        if (precioTotal.equalsIgnoreCase("") && fechaInicio.equalsIgnoreCase("") && fechaFin.equalsIgnoreCase("") && coche.equalsIgnoreCase("") && particular == null && empresa == null) {
+        if (precioTotal.equalsIgnoreCase("") && fechaInicio.equalsIgnoreCase("") && fechaFin.equalsIgnoreCase("") && coche == null && particular == null && empresa == null) {
             //todos los campos estan vacios, por lo que no hay nada a buscar.
             sesion.close();
             return null;
@@ -165,7 +165,7 @@ public class Buscar {
                 Criterion nameCriteria = Restrictions.eq("fechaFin", fechaFin);
                 filtros.add(nameCriteria);
             }
-            if (!coche.equalsIgnoreCase("")) {
+            if (coche != null) {
                 Criterion nameCriteria = Restrictions.eq("coche", coche);
                 filtros.add(nameCriteria);
             }
