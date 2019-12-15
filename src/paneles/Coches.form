@@ -297,7 +297,7 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="btnAlta1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnRecargar" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnBuscar" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -340,7 +340,7 @@
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="btnAlta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnAlta1" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnRecargar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" pref="11" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -429,12 +429,12 @@
             <Property name="text" type="java.lang.String" value="Precio/Dia"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnAlta1">
+        <Component class="javax.swing.JButton" name="btnRecargar">
           <Properties>
             <Property name="text" type="java.lang.String" value="RECARGAR"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlta1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRecargarActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

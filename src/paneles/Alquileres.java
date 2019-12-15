@@ -20,7 +20,6 @@ import pojos.Alquiler;
 import pojos.Cliente;
 import pojos.Coche;
 import pojos.Empresa;
-import pojos.LargoPlazo;
 import pojos.Particular;
 
 public class Alquileres extends javax.swing.JPanel implements IClientesAlquileres, ICochesAlquileres{
@@ -375,9 +374,17 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             } else if (((Empresa)clienteSel).getnAlquileres() > 100) {
                 descuento = 0.1f;
             }
+            if(duracion > 30 && duracion < 180){
+                descuento = descuento + (0.1f);
+            }else if(duracion >= 180 && duracion < 360){
+                descuento = descuento + (0.2f);
+            }else if(duracion >= 360 && duracion < 720){
+                descuento = descuento + (0.3f);
+            }else if(duracion >= 720){
+                descuento = descuento + (0.4f);
+            }
             precioTotal = cocheSel.getPrecioDia() * duracion * (descuento + 1);
             Alquiler alquiler = null;
-            LargoPlazo largoPlazo = null;
             if(clienteSel instanceof Particular) {
                 alquiler = new Alquiler(fechaI, fechaF, cocheSel, precioTotal, descuento);
                 alquiler.setParticular((Particular)clienteSel);
@@ -386,10 +393,6 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
                 alquiler.setEmpresa((Empresa)clienteSel);
             }
             Altas.alquileres(alquiler);
-            if(duracion > 30) {
-                largoPlazo = new LargoPlazo(fechaI, fechaF, cocheSel, precioTotal, descuento);
-                Altas.largoPlazo(largoPlazo);
-            }
             vaciarCampos();
         }catch(ParseException pe){
             System.out.println(pe);

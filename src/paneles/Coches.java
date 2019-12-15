@@ -79,7 +79,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
         entModelo = new javax.swing.JTextField();
         entPrecioDia = new javax.swing.JTextField();
         lblPrecioDia = new javax.swing.JLabel();
-        btnAlta1 = new javax.swing.JButton();
+        btnRecargar = new javax.swing.JButton();
         window = new javax.swing.JPanel();
 
         dialogoBuscar.setTitle("ALERTA");
@@ -279,10 +279,10 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
 
         lblPrecioDia.setText("Precio/Dia");
 
-        btnAlta1.setText("RECARGAR");
-        btnAlta1.addActionListener(new java.awt.event.ActionListener() {
+        btnRecargar.setText("RECARGAR");
+        btnRecargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlta1ActionPerformed(evt);
+                btnRecargarActionPerformed(evt);
             }
         });
 
@@ -314,7 +314,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
                             .addComponent(lblNombre)
                             .addComponent(lblNombre1))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(btnAlta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRecargar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -348,7 +348,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
                 .addGap(38, 38, 38)
                 .addComponent(btnAlta)
                 .addGap(18, 18, 18)
-                .addComponent(btnAlta1)
+                .addComponent(btnRecargar)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -420,9 +420,9 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
         dialogoBuscar.setVisible(false);
     }//GEN-LAST:event_btnBuscarCancelar1ActionPerformed
 
-    private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlta1ActionPerformed
+    private void btnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargarActionPerformed
+        listarCoches();
+    }//GEN-LAST:event_btnRecargarActionPerformed
 
     private void entMatriculaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entMatriculaKeyPressed
         String cadena = entMatricula.getText();
@@ -612,10 +612,10 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
-    private javax.swing.JButton btnAlta1;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnBuscarAceptar;
     private javax.swing.JButton btnBuscarCancelar1;
+    private javax.swing.JButton btnRecargar;
     private javax.swing.JDialog dialogoBuscar;
     private javax.swing.JTextField entBuscarAnhos;
     private javax.swing.JTextField entBuscarEstado;

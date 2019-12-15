@@ -88,7 +88,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
         lblApellidos = new javax.swing.JLabel();
         entApellidos = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        btnAlta1 = new javax.swing.JButton();
+        btnRecargar = new javax.swing.JButton();
         window = new javax.swing.JPanel();
 
         dialogoBuscar.setTitle("ALERTA");
@@ -327,10 +327,10 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
             }
         });
 
-        btnAlta1.setText("RECARGAR");
-        btnAlta1.addActionListener(new java.awt.event.ActionListener() {
+        btnRecargar.setText("RECARGAR");
+        btnRecargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlta1ActionPerformed(evt);
+                btnRecargarActionPerformed(evt);
             }
         });
 
@@ -389,7 +389,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(panelDatosClientesLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(btnAlta1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnRecargar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelDatosClientesLayout.setVerticalGroup(
             panelDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -445,7 +445,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
                 .addGap(18, 18, 18)
                 .addComponent(btnAlta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAlta1)
+                .addComponent(btnRecargar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
@@ -620,9 +620,9 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
         // TODO add your handling code here:
     }//GEN-LAST:event_entDniActionPerformed
 
-    private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAlta1ActionPerformed
+    private void btnRecargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecargarActionPerformed
+        listarClientes();
+    }//GEN-LAST:event_btnRecargarActionPerformed
 
     public void mostrarDatosClienteSeleccionado(){
         
@@ -805,9 +805,9 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
-    private javax.swing.JButton btnAlta1;
     private javax.swing.JButton btnBuscarAceptar;
     private javax.swing.JButton btnBuscarCancelar1;
+    private javax.swing.JButton btnRecargar;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JDialog dialogoBuscar;
     private javax.swing.JTextField entApellidos;

@@ -18,10 +18,5 @@
                     
         <!--RELACION CON TABLA COCHES -->
         <many-to-one class="pojos.Coche" name="coche" column="MATRICULA"/>
-        
-        <!-- SUBCLASE LARGOPLAZO -->
-        <joined-subclass name="pojos.LargoPlazo" table="LARGO_PLAZO">
-            <key column="CODIGO"/>
-        </joined-subclass>
     </class>
 </hibernate-mapping>
