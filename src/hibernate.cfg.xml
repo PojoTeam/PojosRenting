@@ -8,7 +8,7 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
     <mapping resource="mapeos/Cliente.hbm.xml"/>
-    <mapping resource="mapeos/Reserva.hbm.xml"/>
+    <!--<mapping resource="mapeos/Reserva.hbm.xml"/>-->
     <mapping resource="mapeos/Coche.hbm.xml"/>
     <mapping resource="mapeos/Alquiler.hbm.xml"/>
   </session-factory>

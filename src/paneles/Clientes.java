@@ -123,6 +123,8 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
 
         lblModEmail.setText("Email");
 
+        entBuscarFechNac.setToolTipText("(dd/MM/yyyy)");
+
         lblModTelefono.setText("Telefono");
 
         lblModFechaNac.setText("Fecha Nac");
@@ -322,6 +324,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
         });
         panelDatosClientes.add(entMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 264, 143, -1));
 
+        entFecha.setToolTipText("(dd/MM/yyyy)");
         entFecha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entFechaKeyPressed(evt);
@@ -407,7 +410,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         try{
             if(rbParticular.isSelected()){
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Date fechaNac = sdf.parse(entFecha.getText());
                 DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
                 int puntos = Integer.parseInt(entPuntos.getText());

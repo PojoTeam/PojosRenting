@@ -114,6 +114,8 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
 
         lblModEmail.setText("Años");
 
+        entBuscarFecha.setToolTipText("(dd/MM/yyyy)");
+
         lblModTelefono.setText("Marca");
 
         lblModFechaNac.setText("Fecha PM");
@@ -257,6 +259,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
             }
         });
 
+        entFechaPMatricula.setToolTipText("(dd/MM/yyyy)");
         entFechaPMatricula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entFechaPMatriculaKeyPressed(evt);
@@ -380,7 +383,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         try{
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date fechaPM = sdf.parse(entFechaPMatricula.getText());
             DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
             Date fechaHoy = new Date();

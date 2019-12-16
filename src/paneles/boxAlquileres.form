@@ -4,14 +4,14 @@
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="dialogoEliminar">
       <Properties>
-        <Property name="title" type="java.lang.String" value="ALERTA"/>
+        <Property name="title" type="java.lang.String" value="ELIMINAR"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 289]"/>
         </Property>
         <Property name="modal" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[416, 289]"/>
+          <Dimension value="[416, 269]"/>
         </Property>
       </Properties>
 
@@ -23,46 +23,49 @@
                   <Component id="jSeparator1" min="-2" pref="416" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblTelfEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                      <Component id="lblNombreEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                      <Component id="lblEdadEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDigCliente" min="-2" pref="110" max="-2" attributes="0"/>
-                      <Component id="lblDigCodigo" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                      <Component id="lblDigCoche" min="-2" pref="110" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblPuntosEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                      <Component id="lblDniEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                      <Component id="lblEmailEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDigPrecio" min="-2" pref="110" max="-2" attributes="0"/>
-                      <Component id="lblDigFechaI" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                      <Component id="lblDigFechaF" min="-2" pref="110" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblTelfEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="lblNombreEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="lblEdadEliminar" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblDigCliente" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="lblDigCodigo" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="lblDigCoche" min="-2" pref="110" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="lblDniEliminar" max="32767" attributes="0"/>
+                              <Component id="lblEmailEliminar" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblPuntosEliminar" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblDigPrecio" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="lblDigFechaI" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="lblDigFechaF" min="-2" pref="110" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnDigAceptar" min="-2" pref="106" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnDigCancelar" min="-2" pref="98" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="btnDigAceptar" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnDigCancelar" min="-2" pref="98" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -85,39 +88,25 @@
                   </Group>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblNombreEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="lblDigCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblTelfEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="lblDigCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblEdadEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="lblDigCoche" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblDniEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="lblDigFechaI" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblEmailEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="lblDigFechaF" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblPuntosEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="lblDigPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblNombreEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="lblDigCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblDniEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="lblDigFechaI" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblTelfEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="lblDigCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEmailEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="lblDigFechaF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblEdadEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="lblDigCoche" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblPuntosEliminar" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="lblDigPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -224,14 +213,14 @@
     </Container>
     <Container class="javax.swing.JDialog" name="dialogoModificar">
       <Properties>
-        <Property name="title" type="java.lang.String" value="ALERTA"/>
+        <Property name="title" type="java.lang.String" value="MODIFICAR"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 299]"/>
         </Property>
         <Property name="modal" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[472, 385]"/>
+          <Dimension value="[462, 264]"/>
         </Property>
       </Properties>
 
@@ -274,7 +263,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="11" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -367,79 +356,83 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="entModFechaI">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="(dd/MM/yyyy)"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="entModFechaF">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="(dd/MM/yyyy)"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JDialog" name="dialogoDatos">
       <Properties>
-        <Property name="title" type="java.lang.String" value="ALERTA"/>
+        <Property name="title" type="java.lang.String" value="DATOS"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 289]"/>
         </Property>
         <Property name="modal" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[416, 339]"/>
+          <Dimension value="[449, 329]"/>
         </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="jSeparator3" min="-2" pref="416" max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblNombreData" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                      <Component id="lblEdadData" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblDataCodigo" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                      <Component id="lblDataCoche" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lblApelData" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblDataCliente" min="-2" pref="110" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="lblTelfData" min="-2" pref="66" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblDataPrecio" min="-2" pref="110" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jSeparator3" alignment="1" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblPuntosData" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                              <Component id="lblDniData" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
-                              <Component id="lblEmailData" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="lblNombreData" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="lblEdadData" alignment="0" min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblDataFechaF" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                              <Component id="lblDataDescuento" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                              <Component id="lblDataFechaI" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="lblDataCodigo" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="lblDataCoche" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lblApelData" min="-2" pref="66" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblDataCliente" min="-2" pref="110" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="lblTelfData" min="-2" pref="66" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblDataPrecio" min="-2" pref="110" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lblDniData" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblEmailData" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblPuntosData" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="23" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="lblDataFechaI" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="lblDataDescuento" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                      <Component id="lblDataFechaF" alignment="1" min="-2" pref="110" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                           <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                           <Component id="btnDatosAceptar" min="-2" pref="271" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -452,16 +445,15 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="jLabel18" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel18" min="-2" pref="70" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="jLabel7" min="-2" pref="44" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace type="separate" max="32767" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -500,9 +492,9 @@
                       <Component id="lblTelfData" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="lblDataPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="btnDatosAceptar" min="-2" pref="33" max="-2" attributes="0"/>
-                  <EmptySpace pref="73" max="32767" attributes="0"/>
+                  <EmptySpace pref="38" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -510,7 +502,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="DATOS DEL CLIENTE"/>
+            <Property name="text" type="java.lang.String" value="DATOS DEL ALQUILER"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblNombreData">

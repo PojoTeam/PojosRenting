@@ -36,7 +36,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
      */
     public Alquileres() {
         initComponents();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         Date now = new Date();
         entFechaI.setText(sdf.format(now));
         listarAlquileres();
@@ -230,12 +230,14 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
             }
         });
 
+        entFechaI.setToolTipText("(dd/MM/yyyy)");
         entFechaI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entFechaIKeyPressed(evt);
             }
         });
 
+        entFechaF.setToolTipText("(dd/MM/yyyy)");
         entFechaF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 entFechaFKeyPressed(evt);
@@ -360,7 +362,7 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         try{
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             Date fechaI = sdf.parse(this.entFechaI.getText());
             Date fechaF = sdf.parse(this.entFechaF.getText());
             float precioTotal,
@@ -443,6 +445,9 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
 
     private void btnAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlta1ActionPerformed
         listarAlquileres();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date now = new Date();
+        entFechaI.setText(sdf.format(now));
     }//GEN-LAST:event_btnAlta1ActionPerformed
     
     @Override

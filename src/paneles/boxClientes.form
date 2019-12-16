@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="dialogoEliminar">
       <Properties>
-        <Property name="title" type="java.lang.String" value="ALERTA"/>
+        <Property name="title" type="java.lang.String" value="ELIMINAR"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 289]"/>
         </Property>
@@ -224,7 +224,7 @@
     </Container>
     <Container class="javax.swing.JDialog" name="dialogoModificar">
       <Properties>
-        <Property name="title" type="java.lang.String" value="ALERTA"/>
+        <Property name="title" type="java.lang.String" value="MODIFICAR"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 299]"/>
         </Property>
@@ -417,6 +417,12 @@
         <Component class="javax.swing.JTextField" name="entModTelf">
         </Component>
         <Component class="javax.swing.JTextField" name="entModFechNac">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="(dd/MM/yyyy)"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="entModFechNacActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblModTelefono">
           <Properties>
@@ -439,7 +445,7 @@
     </Container>
     <Container class="javax.swing.JDialog" name="dialogoDatos">
       <Properties>
-        <Property name="title" type="java.lang.String" value="ALERTA"/>
+        <Property name="title" type="java.lang.String" value="DATOS"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 289]"/>
         </Property>
@@ -777,7 +783,7 @@
     </Container>
     <Container class="javax.swing.JDialog" name="dialogoDatosEmpresa">
       <Properties>
-        <Property name="title" type="java.lang.String" value="ALERTA"/>
+        <Property name="title" type="java.lang.String" value="DATOS"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[416, 289]"/>
         </Property>

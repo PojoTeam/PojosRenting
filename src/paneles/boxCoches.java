@@ -104,7 +104,7 @@ public class boxCoches extends javax.swing.JPanel {
         lblModeloCoc = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
 
-        dialogoEliminar.setTitle("ALERTA");
+        dialogoEliminar.setTitle("ELIMINAR");
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setModal(true);
         dialogoEliminar.setResizable(false);
@@ -241,7 +241,7 @@ public class boxCoches extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        dialogoModificar.setTitle("ALERTA");
+        dialogoModificar.setTitle("MODIFICAR");
         dialogoModificar.setMinimumSize(new java.awt.Dimension(416, 299));
         dialogoModificar.setModal(true);
         dialogoModificar.setResizable(false);
@@ -363,13 +363,13 @@ public class boxCoches extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        dialogoDatos.setTitle("ALERTA");
+        dialogoDatos.setTitle("DATOS");
         dialogoDatos.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoDatos.setModal(true);
         dialogoDatos.setResizable(false);
         dialogoDatos.setSize(new java.awt.Dimension(416, 339));
 
-        jLabel7.setText("DATOS DEL CLIENTE");
+        jLabel7.setText("DATOS DEL COCHE");
 
         lblMatriculaData.setText("Matricula");
 
@@ -641,7 +641,7 @@ public class boxCoches extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
     private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         this.lblDataMatricula.setText(cocheRepresentado.getMatricula());
         this.lblDataMarca.setText(cocheRepresentado.getMarca());
         this.lblDataModelo.setText(cocheRepresentado.getModelo());
@@ -666,7 +666,7 @@ public class boxCoches extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnModCocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCocActionPerformed
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         this.entModMatricula.setText(cocheRepresentado.getMatricula());
         this.entModMarca.setText(cocheRepresentado.getMarca());
         this.entModModelo.setText(cocheRepresentado.getModelo());
@@ -680,7 +680,7 @@ public class boxCoches extends javax.swing.JPanel {
 
     private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
         try{
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
             Date fechaPM = sdf.parse(entModFecha.getText());
             Date fechaHoy = new Date();

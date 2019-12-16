@@ -19,7 +19,7 @@ import pojos.Particular;
 
 public class Buscar {
 
-    public static List<Cliente> particulares(String nombre, String dni, String telefono, String email, String puntos, String fechaNacimiento, String edad) {
+    public static List<Cliente> particulares(String nombre, String dni, String telefono, String email, String puntos, String fechaNacimiento, String edad) throws ParseException {
 
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
@@ -52,7 +52,9 @@ public class Buscar {
                 filtros.add(nameCriteria);
             }
             if (!fechaNacimiento.equalsIgnoreCase("")) {
-                Criterion nameCriteria = Restrictions.eq("fechaNacimiento", fechaNacimiento);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                Date fechaNacimientoDate = sdf.parse(fechaNacimiento);
+                Criterion nameCriteria = Restrictions.eq("fechaNacimiento", fechaNacimientoDate);
                 filtros.add(nameCriteria);
             }
             if (!edad.equalsIgnoreCase("")) {

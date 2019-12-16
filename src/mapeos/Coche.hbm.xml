@@ -11,16 +11,16 @@
         <property column="FECHA_M" name="fechaM"/>
         <property column="PRECIO_DIA" name="precioDia"/>
         
-        <!-- RELACION CON TABLA RESERVA-->
+        <!-- RELACION CON TABLA RESERVA
         <set inverse="true" name="reservas" table="RESERVAS">
             <key>
                 <column name="ID" not-null="true"/>
             </key>
             <one-to-many class="pojos.Reserva"/>
         </set>
-        
+        -->
         <!-- RELACION CON TABLA ALQUILER-->
-        <one-to-one class="pojos.Alquiler" name="alquiler" property-ref="coche"/>
+        <one-to-one class="pojos.Alquiler" name="alquiler" property-ref="coche" cascade="all"/>
        
         <!-- RELACION CON TABLA SEDE
         <many-to-one class="pojos.Sede" name="sede">

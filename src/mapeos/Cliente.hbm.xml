@@ -9,14 +9,14 @@
         <property column="TELEFONO" name="telefono"/>
         <property column="EMAIL" name="email"/>
 
-        <!-- RELACIÓN CON TABLA RESERVAS -->
+        <!-- RELACIÓN CON TABLA RESERVAS 
         <set inverse="true" name="reservas" table="RESERVAS">
             <key>
                 <column name="ID" not-null="true"/>
             </key>
             <one-to-many class="pojos.Reserva"/>
         </set>
-
+        -->
         <!-- SUBCLASE PARTICULAR -->
         <joined-subclass name="pojos.Particular" table="PARTICULARES">
             <key column="ID"/>
@@ -28,7 +28,7 @@
             <property column="FECHANAC" name="fechaNacimiento"/>
 
             <!-- RELACIÓN CON TABLA ALQUILERES -->
-            <one-to-one class="pojos.Alquiler" name="alquiler" property-ref="particular"/>
+            <one-to-one class="pojos.Alquiler" name="alquiler" property-ref="particular" cascade="all"/>
         </joined-subclass>
 
         <!-- SUBCLASE EMPRESA -->

@@ -70,6 +70,7 @@ public class FrameInicio extends jFramePadre{
         panelContenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("POJOS RENTING");
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
 
@@ -251,7 +252,7 @@ public class FrameInicio extends jFramePadre{
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("GTK+".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

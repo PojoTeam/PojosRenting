@@ -146,7 +146,7 @@ public class boxClientes extends javax.swing.JPanel {
         lblDni = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
 
-        dialogoEliminar.setTitle("ALERTA");
+        dialogoEliminar.setTitle("ELIMINAR");
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setModal(true);
         dialogoEliminar.setResizable(false);
@@ -283,7 +283,7 @@ public class boxClientes extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        dialogoModificar.setTitle("ALERTA");
+        dialogoModificar.setTitle("MODIFICAR");
         dialogoModificar.setMinimumSize(new java.awt.Dimension(416, 299));
         dialogoModificar.setModal(true);
         dialogoModificar.setResizable(false);
@@ -314,6 +314,13 @@ public class boxClientes extends javax.swing.JPanel {
         lblModDni.setText("Dni/Cif");
 
         lblModEmail.setText("Email");
+
+        entModFechNac.setToolTipText("(dd/MM/yyyy)");
+        entModFechNac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entModFechNacActionPerformed(evt);
+            }
+        });
 
         lblModTelefono.setText("Telefono");
 
@@ -413,7 +420,7 @@ public class boxClientes extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        dialogoDatos.setTitle("ALERTA");
+        dialogoDatos.setTitle("DATOS");
         dialogoDatos.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoDatos.setModal(true);
         dialogoDatos.setResizable(false);
@@ -621,7 +628,7 @@ public class boxClientes extends javax.swing.JPanel {
             .addComponent(panelAlquiler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        dialogoDatosEmpresa.setTitle("ALERTA");
+        dialogoDatosEmpresa.setTitle("DATOS");
         dialogoDatosEmpresa.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoDatosEmpresa.setModal(true);
         dialogoDatosEmpresa.setResizable(false);
@@ -887,7 +894,7 @@ public class boxClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDatosActionPerformed
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         if(clienteRepresentado instanceof Particular){
             this.lblDataDni.setText(((Particular)clienteRepresentado).getDni());
             this.lblDataEmail.setText(((Particular)clienteRepresentado).getEmail());
@@ -954,7 +961,7 @@ public class boxClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnDigCancelarActionPerformed
 
     private void btnModCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModCliActionPerformed
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         if(clienteRepresentado instanceof Particular){
             this.lblModApel.setVisible(true);
             this.entModApel.setVisible(true);
@@ -990,7 +997,7 @@ public class boxClientes extends javax.swing.JPanel {
     private void btnModAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModAceptarActionPerformed
         try{
             if(clienteRepresentado instanceof Particular){
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 DateFormat formatter = new SimpleDateFormat("yyyyMMdd");
                 Date fechaNac = sdf.parse(this.entModFechNac.getText());
                 int puntosMod = Integer.parseInt(this.entModPuntos.getText());
@@ -1066,6 +1073,10 @@ public class boxClientes extends javax.swing.JPanel {
     private void btnVerAlquileresEmpresasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAlquileresEmpresasActionPerformed
         listarSusAlquileres();
     }//GEN-LAST:event_btnVerAlquileresEmpresasActionPerformed
+
+    private void entModFechNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entModFechNacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_entModFechNacActionPerformed
 
     public IClientesAlquileres getPanelPadre() {
         return panelPadre;
@@ -1291,6 +1302,4 @@ public class boxClientes extends javax.swing.JPanel {
     private javax.swing.JPanel panelAlquileres;
     private javax.swing.JPanel panelAlquileresBox;
     // End of variables declaration//GEN-END:variables
-
-    
-}
+   }

@@ -197,6 +197,9 @@
         <Component class="javax.swing.JTextField" name="entBuscarMarca">
         </Component>
         <Component class="javax.swing.JTextField" name="entBuscarFecha">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="(dd/MM/yyyy)"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblModTelefono">
           <Properties>
@@ -403,6 +406,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="entFechaPMatricula">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="(dd/MM/yyyy)"/>
+          </Properties>
           <Events>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="entFechaPMatriculaKeyPressed"/>
           </Events>
