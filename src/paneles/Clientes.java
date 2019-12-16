@@ -461,7 +461,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
 
     private void entDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_entDniKeyPressed
         String cadena = entDni.getText();
-        int maxLength = (cadena.length() < 8)?cadena.length():8;
+        int maxLength = (cadena.length() < 9)?cadena.length():9;
         cadena = cadena.substring(0, maxLength);
         entDni.setText(cadena);
     }//GEN-LAST:event_entDniKeyPressed
