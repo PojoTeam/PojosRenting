@@ -9,6 +9,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -507,11 +509,15 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
     }//GEN-LAST:event_entApellidosKeyPressed
 
     private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
-        List<Cliente> clientes;
+        List<Cliente> clientes = null;
         if((this.entBuscarApel.getText().equals("")) && (this.entBuscarEdad.getText().equals("")) && (this.entBuscarFechNac.getText().equals("")) && (this.entBuscarPuntos.getText().equals(""))){
             clientes = Buscar.empresas(this.entBuscarNombre.getText(), this.entBuscarDni.getText(), this.entBuscarTelf.getText(), this.entBuscarEmail.getText());
         }else{
-            clientes = Buscar.particulares(this.entBuscarNombre.getText(), this.entBuscarDni.getText(), this.entBuscarTelf.getText(), this.entBuscarEmail.getText(), this.entBuscarPuntos.getText(), this.entBuscarFechNac.getText(), this.entBuscarEdad.getText());
+            try {
+                clientes = Buscar.particulares(this.entBuscarNombre.getText(), this.entBuscarDni.getText(), this.entBuscarTelf.getText(), this.entBuscarEmail.getText(), this.entBuscarPuntos.getText(), this.entBuscarFechNac.getText(), this.entBuscarEdad.getText());
+            } catch (ParseException ex) {
+                Logger.getLogger(Clientes.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         listarClientes(clientes);
         this.dialogoBuscar.setVisible(false);

@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -103,11 +105,11 @@ public class Buscar {
         return empresas;
     }
 
-    public static List<Coche> coches(String matricula, String modelo, String estado, String marca, String fechaPM, String anhos) {
+    public static List<Coche> coches(String matricula, String modelo, String estado, String marca, String fechaPM, String anhos, String precio){
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
         List<Coche> coches;
-        if (matricula.equalsIgnoreCase("") && modelo.equalsIgnoreCase("") && estado.equalsIgnoreCase("") && marca.equalsIgnoreCase("") && fechaPM.equalsIgnoreCase("") && anhos.equalsIgnoreCase("")) {
+        if (matricula.equalsIgnoreCase("") && modelo.equalsIgnoreCase("") && estado.equalsIgnoreCase("") && marca.equalsIgnoreCase("") && fechaPM.equalsIgnoreCase("") && anhos.equalsIgnoreCase("") && precio.equalsIgnoreCase("")) {
             //todos los campos estan vacios, por lo que no hay nada a buscar.
             sesion.close();
             return null;
@@ -130,12 +132,27 @@ public class Buscar {
                 filtros.add(nameCriteria);
             }
             if (!fechaPM.equalsIgnoreCase("")) {
-                Criterion nameCriteria = Restrictions.eq("fechaPM", fechaPM);
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecha = null;
+                try {
+                    fecha = sdf.parse(fechaPM);
+                } catch (ParseException ex) {
+                    System.out.println(ex);
+                }
+                Criterion nameCriteria = Restrictions.eq("fechaM", fecha);
                 filtros.add(nameCriteria);
             }
             if(!anhos.equalsIgnoreCase("")){
-                Criterion nameCriteria = Restrictions.eq("anhos", fechaPM);
+                int anhosInt;
+                anhosInt = Integer.parseInt(anhos);
+                Criterion nameCriteria = Restrictions.eq("anhos", anhosInt);
                 filtros.add(nameCriteria);
+            }
+            if(!precio.equalsIgnoreCase("")){
+                float precioFloat;
+                precioFloat = Float.parseFloat(precio);
+                Criterion nameCriteria = Restrictions.eq("precioDia", precioFloat);
+                filtros.add(nameCriteria);    
             }
             coches = filtros.list();
         }
@@ -155,16 +172,31 @@ public class Buscar {
             return null;
         }else {
             Criteria filtros = sesion.createCriteria(Alquiler.class);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             if (!precioTotal.equalsIgnoreCase("")) {
-                Criterion nameCriteria = Restrictions.eq("precioTotal", precioTotal);
+                float precioTotalFloat;
+                precioTotalFloat = Float.parseFloat(precioTotal);
+                Criterion nameCriteria = Restrictions.eq("precioTotal", precioTotalFloat);
                 filtros.add(nameCriteria);
             }
             if (!fechaInicio.equalsIgnoreCase("")) {
-                Criterion nameCriteria = Restrictions.eq("fechaInicio", fechaInicio);
+                Date fechaInicioDate = null;
+                try {
+                    fechaInicioDate = sdf.parse(fechaInicio);
+                } catch (ParseException ex) {
+                    System.out.println(ex);
+                }
+                Criterion nameCriteria = Restrictions.eq("fechaInicio", fechaInicioDate);
                 filtros.add(nameCriteria);
             }
             if (!fechaFin.equalsIgnoreCase("")) {
-                Criterion nameCriteria = Restrictions.eq("fechaFin", fechaFin);
+                Date fechaFinDate = null;
+                try {
+                    fechaFinDate = sdf.parse(fechaFin);
+                } catch (ParseException ex) {
+                    System.out.println(ex);
+                }
+                Criterion nameCriteria = Restrictions.eq("fechaFin", fechaFinDate);
                 filtros.add(nameCriteria);
             }
             if (coche != null) {

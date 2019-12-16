@@ -86,7 +86,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
         dialogoBuscar.setMinimumSize(new java.awt.Dimension(416, 299));
         dialogoBuscar.setModal(true);
         dialogoBuscar.setResizable(false);
-        dialogoBuscar.setSize(new java.awt.Dimension(472, 385));
+        dialogoBuscar.setSize(new java.awt.Dimension(472, 405));
 
         jLabel6.setText("BUSQUEDA COCHES");
 
@@ -414,7 +414,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
 
     private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
         List<Coche> coches;
-        coches = Buscar.coches(entBuscarMatricula.getText(), entBuscarModelo.getText(), entBuscarEstado.getText(), entBuscarMarca.getText(), entBuscarFecha.getText(), entBuscarAnhos.getText());
+        coches = Buscar.coches(entBuscarMatricula.getText(), entBuscarModelo.getText(), entBuscarEstado.getText(), entBuscarMarca.getText(), entBuscarFecha.getText(), entBuscarAnhos.getText(), entBuscarPrecio.getText());
         listarCoches(coches);
         this.dialogoBuscar.setVisible(false);
     }//GEN-LAST:event_btnBuscarAceptarActionPerformed
@@ -538,6 +538,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
     }
     
     public void listarCoches(List<Coche> coches){
+        
         if(panelMain != null){
             panelMain.removeAll();
             panelMain.revalidate();
@@ -546,23 +547,28 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
             window.revalidate();
             window.repaint();
         }
-        
+
         panelMain = new JPanel(new BorderLayout());
         window.add(panelMain);
         GridBagLayout innerLayout = new GridBagLayout();
         GridBagConstraints innerConstraints = new GridBagConstraints();
         JPanel innerPanel = new JPanel(innerLayout);
-        
+
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        int numeroCoches = coches.size();
+        int numeroCoches;
+        if(coches != null){
+            numeroCoches = coches.size();
+        }else{
+            numeroCoches = 0;
+        }
         int numeroIteracionesX = (numeroCoches/3)+1;
         int numeroIteracionesTotales = 0;
-        
+
         innerConstraints.weightx = 0.5;
         innerConstraints.weighty = 0.5;
         innerConstraints.gridy = 0;
-        
+
         for(int i = 0; i < numeroIteracionesX; i++){    
             for(int j = 0; j < 3; j++){
                 if(numeroIteracionesTotales != numeroCoches){
@@ -593,7 +599,7 @@ public class Coches extends javax.swing.JPanel implements ICochesAlquileres{
         panelMain.add(scrollPanel, BorderLayout.CENTER);
         sesion.getTransaction().commit();
         sesion.close();
-    
+        
     }
     
     public void vaciarCampos() {

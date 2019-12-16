@@ -4,6 +4,7 @@ import customgui.jFramePadre;
 import hibernate.NewHibernateUtil;
 import java.awt.Color;
 import javax.swing.JPanel;
+import metodos.CrearTablas;
 import paneles.*;
 
 /**
@@ -22,6 +23,7 @@ public class FrameInicio extends jFramePadre{
      */
     public FrameInicio() {
         initComponents();
+        CrearTablas.crear();
         NewHibernateUtil.getSessionFactory();
         panelAsButton1.setjFramePadre(this);
         panelAsButton2.setjFramePadre(this);

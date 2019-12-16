@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -405,12 +407,17 @@ public class Alquileres extends javax.swing.JPanel implements IClientesAlquilere
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
-        List<Coche> coches = Buscar.coches(entBuscarMatricula.getText(), "", "", "", "", "");
+        List<Coche> coches = Buscar.coches(entBuscarMatricula.getText(), "", "", "", "", "", "");
         Coche coche = null;
         if(coches != null){ 
            coche = coches.get(0); 
         }
-        List<Cliente> particulares = Buscar.particulares("", entBuscarDni.getText(), "", "", "", "", "");
+        List<Cliente> particulares = null;
+        try {
+            particulares = Buscar.particulares("", entBuscarDni.getText(), "", "", "", "", "");
+        } catch (ParseException ex) {
+            Logger.getLogger(Alquileres.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Particular particular = null;
         if(particulares != null && particulares.size() > 0){
             particular = ((Particular)particulares.get(0));
