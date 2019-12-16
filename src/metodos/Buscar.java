@@ -104,6 +104,59 @@ public class Buscar {
         sesion.close();
         return empresas;
     }
+    
+    public static ArrayList<Cliente> clientes(String nombre, String cifDni, String telefono, String email) {
+        Session sesion = NewHibernateUtil.getSession();
+        sesion.beginTransaction();
+        List<Empresa> empresas;
+        List<Particular> particulares;
+        ArrayList<Cliente> clientes = new ArrayList();
+        if (nombre.equalsIgnoreCase("") && cifDni.equalsIgnoreCase("") && telefono.equalsIgnoreCase("") && email.equalsIgnoreCase("")) {
+            //todos los campos estan vacios, por lo que no hay nada a buscar.
+            sesion.close();
+            return null;
+        } else {
+            Criteria filtrosEmpresa = sesion.createCriteria(Empresa.class);
+            Criteria filtrosParticular = sesion.createCriteria(Particular.class);
+            if (!nombre.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("nombre", nombre);
+                filtrosEmpresa.add(nameCriteria);
+                filtrosParticular.add(nameCriteria);
+            }
+            if (!cifDni.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("cif", cifDni);
+                Criterion nameCriteria2 = Restrictions.eq("dni", cifDni);
+                filtrosEmpresa.add(nameCriteria);
+                filtrosParticular.add(nameCriteria2);
+            }
+            if (!telefono.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("telefono", telefono);
+                filtrosEmpresa.add(nameCriteria);
+                filtrosParticular.add(nameCriteria);
+            }
+            if (!email.equalsIgnoreCase("")) {
+                Criterion nameCriteria = Restrictions.eq("email", email);
+                filtrosEmpresa.add(nameCriteria);
+                filtrosParticular.add(nameCriteria);
+            }
+            empresas = filtrosEmpresa.list();
+            particulares = filtrosParticular.list();
+            if(empresas != null){
+                for(Empresa empresa : empresas){
+                    clientes.add(((Cliente)empresa));
+                }
+            }
+            if(particulares != null){
+                for(Particular particular : particulares){
+                    clientes.add(((Cliente)particular));
+                }
+            }
+            
+        }
+        sesion.getTransaction().commit();
+        sesion.close();
+        return clientes;
+    }
 
     public static List<Coche> coches(String matricula, String modelo, String estado, String marca, String fechaPM, String anhos, String precio){
         Session sesion = NewHibernateUtil.getSession();

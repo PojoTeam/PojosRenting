@@ -1,5 +1,4 @@
 package gui;
-import customgui.PanelAsButton;
 import customgui.jFramePadre;
 import hibernate.NewHibernateUtil;
 import java.awt.Color;

@@ -17,13 +17,13 @@ public class CrearTablas {
             Statement sentencia = conexion.createStatement();
             sentencia.execute("CREATE DATABASE IF NOT EXISTS POJO_RENTING;");
             sentencia.execute("USE POJO_RENTING;");
-            sentencia.execute("CREATE TABLE CLIENTES(\n" +
+            sentencia.execute("CREATE TABLE IF NOT EXISTS CLIENTES(\n" +
                 "	ID INT(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,\n" +
                 "	TELEFONO VARCHAR(12) NOT NULL ,\n" +
                 "	EMAIL VARCHAR(30) NOT NULL ,\n" +
                 "	PRIMARY KEY(ID)\n" +
                 ") ENGINE = INNODB;");
-            sentencia.execute("CREATE TABLE PARTICULARES(\n" +
+            sentencia.execute("CREATE TABLE IF NOT EXISTS PARTICULARES(\n" +
                 "	ID INT(5) UNSIGNED ZEROFILL NOT NULL,\n" +
                 "    	NOMBRE VARCHAR(15) NOT NULL,\n" +
                 "    	APELLIDOS VARCHAR(25) NOT NULL,\n" +
@@ -39,7 +39,7 @@ public class CrearTablas {
                 "	INDEX FK1_CLIENTES(ID),\n" +
                 "    UNIQUE (NOMBRE, APELLIDOS)\n" +
                 ")ENGINE = INNODB;");
-            sentencia.execute("CREATE TABLE EMPRESAS(\n" +
+            sentencia.execute("CREATE TABLE IF NOT EXISTS EMPRESAS(\n" +
                 "	ID INT(5) UNSIGNED ZEROFILL NOT NULL,\n" +
                 "    NOMBRE VARCHAR(30),\n" +
                 "	CIF CHAR(10) NOT NULL,\n" +
@@ -52,7 +52,7 @@ public class CrearTablas {
                 "	INDEX FK2_CLIENTES(ID),\n" +
                 "    UNIQUE (NOMBRE)\n" +
                 ")ENGINE = INNODB;");
-            sentencia.execute("CREATE TABLE COCHES(\n" +
+            sentencia.execute("CREATE TABLE IF NOT EXISTS COCHES(\n" +
                 "	MATRICULA CHAR(7),\n" +
                 "    -- ID_SEDE INT UNSIGNED ZEROFILL NOT NULL,\n" +
                 "    ANHOS INT(2) UNSIGNED,\n" +
@@ -68,7 +68,7 @@ public class CrearTablas {
                 "            ON UPDATE CASCADE,\n" +
                 "	INDEX FK1_SEDES(ID_SEDE)**/\n" +
                 ")ENGINE = INNODB;");
-            sentencia.execute("CREATE TABLE ALQUILERES(\n" +
+            sentencia.execute("CREATE TABLE IF NOT EXISTS ALQUILERES(\n" +
                 "	CODIGO INT(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,\n" +
                 "    ID_PARTICULAR INT(5) UNSIGNED ZEROFILL NULL,\n" +
                 "    ID_EMPRESA INT(5) UNSIGNED ZEROFILL NULL,\n" +

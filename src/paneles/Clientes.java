@@ -511,7 +511,7 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
     private void btnBuscarAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAceptarActionPerformed
         List<Cliente> clientes = null;
         if((this.entBuscarApel.getText().equals("")) && (this.entBuscarEdad.getText().equals("")) && (this.entBuscarFechNac.getText().equals("")) && (this.entBuscarPuntos.getText().equals(""))){
-            clientes = Buscar.empresas(this.entBuscarNombre.getText(), this.entBuscarDni.getText(), this.entBuscarTelf.getText(), this.entBuscarEmail.getText());
+            clientes = Buscar.clientes(this.entBuscarNombre.getText(), this.entBuscarDni.getText(), this.entBuscarTelf.getText(), this.entBuscarEmail.getText());
         }else{
             try {
                 clientes = Buscar.particulares(this.entBuscarNombre.getText(), this.entBuscarDni.getText(), this.entBuscarTelf.getText(), this.entBuscarEmail.getText(), this.entBuscarPuntos.getText(), this.entBuscarFechNac.getText(), this.entBuscarEdad.getText());
@@ -641,7 +641,12 @@ public class Clientes extends javax.swing.JPanel implements IClientesAlquileres{
         
         Session sesion = NewHibernateUtil.getSession();
         sesion.beginTransaction();
-        int numeroClientes = clientes.size();
+        int numeroClientes;
+        if(clientes != null){
+            numeroClientes = clientes.size();
+        }else{
+            numeroClientes = 0;
+        }
         int numeroIteracionesX = (numeroClientes/3)+1;
         int numeroIteracionesTotales = 0;
         
