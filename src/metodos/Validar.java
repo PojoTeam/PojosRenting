@@ -33,7 +33,7 @@ public class Validar {
 
     public static boolean cadena(String entrada) {
         boolean error;
-        if (!entrada.matches("[aA-zZ]{1,30}")) {
+        if (!entrada.matches("[aA-zZ.\\s0-9]{1,30}")) {
             error = true;
         } else {
             error = false;
