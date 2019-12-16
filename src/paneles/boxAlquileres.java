@@ -111,7 +111,7 @@ public class boxAlquileres extends javax.swing.JPanel {
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setModal(true);
         dialogoEliminar.setResizable(false);
-        dialogoEliminar.setSize(new java.awt.Dimension(416, 269));
+        dialogoEliminar.setSize(new java.awt.Dimension(416, 295));
 
         jLabel1.setText("DESEA ELIMINAR ESTE ALQUILER?");
 

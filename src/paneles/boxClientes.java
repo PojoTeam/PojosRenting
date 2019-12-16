@@ -14,6 +14,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import static javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER;
 import metodos.Buscar;
 import metodos.Modificar;
 import org.hibernate.Session;
@@ -150,7 +151,7 @@ public class boxClientes extends javax.swing.JPanel {
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setModal(true);
         dialogoEliminar.setResizable(false);
-        dialogoEliminar.setSize(new java.awt.Dimension(416, 289));
+        dialogoEliminar.setSize(new java.awt.Dimension(416, 299));
 
         jLabel1.setText("DESEA ELIMINAR AL CLIENTE?");
 
@@ -287,7 +288,7 @@ public class boxClientes extends javax.swing.JPanel {
         dialogoModificar.setMinimumSize(new java.awt.Dimension(416, 299));
         dialogoModificar.setModal(true);
         dialogoModificar.setResizable(false);
-        dialogoModificar.setSize(new java.awt.Dimension(472, 385));
+        dialogoModificar.setSize(new java.awt.Dimension(472, 412));
 
         jLabel6.setText("MODIFICACIONES");
 
@@ -413,7 +414,7 @@ public class boxClientes extends javax.swing.JPanel {
                 .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(entModPuntos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(dialogoModificarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModAceptar)
                     .addComponent(btnDigCancelar1))
@@ -681,23 +682,23 @@ public class boxClientes extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlquileresLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnHideAlquileres)
-                .addGap(50, 50, 50)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel3)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
             .addComponent(jSeparator6)
             .addComponent(panelAlquileresBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelAlquileresLayout.setVerticalGroup(
             panelAlquileresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAlquileresLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
+                .addGap(3, 3, 3)
                 .addGroup(panelAlquileresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnHideAlquileres)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelAlquileresBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panelAlquileresBox, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
         );
 
         btnVerAlquileresEmpresas.setText("Ver Alquileres >>>");
@@ -1164,8 +1165,6 @@ public class boxClientes extends javax.swing.JPanel {
             GridBagLayout innerLayout = new GridBagLayout();
             panelMain.setLayout(innerLayout);
             panelAlquilerBox.add(panelMain);
-            panelAlquiler.setVisible(true);
-            dialogoDatos.setSize(747, 350);
             List<Alquiler> alquileres = Buscar.alquileres("", "", "", null, ((Particular)clienteRepresentado), null);
             if(!alquileres.isEmpty()){
                 Alquiler alquiler = alquileres.get(0);
@@ -1174,6 +1173,8 @@ public class boxClientes extends javax.swing.JPanel {
                 boxAlquileres.setPanelPadreEnClientes(this);
                 panelMain.add(boxAlquileres);
             }
+            panelAlquiler.setVisible(true);
+            dialogoDatos.setSize(747, 350);
         }else{
             if(panelMainEmpresas != null){
                 panelMainEmpresas.removeAll();
@@ -1186,8 +1187,6 @@ public class boxClientes extends javax.swing.JPanel {
             panelMainEmpresas = new JPanel();
             GridBagLayout innerLayout = new GridBagLayout();
             panelMainEmpresas.setLayout(innerLayout);
-            panelAlquileres.setVisible(true);
-            dialogoDatosEmpresa.setSize(700, 375);
             List<Alquiler> alquileres = Buscar.alquileres("", "", "", null, null, ((Empresa)clienteRepresentado));
             if(!alquileres.isEmpty()){
                 int i = 0;
@@ -1199,10 +1198,12 @@ public class boxClientes extends javax.swing.JPanel {
                     i++;
                 }
             }
-
             JScrollPane scrollPanel = new JScrollPane(panelMainEmpresas);
-            scrollPanel.getVerticalScrollBar().setUnitIncrement(16);
+            scrollPanel.getHorizontalScrollBar().setUnitIncrement(16);
+            scrollPanel.setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_NEVER);
             panelAlquileresBox.add(scrollPanel, BorderLayout.CENTER);
+            panelAlquileres.setVisible(true);
+            dialogoDatosEmpresa.setSize(700, 375);
         }
     }
     

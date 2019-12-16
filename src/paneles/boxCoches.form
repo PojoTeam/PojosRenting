@@ -11,7 +11,7 @@
         <Property name="modal" type="boolean" value="true"/>
         <Property name="resizable" type="boolean" value="false"/>
         <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[416, 289]"/>
+          <Dimension value="[416, 299]"/>
         </Property>
       </Properties>
 

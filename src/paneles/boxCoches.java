@@ -108,7 +108,7 @@ public class boxCoches extends javax.swing.JPanel {
         dialogoEliminar.setMinimumSize(new java.awt.Dimension(416, 289));
         dialogoEliminar.setModal(true);
         dialogoEliminar.setResizable(false);
-        dialogoEliminar.setSize(new java.awt.Dimension(416, 289));
+        dialogoEliminar.setSize(new java.awt.Dimension(416, 299));
 
         jLabel1.setText("DESEA ELIMINAR EL COCHE?");
 
